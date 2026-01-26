@@ -1,0 +1,318 @@
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-vmc',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <section class="bg-bm-blue text-white pt-32 pb-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-bm-blue via-bm-blue to-transparent z-0"></div>
+      
+      <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-bm-red/20 border border-bm-red/30 px-3 py-1 rounded-full text-xs font-bold text-red-200 mb-6 uppercase tracking-wider">
+            <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> Tecnologia BIMI
+          </div>
+          <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+            Sua marca verificada na <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Caixa de Entrada</span>.
+          </h1>
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
+            O VMC (Verified Mark Certificate) é o único certificado que exibe seu logotipo autenticado no Gmail e Apple Mail. Garanta o selo azul de verificação e aumente suas taxas de abertura.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+              Solicitar Cotação VMC
+            </button>
+            <button class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Ver Requisitos
+            </button>
+          </div>
+        </div>
+        
+        <div class="relative group perspective-1000 hidden lg:block">
+          <div class="bg-white text-gray-800 rounded-xl shadow-2xl p-6 max-w-md mx-auto relative z-10 transform transition-transform duration-500 hover:scale-105 border border-gray-200">
+             <div class="flex gap-2 mb-4 border-b border-gray-100 pb-2">
+               <div class="w-3 h-3 rounded-full bg-red-400"></div>
+               <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+               <div class="w-3 h-3 rounded-full bg-green-400"></div>
+             </div>
+             <div class="flex items-start gap-4 p-3 bg-blue-50/50 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                <div class="relative shrink-0">
+                  <div class="w-12 h-12 bg-bm-blue rounded-full flex items-center justify-center text-white font-bold text-xl ring-2 ring-white shadow-md">BM</div>
+                  <div class="absolute -bottom-1 -right-1 bg-blue-500 text-white w-5 h-5 flex items-center justify-center rounded-full border-2 border-white shadow-sm" title="Verificado">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-900 text-sm">BM Tech Brasil</h4>
+                  <p class="text-xs font-bold text-gray-800">Sua segurança digital foi atualizada</p>
+                  <p class="text-xs text-gray-500">Olá, confirmamos a ativação do seu certificado...</p>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Grandes marcas já usam VMC</h2>
+          <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Veja como o VMC transforma um e-mail genérico em uma comunicação autenticada nas principais plataformas.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 group hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-gray-100 px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+              <span class="text-xs font-bold text-gray-500">GMAIL</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" class="w-4 h-4 opacity-50">
+            </div>
+            <div class="p-4">
+              <div class="flex gap-3 items-center">
+                <div class="relative">
+                  <div class="w-10 h-10 bg-[#0077b5] rounded-full flex items-center justify-center text-white font-bold text-lg">in</div>
+                  <div class="absolute -bottom-1 -right-1 bg-blue-500 text-white w-4 h-4 flex items-center justify-center rounded-full border border-white">
+                    <svg class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex justify-between items-baseline">
+                    <p class="text-sm font-bold text-gray-900 truncate">LinkedIn</p>
+                    <span class="text-[10px] text-gray-400">09:15</span>
+                  </div>
+                  <p class="text-xs text-gray-800 font-medium truncate">Você apareceu em 5 pesquisas</p>
+                  <p class="text-[10px] text-gray-500 truncate">Veja quem está visualizando seu perfil...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 group hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-gray-100 px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+              <span class="text-xs font-bold text-gray-500">APPLE MAIL</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" class="w-4 h-4 opacity-50">
+            </div>
+            <div class="p-4">
+              <div class="flex gap-3 border-b border-gray-100 pb-3">
+                <div class="w-10 h-10 bg-[#ffe600] rounded-full flex items-center justify-center text-[#2d3277] font-bold text-xs shadow-sm overflow-hidden">
+                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex justify-between">
+                    <p class="text-sm font-bold text-gray-900">Mercado Livre</p>
+                    <span class="text-[10px] text-gray-400">14:20 &gt;</span>
+                  </div>
+                  <p class="text-xs text-gray-900">O vendedor enviou seu pacote</p>
+                  <p class="text-[10px] text-gray-500 line-clamp-2 mt-0.5">Chegará amanhã no seu endereço...</p>
+                </div>
+                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 group hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-gray-100 px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+              <span class="text-xs font-bold text-gray-500">YAHOO!</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Yahoo_Mail_icon.svg" class="w-4 h-4 opacity-50">
+            </div>
+            <div class="p-4">
+              <div class="flex gap-3 items-center">
+                <div class="w-10 h-10 bg-[#CC0000] rounded-md flex items-center justify-center text-white font-bold text-xs tracking-tighter shadow-sm">
+                  CNN
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex justify-between">
+                    <p class="text-sm font-bold text-gray-900">CNN Breaking News</p>
+                    <span class="text-[10px] text-gray-400">Agora</span>
+                  </div>
+                  <p class="text-xs text-gray-500 truncate">Market hits record high today</p>
+                </div>
+                <input type="checkbox" class="h-3 w-3 rounded border-gray-300 text-purple-600">
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 group hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-gray-100 px-4 py-2 border-b border-gray-200 flex justify-between items-center">
+              <span class="text-xs font-bold text-gray-500">FASTMAIL</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Fastmail_logo.svg" class="w-4 h-auto opacity-50">
+            </div>
+            <div class="p-4 bg-[#f8f9fa]"> 
+              <div class="flex gap-3 items-center bg-white p-2 rounded shadow-sm border border-gray-100">
+                <div class="w-8 h-8 bg-[#820AD1] rounded flex items-center justify-center text-white font-bold text-[10px]">
+                  Nu
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-bold text-gray-900">Nubank</p>
+                  <p class="text-[10px] text-gray-500 truncate">Fatura fechada: R$ 1.250,00</p>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Por que investir no VMC?</h2>
+          <div class="w-16 h-1 bg-bm-red mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-bm-blue transition duration-300">
+            <p class="text-5xl font-bold text-bm-blue mb-2">+10%</p>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-wide">Abertura de E-mails</p>
+            <p class="text-xs text-gray-400 mt-2">Destaque visual gera curiosidade e confiança imediata.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-bm-blue transition duration-300">
+            <p class="text-5xl font-bold text-bm-blue mb-2">Zero</p>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-wide">Phishing / Spoofing</p>
+            <p class="text-xs text-gray-400 mt-2">Torna quase impossível para hackers imitarem seu domínio.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-bm-blue transition duration-300">
+            <p class="text-5xl font-bold text-bm-blue mb-2">100%</p>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-wide">Compatibilidade Gmail</p>
+            <p class="text-xs text-gray-400 mt-2">Exibe o selo azul de verificação no app e web.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-bm-blue transition duration-300">
+            <p class="text-5xl font-bold text-bm-blue mb-2">ROI</p>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-wide">Retorno Imediato</p>
+            <p class="text-xs text-gray-400 mt-2">Melhora a entregabilidade e evita a caixa de spam.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-gray-100">
+      <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16">
+        
+        <div>
+          <h2 class="text-3xl font-bold text-bm-blue mb-6">O que você precisa para emitir?</h2>
+          <p class="text-gray-600 mb-8">
+            O VMC é um certificado de alta segurança (Validação Estendida). Para ser emitido, sua empresa precisa cumprir 3 requisitos técnicos mandatórios.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition border-l-4 border-transparent hover:border-bm-blue">
+              <div class="shrink-0 w-12 h-12 bg-blue-100 text-bm-blue rounded-full flex items-center justify-center font-bold text-xl">1</div>
+              <div>
+                <h4 class="font-bold text-bm-blue text-lg">DMARC em "Quarentena" ou "Reject"</h4>
+                <p class="text-sm text-gray-500 mt-1">
+                  Seu domínio deve ter os protocolos SPF e DKIM configurados e uma política DMARC ativa (<code class="bg-gray-100 px-1 rounded text-bm-blue font-mono text-sm">p=quarantine</code> ou <code class="bg-gray-100 px-1 rounded text-bm-blue font-mono text-sm">p=reject</code>) para impedir uso indevido do domínio.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition border-l-4 border-transparent hover:border-bm-red">
+              <div class="shrink-0 w-12 h-12 bg-red-100 text-bm-red rounded-full flex items-center justify-center font-bold text-xl">2</div>
+              <div>
+                <h4 class="font-bold text-bm-blue text-lg">Marca Registrada (INPI)</h4>
+                <p class="text-sm text-gray-500 mt-1">
+                  Sua logomarca deve ser registrada oficialmente no órgão de propriedade intelectual (INPI no Brasil). O certificado VMC é emitido apenas para o proprietário legal da marca.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition border-l-4 border-transparent hover:border-bm-blue">
+              <div class="shrink-0 w-12 h-12 bg-blue-100 text-bm-blue rounded-full flex items-center justify-center font-bold text-xl">3</div>
+              <div>
+                <h4 class="font-bold text-bm-blue text-lg">Logo em Formato SVG Tiny PS</h4>
+                <p class="text-sm text-gray-500 mt-1">
+                  A imagem deve estar no formato vetorial específico (.svg profile Tiny Portable/Secure). Nossa equipe de design pode ajudar na conversão se necessário.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 shadow-lg sticky top-24 h-fit">
+          <h3 class="text-xl font-bold text-bm-blue mb-4">Parece complicado?</h3>
+          <p class="text-gray-600 mb-6">
+            A maioria das empresas precisa de ajuda na configuração do DMARC e na adequação do SVG. A BM Tech oferece a consultoria completa inclusa.
+          </p>
+          
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-700">
+              <span class="text-green-500 font-bold">✓</span> Análise gratuita do seu domínio
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-700">
+              <span class="text-green-500 font-bold">✓</span> Suporte na configuração do DNS
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-700">
+              <span class="text-green-500 font-bold">✓</span> Validação expressa junto à DigiCert
+            </li>
+          </ul>
+
+          <a href="#" class="block w-full bg-bm-blue text-white text-center py-4 rounded-lg font-bold hover:bg-blue-900 transition shadow-md">
+            Falar com Especialista VMC
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-bm-blue mb-2">Perguntas Frequentes</h2>
+          <p class="text-gray-500">Tire suas dúvidas técnicas sobre a implementação.</p>
+        </div>
+
+        <div class="space-y-4">
+          <details class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 group cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-bm-blue list-none">
+              O VMC funciona em todos os e-mails?
+              <span class="transition group-open:rotate-180">▼</span>
+            </summary>
+            <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+              O VMC é suportado pelos principais provedores: Gmail, Apple Mail (iOS e macOS), Yahoo! e Fastmail. Clientes como Outlook ainda não dão suporte nativo ao BIMI, mas verão o e-mail normalmente.
+            </p>
+          </details>
+
+          <details class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 group cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-bm-blue list-none">
+              Quanto tempo demora para emitir?
+              <span class="transition group-open:rotate-180">▼</span>
+            </summary>
+            <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+              Após a compra, o processo de validação da DigiCert leva entre 1 a 3 dias úteis, desde que sua marca já esteja registrada no INPI e seu DMARC esteja configurado corretamente.
+            </p>
+          </details>
+
+          <details class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 group cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-bm-blue list-none">
+              O que acontece se eu não tiver o DMARC configurado?
+              <span class="transition group-open:rotate-180">▼</span>
+            </summary>
+            <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+              O VMC não será ativado. O padrão BIMI exige segurança máxima. A BM Tech pode ajudar sua equipe de TI a implementar o DMARC gradualmente (monitoramento -> quarentena -> rejeição) para não afetar o fluxo de e-mails.
+            </p>
+          </details>
+
+          <details class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 group cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-bm-blue list-none">
+              Posso usar qualquer imagem como logo?
+              <span class="transition group-open:rotate-180">▼</span>
+            </summary>
+            <p class="text-gray-600 mt-3 text-sm leading-relaxed">
+              Não. A imagem deve ser exatamente igual à marca registrada no INPI. Além disso, tecnicamente ela deve ser um arquivo .SVG no perfil "Tiny PS" (Portable/Secure), sem scripts ou links externos.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  `
+})
+export class VmcComponent {}

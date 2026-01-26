@@ -10,15 +10,8 @@ import { RouterLink } from '@angular/router';
     <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm">
       <div class="container mx-auto px-6 h-20 flex justify-between items-center">
         
-        <a routerLink="/" class="flex items-center gap-1 hover:opacity-90 transition select-none font-kartika">
-          
-          <div class="bg-bm-red text-white font-bold text-3xl px-1 py-0 rounded shadow-sm tracking-normal leading-none flex items-center justify-center pt-1">
-            BM
-          </div>
-          
-          <div class="text-[#4285F4] font-bold text-2xl tracking-normal leading-snug">
-            Tech
-          </div>
+        <a routerLink="/" class="flex items-center hover:opacity-90 transition select-none">
+          <img src="bmtechlogo.png" alt="BM Tech Logo" class="h-12 w-auto object-contain">
         </a>
 
         <div class="hidden md:flex items-center gap-8">
@@ -34,7 +27,7 @@ import { RouterLink } from '@angular/router';
               <div class="py-2">
                 <a href="#" class="dropdown-item">Sectigo</a>
                 <a href="https://all4sec.com/" class="dropdown-item">DigiCert</a>
-                <a href="#" class="dropdown-item">VMC (Verified Mark)</a>
+                <a routerLink="/solutions/vmc" class="dropdown-item">VMC (Verified Mark)</a>
                 <a routerLink="/solutions/teramind" class="dropdown-item">Teramind</a>
                 <div class="border-t border-gray-100 my-1"></div>
                 <a href="#" class="dropdown-item font-bold text-bm-blue">Portal Flex</a>

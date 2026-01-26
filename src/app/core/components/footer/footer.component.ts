@@ -7,44 +7,42 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <footer class="bg-bm-blue text-white pt-16 pb-8 border-t border-bm-red/30">
+    <footer class="bg-gray-50 text-gray-600 pt-16 pb-8 border-t border-gray-200">
       <div class="container mx-auto px-6">
         
         <div class="grid md:grid-cols-4 gap-12 mb-12">
           <div>
-            <div class="flex items-center gap-2 mb-6 font-kartika select-none">
-              <div class="bg-bm-red text-white font-bold text-xl px-1 py-0 rounded leading-none flex items-center justify-center pt-0.5">
-                BM
-              </div>
-              <span class="text-white font-bold text-xl leading-none">Tech</span>
+            <div class="mb-6 select-none">
+              <img src="bmtechlogo.png" alt="BM Tech Logo" class="h-12 w-auto object-contain">
             </div>
             
-            <p class="text-gray-300 text-sm leading-relaxed mb-6">
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">
               Sua parceira global em Cibersegurança e Identidade Digital. 
               Elevando o padrão de confiança para empresas que não podem parar.
             </p>
 
-            <div class="flex flex-wrap gap-3 opacity-70 grayscale hover:grayscale-0 transition-all">
-              <span class="text-xs font-bold border border-white/30 px-2 py-1 rounded">SECTIGO Partner</span>
-              <span class="text-xs font-bold border border-white/30 px-2 py-1 rounded">DIGICERT</span>
+            <div class="flex flex-wrap gap-3">
+              <span class="text-xs font-bold border border-gray-300 text-gray-500 px-2 py-1 rounded">SECTIGO Partner</span>
+              <span class="text-xs font-bold border border-gray-300 text-gray-500 px-2 py-1 rounded">DIGICERT</span>
             </div>
           </div>
 
           <div class="col-span-2">
-            <h4 class="text-lg font-bold mb-6 text-white border-l-4 border-bm-red pl-3">Nossa Presença</h4>
+            <h4 class="text-lg font-bold mb-6 text-bm-blue border-l-4 border-bm-red pl-3">Nossa Presença</h4>
+            
             <div class="grid md:grid-cols-2 gap-8">
               <div>
                 <p class="text-bm-red text-xs font-bold uppercase mb-2">Brasil (Headquarters)</p>
-                <p class="text-gray-300 text-sm">R. Trajano, 279 - Sala 701</p>
-                <p class="text-gray-300 text-sm">Centro, Florianópolis - SC, 88010-010</p>
-                <a href="tel:+554830547153" class="text-gray-400 text-xs mt-2 block hover:text-white transition">+55 (48) 3054-7153</a>
+                <p class="text-gray-600 text-sm">R. Trajano, 279 - Sala 701</p>
+                <p class="text-gray-600 text-sm">Centro, Florianópolis - SC, 88010-010</p>
+                <a href="tel:+554830547153" class="text-bm-blue font-bold text-xs mt-2 block hover:underline transition">+55 (48) 3054-7153</a>
               </div>
             </div>
           </div>
 
           <div>
-            <h4 class="text-lg font-bold mb-6 text-white border-l-4 border-bm-red pl-3">Links Rápidos</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
+            <h4 class="text-lg font-bold mb-6 text-bm-blue border-l-4 border-bm-red pl-3">Links Rápidos</h4>
+            <ul class="space-y-3 text-sm text-gray-500">
               <li><a routerLink="/" class="hover:text-bm-red hover:pl-1 transition-all">Home</a></li>
               <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Soluções Corporativas</a></li>
               <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Seja um Parceiro</a></li>
@@ -54,7 +52,7 @@ import { RouterLink } from '@angular/router';
           </div>
         </div>
 
-        <div class="border-t border-white/10 pt-8 flex justify-center items-center text-xs text-white-400">
+        <div class="border-t border-gray-200 pt-8 flex justify-center items-center text-xs text-gray-400">
           <p>© 2026 BM Tech Brasil. Todos os direitos reservados.</p>
         </div>
       </div>

@@ -17,7 +17,6 @@ module.exports = {
         },
         fontFamily: {
           sans: ['Inter', 'sans-serif', 'system-ui'],
-          kartika: ['Kartika', 'sans-serif', 'system-ui'],
         },
         keyframes: {
           scroll: {
