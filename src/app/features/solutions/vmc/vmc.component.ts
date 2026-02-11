@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
             <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> Tecnologia BIMI
           </div>
           <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-            Sua marca verificada na <br>
+            Destaque sua marca na<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Caixa de Entrada</span>.
           </h1>
           <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">

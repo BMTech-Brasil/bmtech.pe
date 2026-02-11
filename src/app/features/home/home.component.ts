@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
           <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block">Segurança & Identidade Digital</span>
           <h1 class="text-5xl md:text-7xl font-bold text-bm-blue mb-6 leading-tight">Sua empresa segura <br>para crescer <span class="text-bm-red">sem limites.</span></h1>
           <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
-            Especialistas em PKI, Certificados Digitais e Cibersegurança. 
+            Especialistas em PKI, Certificados Digitais e Cibersegurança a mais de <strong>22 anos</strong>. 
             Parceiros oficiais <span class="font-bold text-bm-blue">Sectigo</span> e <span class="font-bold text-bm-blue">DigiCert</span> no Brasil, Peru e EUA.
           </p>
           <div class="flex flex-col md:flex-row gap-4">
