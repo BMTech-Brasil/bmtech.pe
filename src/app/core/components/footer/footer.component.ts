@@ -32,11 +32,29 @@ import { RouterLink } from '@angular/router';
             
             <div class="grid md:grid-cols-2 gap-8">
               <div>
-                <p class="text-bm-red text-xs font-bold uppercase mb-2">Brasil (Headquarters)</p>
+                <p class="text-bm-red text-xs font-bold uppercase mb-2">Brasil</p>
                 <p class="text-gray-600 text-sm">R. Trajano, 279 - Sala 701</p>
                 <p class="text-gray-600 text-sm">Centro, Florianópolis - SC, 88010-010</p>
                 <a href="tel:+554830547153" class="text-bm-blue font-bold text-xs mt-2 block hover:underline transition">+55 (48) 3054-7153</a>
+                <a href="mailto:support@bmtechcorp.com" class="text-bm-blue font-bold text-xs mt-1 block hover:underline transition">suporte&#64;bmtechbrasil.com</a>
               </div>
+
+              <div>
+                <p class="text-bm-red text-xs font-bold uppercase mb-2">USA</p>
+                <p class="text-gray-600 text-sm">16627 Hemingway Dr</p>
+                <p class="text-gray-600 text-sm">Weston, FL 33326</p>
+                <a href="tel:+19549019527" class="text-bm-blue font-bold text-xs mt-2 block hover:underline transition">+1 954 901-9527</a>
+                <a href="mailto:support@bmtechcorp.com" class="text-bm-blue font-bold text-xs mt-1 block hover:underline transition">support&#64;bmtechcorp.com</a>
+              </div>
+
+              <div>
+                <p class="text-bm-red text-xs font-bold uppercase mb-2">Peru</p>
+                <p class="text-gray-600 text-sm">Av. Antonio Miró Quesada 457, piso 15</p>
+                <p class="text-gray-600 text-sm">Magdalena del Mar, Lima</p>
+                <a href="tel:+5112461991" class="text-bm-blue font-bold text-xs mt-2 block hover:underline transition">+51 1 246-1991</a>
+                <a href="mailto:soporte@bmtech.pe" class="text-bm-blue font-bold text-xs mt-1 block hover:underline transition">soporte&#64;bmtech.pe</a>
+              </div>
+
             </div>
           </div>
 
