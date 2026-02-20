@@ -37,65 +37,12 @@ import { RouterLink } from '@angular/router';
               </button>
             </div>
           </div>
-
           <div class="relative group perspective-1000 hidden lg:block">
-             <div class="bg-gray-900 rounded-xl shadow-2xl border border-gray-700 overflow-hidden relative z-10 transform transition-transform duration-500 hover:rotate-y-2 hover:rotate-x-2">
-                <div class="bg-gray-800 h-10 flex items-center px-4 gap-4 border-b border-gray-700">
-                   <div class="flex gap-1.5">
-                     <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-                     <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
-                     <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-                   </div>
-                   <div class="text-xs text-gray-400 font-mono tracking-wider">Sectigo SCM Dashboard</div>
-                </div>
-                <div class="p-6 bg-gray-900 grid grid-cols-4 gap-4 h-[350px]">
-                   <div class="col-span-1 space-y-3 border-r border-gray-800 pr-4">
-                      <div class="h-2 w-1/2 bg-gray-600 rounded mb-6"></div>
-                      <div class="flex items-center gap-2 text-cyan-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg> <div class="h-2 w-16 bg-cyan-400 rounded"></div></div>
-                      <div class="flex items-center gap-2 opacity-50"><svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg> <div class="h-2 w-20 bg-gray-500 rounded"></div></div>
-                      <div class="flex items-center gap-2 opacity-50"><svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg> <div class="h-2 w-16 bg-gray-500 rounded"></div></div>
-                   </div>
-                   <div class="col-span-3 space-y-4">
-                      <div class="grid grid-cols-3 gap-3">
-                        <div class="bg-gray-800 p-3 rounded border border-gray-700">
-                          <p class="text-[10px] text-gray-400 uppercase">Total Sectigo</p>
-                          <p class="text-xl font-bold text-white mt-1">1,248</p>
-                        </div>
-                        <div class="bg-gray-800 p-3 rounded border border-red-900/50 relative overflow-hidden">
-                          <div class="absolute right-0 top-0 w-8 h-8 bg-red-500/10 rounded-bl-full"></div>
-                          <p class="text-[10px] text-gray-400 uppercase">A Expirar</p>
-                          <p class="text-xl font-bold text-red-400 mt-1">12</p>
-                        </div>
-                        <div class="bg-gray-800 p-3 rounded border border-gray-700">
-                          <p class="text-[10px] text-gray-400 uppercase">Renovados Auto.</p>
-                          <p class="text-xl font-bold text-green-400 mt-1">45</p>
-                        </div>
-                      </div>
-                      <div class="bg-gray-800 p-4 rounded border border-gray-700 h-40">
-                         <div class="flex justify-between items-center mb-3 pb-2 border-b border-gray-700">
-                           <div class="h-2 w-1/4 bg-gray-500 rounded"></div>
-                           <div class="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 rounded text-[9px] font-bold uppercase tracking-wider">Sectigo Discovery Ativo</div>
-                         </div>
-                         <div class="space-y-3">
-                            <div class="flex justify-between items-center">
-                              <div class="flex gap-2 items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span><div class="h-2 w-24 bg-gray-400 rounded"></div></div>
-                              <div class="h-2 w-12 bg-gray-600 rounded"></div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                              <div class="flex gap-2 items-center"><span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span><div class="h-2 w-32 bg-gray-400 rounded"></div></div>
-                              <div class="text-[10px] text-red-400 font-mono">Expira em 2 dias</div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                              <div class="flex gap-2 items-center"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span><div class="h-2 w-20 bg-gray-400 rounded"></div></div>
-                              <div class="h-2 w-16 bg-gray-600 rounded"></div>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-             <div class="absolute -inset-4 bg-cyan-500/20 blur-3xl -z-10 rounded-full animate-pulse"></div>
-          </div>
+            <div class="rounded-xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] overflow-hidden relative z-10 transform transition-transform duration-500 hover:scale-105 border border-white/10 bg-gray-900"> 
+              <img src="scm.png" alt="Sectigo SCM Dashboard" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/800x450/111827/06b6d4?text=Sectigo+SCM+Dashboard'">
+            </div>
+            <div class="absolute -inset-4 bg-cyan-500/20 blur-3xl -z-10 rounded-full animate-pulse"></div>
+         </div>
         </div>
       </div>
     </section>
@@ -217,7 +164,7 @@ import { RouterLink } from '@angular/router';
       <div class="container mx-auto px-6 relative z-10">
         <h2 class="text-3xl font-bold text-white mb-6">Assuma o controlo da sua criptografia</h2>
         <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
-          Fale com a nossa equipa e descubra como implementar o Sectigo Certificate Manager (SCM) e automatizar 100% a sua infraestrutura de certificados.
+          Fale com a nossa equipe e descubra como implementar o Sectigo Certificate Manager (SCM) e automatizar 100% a sua infraestrutura de certificados.
         </p>
         <button class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
           Solicitar Assessment e Demo
