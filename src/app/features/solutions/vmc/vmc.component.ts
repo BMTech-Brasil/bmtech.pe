@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vmc',
@@ -105,7 +106,7 @@ import { CommonModule } from '@angular/common';
               <div class="flex gap-3 border-b border-gray-100 pb-3">
                 
                 <div class="w-10 h-10 bg-[#ffe600] rounded-full flex items-center justify-center shadow-sm overflow-hidden">
-                   <img src="mercadolivre.png" alt="Mercado Livre" class="w-full h-full object-contain p-1">
+                   <img src="mercadolivre.png" alt="Mercado Livre" class="w-full h-full object-contain p-1" onerror="this.style.display='none';">
                 </div>
 
                 <div class="flex-1">
@@ -195,6 +196,27 @@ import { CommonModule } from '@angular/common';
             <p class="text-xs text-gray-400 mt-2">Melhora a entregabilidade e evita a caixa de spam.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-6">
+        
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Veja o VMC em Ação</h2>
+          <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Entenda em poucos minutos como a tecnologia BIMI em conjunto com os certificados VMC protegem a sua marca e aumentam a confiança dos seus clientes.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-white p-3 md:p-5 rounded-[2rem] border border-gray-200 shadow-2xl">
+          <div class="aspect-video rounded-2xl overflow-hidden relative bg-black shadow-inner">
+            <iframe [src]="safeVideoUrl" title="Apresentação VMC e BIMI" class="absolute inset-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -317,4 +339,12 @@ import { CommonModule } from '@angular/common';
     </section>
   `
 })
-export class VmcComponent {}
+export class VmcComponent {
+  private sanitizer = inject(DomSanitizer);
+  videoId = 'hUupCq4m5AU';
+
+  get safeVideoUrl(): SafeResourceUrl {
+    const url = `https://www.youtube.com/embed/${this.videoId}?rel=0&modestbranding=1`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}

@@ -1,0 +1,368 @@
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-sectigo',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <section class="bg-bm-blue text-white pt-32 pb-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-bm-blue via-bm-blue to-transparent z-0"></div>
+      
+      <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-blue-100 mb-6 uppercase tracking-wider">
+            <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> Revendedor Oficial Sectigo
+          </div>
+          <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+            Certificados SSL/TLS <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Máxima Confiança</span>.
+          </h1>
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
+            Proteja o seu website, os dados dos seus clientes e impulsione o seu SEO com a Autoridade de Certificação (CA) comercial líder mundial. A BM Tech simplifica a emissão e a gestão dos seus certificados.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1">
+              Falar com Especialista
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden lg:flex justify-center relative">
+          <div class="w-64 h-64 bg-gradient-to-tr from-cyan-500 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(6,182,212,0.5)] relative z-10 animate-[bounce_4s_infinite]">
+            <svg class="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <div class="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 border-b border-gray-200">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Escolha o nível de validação ideal</h2>
+          <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
+          <p class="text-gray-600">
+            Diferentes projetos exigem diferentes níveis de confiança e verificação de identidade. Conheça as três principais categorias de certificados SSL/TLS da Sectigo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div class="w-14 h-14 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-bm-blue mb-2">Domain Validation (DV)</h3>
+            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em Minutos</p>
+            <p class="text-gray-600 mb-6 flex-grow">
+              Valida apenas a propriedade do domínio. É a opção mais rápida e básica, ideal para blogs, portafólios e websites que não recolhem dados sensíveis.
+            </p>
+            <ul class="space-y-3 mb-8 text-sm text-gray-600">
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Criptografia 256-bit forte</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Cadeado de segurança no browser</li>
+              <li class="flex items-center gap-2 text-gray-400"><span class="text-gray-300 font-bold">X</span> Sem validação da empresa</li>
+            </ul>
+            <button (click)="openModal('DV')" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded font-bold hover:bg-bm-blue hover:text-white transition mt-auto">
+              Saber mais
+            </button>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-xl border-2 border-bm-blue p-8 hover:-translate-y-2 transition-all duration-300 relative flex flex-col h-full">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bm-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              Recomendado
+            </div>
+            <div class="w-14 h-14 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-bm-blue mb-2">Organization Validation (OV)</h3>
+            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em 1 a 3 dias</p>
+            <p class="text-gray-600 mb-6 flex-grow">
+              Autentica a existência legal e operacional da sua empresa. Adiciona uma camada extra de confiança, ideal para portais corporativos e intranets.
+            </p>
+            <ul class="space-y-3 mb-8 text-sm text-gray-600">
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Detalhes da empresa no certificado</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Criptografia 256-bit forte</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Maior garantia financeira</li>
+            </ul>
+            <button (click)="openModal('OV')" class="w-full bg-bm-blue text-white py-3 rounded font-bold hover:bg-blue-900 transition mt-auto">
+              Saber mais
+            </button>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div class="w-14 h-14 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-bm-blue mb-2">Extended Validation (EV)</h3>
+            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em 1 a 5 dias</p>
+            <p class="text-gray-600 mb-6 flex-grow">
+              O mais alto nível de autenticação comercial. O processo de verificação é rigoroso, ideal para bancos, e-commerce e sites que transacionam valores.
+            </p>
+            <ul class="space-y-3 mb-8 text-sm text-gray-600">
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Nome da empresa visível</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Máxima confiança e conversão</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Proteção máxima contra phishing</li>
+            </ul>
+            <button (click)="openModal('EV')" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded font-bold hover:bg-bm-blue hover:text-white transition mt-auto">
+              Saber mais
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        
+        <div class="flex items-center justify-center mb-16">
+          <div class="h-px bg-green-500 flex-grow max-w-[100px] md:max-w-[200px]"></div>
+          <h2 class="text-3xl font-bold text-bm-blue mx-6 text-center">Certificados SSL por Cobertura de Domínio</h2>
+          <div class="h-px bg-green-500 flex-grow max-w-[100px] md:max-w-[200px]"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+          
+          <div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 p-8 flex flex-col text-center hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 text-bm-blue flex items-center justify-center">
+              <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-full h-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                <circle cx="12" cy="11" r="3" stroke-linecap="round" stroke-linejoin="round"></circle>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados SSL Wildcard</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+              Proteja o seu domínio principal e subdomínios ilimitados sob um único certificado. Os certificados SSL Wildcard são a forma mais conveniente de fornecer proteção SSL e criptografia para um domínio e os seus subdomínios.
+            </p>
+
+            <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Wildcard OV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Wildcard DV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 p-8 flex flex-col text-center hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 text-bm-blue flex items-center justify-center">
+              <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-full h-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                <circle cx="12" cy="11" r="3" stroke-linecap="round" stroke-linejoin="round"></circle>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados SSL Multi-Domínio</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+              Proteja até 100 nomes de domínio com um único certificado. Os certificados SSL Multi-domínio (também referidos como certificados SAN/UCC) permitem que um único certificado proteja múltiplos nomes de domínio.
+            </p>
+
+            <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Multi Domain EV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Multi Domain OV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Multi Domain DV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 p-8 flex flex-col text-center hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 text-bm-blue flex items-center justify-center">
+              <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-full h-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                <circle cx="12" cy="11" r="3" stroke-linecap="round" stroke-linejoin="round"></circle>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados de Domínio Único</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+              Proteja um domínio individual com um certificado Sectigo Single SSL. Disponíveis nas opções de Validação de Domínio, Validação Organizacional e Validação Estendida. Inclui um selo de segurança Trust Logo.
+            </p>
+
+            <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Single Domain EV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Single Domain OV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                  <span class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Single Domain DV SSL
+                  </span>
+                  <span class="text-green-500 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-bm-blue text-white border-t-4 border-bm-red">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div class="p-4">
+            <p class="text-4xl font-bold mb-2 text-cyan-400">256-bit</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Criptografia Forte</p>
+            <p class="text-xs text-blue-200 mt-2">Padrão da indústria (RSA ou ECC).</p>
+          </div>
+          <div class="p-4">
+            <p class="text-4xl font-bold mb-2 text-cyan-400">99.9%</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Reconhecimento</p>
+            <p class="text-xs text-blue-200 mt-2">Compatível com todos os browsers.</p>
+          </div>
+          <div class="p-4">
+            <p class="text-4xl font-bold mb-2 text-cyan-400">Ilimitado</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Licenças de Servidor</p>
+            <p class="text-xs text-blue-200 mt-2">Instale em quantos servidores precisar.</p>
+          </div>
+          <div class="p-4">
+            <p class="text-4xl font-bold mb-2 text-cyan-400">Selo</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Sectigo Trust Seal</p>
+            <p class="text-xs text-blue-200 mt-2">Selo dinâmico para o seu site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    @if (activeModal() !== null) {
+      <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
+        
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up">
+          
+          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          
+          @if (activeModal() === 'DV') {
+            <div>
+              <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação de Domínio (DV)</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">O certificado de Validação de Domínio (DV) é o tipo mais básico e rápido de SSL. A Autoridade de Certificação (Sectigo) verifica apenas se quem está a solicitar o certificado tem controlo administrativo sobre o domínio específico.</p>
+              
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
+              <p class="text-gray-600 text-sm mb-4">Normalmente é feito de forma automatizada por e-mail (admin&#64;seudominio.com), adicionando um ficheiro ao seu servidor (HTTP Hash) ou através de um registo de DNS.</p>
+              
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
+              <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                <li>Blogs e websites pessoais</li>
+                <li>Páginas institucionais que não recolhem dados (sem formulários de login/pagamento)</li>
+                <li>Ambientes de teste ou desenvolvimento interno</li>
+              </ul>
+            </div>
+          }
+
+          @if (activeModal() === 'OV') {
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação Organizacional (OV)</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">Um passo acima na confiança. Para além de verificar o controlo do domínio, a Sectigo efectua verificações manuais para confirmar a existência legal e física da sua empresa, garantindo aos visitantes que o site pertence a uma organização legítima.</p>
+              
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
+              <p class="text-gray-600 text-sm mb-4">A Sectigo verifica os registos governamentais da sua empresa (como CNPJ no Brasil), confere se a empresa está ativa, valida o endereço físico e faz uma chamada telefónica de verificação para o número registado oficialmente.</p>
+              
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
+              <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                <li>Websites corporativos e institucionais de médias e grandes empresas</li>
+                <li>Sistemas de webmail, VPNs e Intranets</li>
+                <li>Portais que solicitam dados de login ou informações pessoais dos clientes</li>
+              </ul>
+            </div>
+          }
+
+          @if (activeModal() === 'EV') {
+            <div>
+              <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação Estendida (EV)</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">O padrão de ouro da confiança online. Os certificados EV exigem a verificação mais rigorosa da indústria. Quando os utilizadores clicam no cadeado no browser, o nome legal da sua empresa é apresentado de forma proeminente, provando a 100% que não se trata de um site de phishing.</p>
+              
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
+              <p class="text-gray-600 text-sm mb-4">Para além de todas as verificações do OV (domínio, registo legal, morada e telefone), a Sectigo verifica a identidade do solicitante e o seu vínculo empregatício com a empresa, garantindo que ele tem autoridade para solicitar o certificado.</p>
+              
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
+              <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                <li>Bancos, Fintechs e Instituições Financeiras</li>
+                <li>Lojas virtuais (E-commerce) de alto volume</li>
+                <li>Qualquer website que procure a máxima taxa de conversão e proteção de marca</li>
+              </ul>
+            </div>
+          }
+
+          <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end">
+             <button (click)="closeModal()" class="bg-gray-100 text-gray-700 px-6 py-2 rounded font-bold hover:bg-gray-200 transition">Fechar</button>
+          </div>
+        </div>
+      </div>
+    }
+  `
+})
+export class SectigoComponent {
+  activeModal = signal<'DV' | 'OV' | 'EV' | null>(null);
+
+  openModal(type: 'DV' | 'OV' | 'EV') {
+    this.activeModal.set(type);
+
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal() {
+    this.activeModal.set(null);
+    document.body.style.overflow = 'auto';
+  }
+}
