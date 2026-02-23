@@ -98,7 +98,7 @@ import { CommonModule } from '@angular/common';
             <p class="text-gray-600 text-sm mb-4">
               Emissão imediata de certificados OV e EV com garantia <strong>Sectigo</strong> e <strong>DigiCert</strong>.
             </p>
-            <a href="#" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a href="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
@@ -107,7 +107,7 @@ import { CommonModule } from '@angular/common';
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Assinatura Digital/Automação de Processos</h3>
             <p class="text-gray-600 text-sm mb-4">Elimine papel com validade jurídica total e gestão de documentos em nuvem.</p>
-            <a href="#" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a href="/solutions/portal-flex" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">

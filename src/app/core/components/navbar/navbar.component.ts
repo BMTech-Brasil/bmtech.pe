@@ -47,16 +47,16 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <div class="relative group h-20 flex items-center">
-            <button class="nav-item flex items-center gap-1 focus:outline-none">
+            <a routerLink="/solutions/monitoramento" class="nav-item flex items-center gap=1 focus:outline-none cursor-pointer">
               Monitoramento
               <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
+            </a>
 
             <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <div class="py-2">
-                <a href="#" class="dropdown-item">KickIdler</a>
-                <a href="#" class="dropdown-item">HexNode</a>
+                <a routerLink="/solutions/hexnode" class="dropdown-item">HexNode</a>
                 <a routerLink="/solutions/teramind" class="dropdown-item">Teramind</a>
+                <a routerLink="/solutions/kickidler" class="dropdown-item">KickIdler</a>
               </div>
             </div>
           </div>
