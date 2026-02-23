@@ -6,18 +6,19 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="bg-gradient-to-br bg-bm-blue text-white pt-32 pb-24 relative overflow-hidden">
-      
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-red-600 mb-6 uppercase tracking-wider">
-            <span class="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span> Unified Endpoint Management
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-purple-200 mb-6 uppercase tracking-wider">
+            <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span> Unified Endpoint Management
           </div>
           
           <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-            Controle total sobre todos os dispositivos </h1>
+            Controle total sobre <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">todos os dispositivos</span>.
+          </h1>
           
-          <p class="text-lg text-white-300 mb-8 leading-relaxed max-w-xl">
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
             Com o <strong>Hexnode UEM</strong> e a consultoria especializada da BMTech, a sua equipe de TI gerencia smartphones, tablets, notebooks e totens de qualquer lugar, a partir de um único painel corporativo.
           </p>
           
@@ -32,8 +33,9 @@ import { CommonModule } from '@angular/common';
         </div>
 
         <div class="hidden lg:flex justify-center relative perspective-1000">
-          <div class="relative w-full max-w-2x1 rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform rotate-y-[-5deg] hover:rotate-y-0 transition-transform duration-700 bg-gray-900">
+          <div class="relative w-full max-lg-2x1 rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform rotate-y-[-5deg] hover:rotate-y-0 transition-transform duration-700 bg-gray-900">
              <img src="hexnode.png" alt="Painel de Controle Hexnode UEM" class="w-full h-auto object-cover">
+             
           </div>
           <div class="absolute inset-0 bg-purple-500/20 blur-[100px] rounded-full -z-10"></div>
         </div>

@@ -52,7 +52,11 @@ import { CommonModule } from '@angular/common';
           </p>
           <div class="flex flex-col md:flex-row gap-4">
             <button class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Falar com um Consultor</button>
-            <button class="border-2 border-bm-blue text-bm-blue px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">Nossas Soluções</button>
+            
+            <button (click)="scrollTo('nossas-solucoes')" class="border-2 border-bm-blue text-bm-blue px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
+              Nossas Soluções
+            </button>
+            
           </div>
         </div>
       </div>
@@ -82,7 +86,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
-    <section class="py-24 bg-gray-50">
+    <section id="nossas-solucoes" class="py-24 bg-gray-50 scroll-mt-20">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Nossas Soluções</h2>
@@ -116,7 +120,7 @@ import { CommonModule } from '@angular/common';
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Monitoramento DLP</h3>
             <p class="text-gray-600 text-sm mb-4">Previna vazamento de dados e monitore ameaças internas com Teramind.</p>
-            <a href="#" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a href="/solutions/monitoramento" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
         </div>
       </div>
@@ -170,6 +174,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
+    }
+  }
+
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }

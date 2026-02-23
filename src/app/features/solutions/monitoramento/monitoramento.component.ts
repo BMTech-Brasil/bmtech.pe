@@ -7,9 +7,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
-      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-      
+  <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6 relative z-10 text-center">
         <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold text-blue-100 mb-8 uppercase tracking-wider backdrop-blur-md">
           <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Visibilidade & Controle
@@ -41,15 +39,15 @@ import { RouterLink } from '@angular/router';
         <div class="grid lg:grid-cols-3 gap-10 items-stretch">
           
           <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
-            <div class="h-2 bg-bm-red"></div>
+            <div class="h-2 bg-orange-500"></div>
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
                 <img src="partners/teramind.svg" alt="Teramind" class="h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span class="hidden font-bold text-xl text-gray-800 tracking-wider">TERAMIND</span>
-                <span class="bg-red-50 text-bm-red text-xs font-bold px-3 py-1 rounded-full border border-red-100">DLP & Insider Threat</span>
+                <span class="bg-orange-50 text-orange-600 text-xs font-bold px-3 py-1 rounded-full border border-orange-200">DLP & Insider Threat</span>
               </div>
               
-              <h3 class="text-2xl font-bold text-bm-blue mb-3">Teramind DLP</h3>
+              <h3 class="text-2xl font-bold text-orange-600 mb-3">Teramind DLP</h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
                 A plataforma mais poderosa para Prevenção de Perda de Dados (DLP) e Análise de Comportamento de Utilizadores (UBA). Ideal para detetar ameaças internas, impedir que ficheiros confidenciais saiam da empresa por email, pen drives ou nuvem, e gravar ecrãs em vídeo para auditoria legal.
               </p>
@@ -60,22 +58,22 @@ import { RouterLink } from '@angular/router';
                 <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Bloqueio automático de ações suspeitas</li>
               </ul>
               
-              <a routerLink="/solutions/teramind" class="block w-full text-center bg-gray-50 border border-gray-200 text-bm-red py-3 rounded-lg font-bold group-hover:bg-bm-red group-hover:text-white transition-colors mt-auto">
-                Conhecer o Teramind &rarr;
+              <a routerLink="/solutions/hexnode" class="block w-full text-center bg-gray-50 border border-gray-200 text-orange-600 py-3 rounded-lg font-bold group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 transition-colors mt-auto">
+              Conhecer o Hexnode &rarr;
               </a>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
-            <div class="h-2 bg-blue-500"></div>
+            <div class="h-2 bg-green-500"></div>
             <div class="p-8 flex-grow flex flex-col">
               <div class="flex justify-between items-start mb-6">
                 <img src="partners/kickidler.png" alt="Kickidler" class="h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="hidden font-bold text-xl text-gray-800 tracking-wider">KICKIDLER</span>
-                <span class="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full border border-blue-100">Produtividade</span>
+                <span class="hidden font-bold text-xl text-gray-500 tracking-wider">KICKIDLER</span>
+                <span class="bg-green-50 text-green-500 text-xs font-bold px-3 py-1 rounded-full border border-green-100">Produtividade</span>
               </div>
               
-              <h3 class="text-2xl font-bold text-bm-blue mb-3">Kickidler</h3>
+              <h3 class="text-2xl font-bold text-green-500 mb-3">Kickidler</h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
                 A solução definitiva para monitoramento de funcionários de nova geração. Focada na análise de produtividade, rastreamento de tempo de trabalho (time tracking) e controlo de assiduidade. Excelente para gerir equipas remotas ou híbridas com relatórios detalhados de eficiência.
               </p>
@@ -86,8 +84,8 @@ import { RouterLink } from '@angular/router';
                 <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Registo de teclas (Keylogger) e Controlo Remoto</li>
               </ul>
               
-              <a routerLink="/solutions/kickidler" class="block w-full text-center bg-gray-50 border border-gray-200 text-bm-blue py-3 rounded-lg font-bold group-hover:bg-blue-500 group-hover:text-white group-hover:border-blue-500 transition-colors mt-auto">
-                Conhecer o Kickidler &rarr;
+               <a routerLink="/solutions/kickidler" class="block w-full text-center bg-gray-50 border border-gray-200 text-green-600 py-3 rounded-lg font-bold group-hover:bg-green-600 group-hover:text-white group-hover:border-green-600 transition-colors mt-auto">
+              Conhecer o KickIdler &rarr;
               </a>
             </div>
           </div>
@@ -101,7 +99,7 @@ import { RouterLink } from '@angular/router';
                 <span class="bg-purple-50 text-purple-600 text-xs font-bold px-3 py-1 rounded-full border border-purple-100">UEM / MDM</span>
               </div>
               
-              <h3 class="text-2xl font-bold text-bm-blue mb-3">Hexnode UEM</h3>
+              <h3 class="text-2xl font-bold text-purple-600 mb-3">Hexnode UEM</h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
                 Plataforma de Gestão Unificada de Endpoints (UEM). Fundamental se a sua empresa fornece telemóveis, tablets ou computadores aos funcionários. Permite bloquear, limpar dados à distância, forçar atualizações e criar "Modo Quiosque" (Kiosk Mode) para dispositivos de ponto de venda ou logística.
               </p>
@@ -112,8 +110,8 @@ import { RouterLink } from '@angular/router';
                 <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Implantação de Apps e políticas de segurança</li>
               </ul>
               
-              <a routerLink="/solutions/hexnode" class="block w-full text-center bg-gray-50 border border-gray-200 text-bm-blue py-3 rounded-lg font-bold group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600 transition-colors mt-auto">
-                Conhecer o Hexnode &rarr;
+              <a routerLink="/solutions/hexnode" class="block w-full text-center bg-gray-50 border border-gray-200 text-purple-600 py-3 rounded-lg font-bold group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600 transition-colors mt-auto">
+              Conhecer o Hexnode &rarr;
               </a>
             </div>
           </div>

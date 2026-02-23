@@ -1,22 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-teramind',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="bg-bm-blue text-white pt-32 pb-20 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12"></div>
-
-      <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block">Parceiro Oficial Teramind</span>
-          <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Monitoramento de Usuários & <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Prevenção de Perda de Dados</span>
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center"><div>
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-orange-200 mb-6 uppercase tracking-wider">
+            <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span> Data Loss Prevention
+          </div>
+          <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Monitoramento de Usuários & <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-white">Prevenção de Perda de Dados</span>
           </h1>
           <p class="text-lg text-gray-300 mb-8 leading-relaxed">
             Detecte ameaças internas, previna vazamentos de dados (DLP) e otimize a produtividade da sua equipe com a plataforma líder global.
