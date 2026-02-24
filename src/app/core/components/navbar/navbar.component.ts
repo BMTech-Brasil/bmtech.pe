@@ -41,7 +41,6 @@ import { RouterLink } from '@angular/router';
                     </div>
                   </div>
                 </div>
-                <a href="https://all4sec.com" target="_blank" class="dropdown-item">DigiCert</a>
               </div>
             </div>
           </div>
@@ -62,7 +61,6 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <a routerLink="/solutions/portal-flex" class="nav-item">Portal Flex</a>
-          <a routerLink="/solutions/cloud-risk" class="nav-item">Cloud Risk</a>
           
           <a href="#" class="bg-bm-red text-white px-6 py-2 rounded font-bold text-sm hover:bg-red-700 transition shadow-md font-sans whitespace-nowrap">
             Fale Conosco

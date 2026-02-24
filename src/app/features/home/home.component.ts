@@ -48,7 +48,7 @@ import { CommonModule } from '@angular/common';
           <h1 class="text-5xl md:text-7xl font-bold text-bm-blue mb-6 leading-tight">Sua empresa segura <br>para crescer <span class="text-bm-red">sem limites.</span></h1>
           <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
             Especialistas em PKI, Certificados Digitais e Cibersegurança a mais de <strong>22 anos</strong>. 
-            Revendedores oficiais <span class="font-bold text-bm-blue">Sectigo</span> e <span class="font-bold text-bm-blue">DigiCert</span> no Brasil, Peru e EUA.
+            Revendedores oficiais <span class="font-bold text-green-500">Sectigo</span> no Brasil, Peru e EUA.
           </p>
           <div class="flex flex-col md:flex-row gap-4">
             <button class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Falar com um Consultor</button>
@@ -86,10 +86,10 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
-    <section id="nossas-solucoes" class="py-24 bg-gray-50 scroll-mt-20">
+    <section id="nossas-solucoes" class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Nossas Soluções</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-bm-white mb-4">Nossas Soluções</h2>
           <div class="w-20 h-1 bg-bm-red mx-auto"></div>
         </div>
 
@@ -100,7 +100,7 @@ import { CommonModule } from '@angular/common';
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Certificados SSL</h3>
             <p class="text-gray-600 text-sm mb-4">
-              Emissão imediata de certificados OV e EV com garantia <strong>Sectigo</strong> e <strong>DigiCert</strong>.
+              Emissão imediata de certificados OV e EV com garantia <strong>Sectigo</strong>.
             </p>
             <a href="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
@@ -139,10 +139,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   partners = signal([
     { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'DigiCert', img: 'partners/digicert.svg' },
-    { name: 'GeoTrust', img: 'partners/geotrust.svg' },
-    { name: 'Thawte', img: 'partners/thawte.svg' },
-    { name: 'RapidSSL', img: 'partners/rapidssl.svg' },
     { name: 'Teramind', img: 'partners/teramind.svg' },
     { name: 'Hexnode', img: 'partners/hexnode.svg' },
     { name: 'KickIdler', img: 'partners/kickidler.png' },

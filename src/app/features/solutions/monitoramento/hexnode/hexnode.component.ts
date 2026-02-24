@@ -33,9 +33,8 @@ import { CommonModule } from '@angular/common';
         </div>
 
         <div class="hidden lg:flex justify-center relative perspective-1000">
-          <div class="relative w-full max-lg-2x1 rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform rotate-y-[-5deg] hover:rotate-y-0 transition-transform duration-700 bg-gray-900">
+          <div class="relative w-[130%] max-w-none -mr-20 rounded-2xl overflow-hidden transform rotate-y-[-5deg] hover:rotate-y-0 hover:scale-105 transition-all duration-700">
              <img src="hexnode.png" alt="Painel de Controle Hexnode UEM" class="w-full h-auto object-cover">
-             
           </div>
           <div class="absolute inset-0 bg-purple-500/20 blur-[100px] rounded-full -z-10"></div>
         </div>

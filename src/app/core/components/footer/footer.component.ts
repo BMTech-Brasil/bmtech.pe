@@ -23,7 +23,6 @@ import { RouterLink } from '@angular/router';
 
             <div class="flex flex-wrap gap-6 items-center">
               <img src="partners/sectigo.svg" alt="Sectigo Partner" class="h-8 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" title="Parceiro Oficial Sectigo">
-              <img src="partners/digicert.svg" alt="DigiCert Partner" class="h-8 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" title="Parceiro Oficial DigiCert">
             </div>
           </div>
 
@@ -63,9 +62,6 @@ import { RouterLink } from '@angular/router';
             <ul class="space-y-3 text-sm text-gray-500">
               <li><a routerLink="/" class="hover:text-bm-red hover:pl-1 transition-all">Home</a></li>
               <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Soluções Corporativas</a></li>
-              <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Seja um Parceiro</a></li>
-              <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Portal do Cliente</a></li>
-              <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Política de Privacidade</a></li>
             </ul>
           </div>
         </div>
@@ -78,10 +74,8 @@ import { RouterLink } from '@angular/router';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
             </svg>
             <span class="font-bold text-gray-700 uppercase tracking-widest text-[10px]">Site 100% Seguro</span>
-          </div>
-          
+          </div>         
         </div>
-
       </div>
     </footer>
   `

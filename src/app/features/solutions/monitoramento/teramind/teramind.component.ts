@@ -187,17 +187,32 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             </li>
           </ul>
         </div>
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-          <p class="text-bm-blue font-bold text-xl mb-2">Reconhecido Mundialmente</p>
-          <p class="text-gray-500 mb-6">Eleita a melhor solução de Insider Threat pelo Gartner Peer Insights.</p>
-          <div class="flex justify-center gap-4 grayscale opacity-70">
-            <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
-            <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
-            <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
+          <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <p class="text-bm-blue font-bold text-xl mb-2">Reconhecido Mundialmente</p>
+            <p class="text-gray-500 mb-6">Eleita a melhor solução de Insider Threat pelo Gartner Peer Insights.</p>
+          <div class="flex justify-center gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-14 h-14 bg-white border border-gray-200 rounded-full flex items-center justify-center p-2.5 shadow-sm">
+              <img src="ibm.svg" alt="IBM" class="w-full h-full object-contain">
+            </div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">IBM</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-14 h-14 bg-white border border-gray-200 rounded-full flex items-center justify-center p-2 shadow-sm">
+              <img src="upwork.svg" alt="UpWork" class="w-full h-full object-contain">
+            </div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">UpWork</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-14 h-14 bg-white border border-gray-200 rounded-full flex items-center justify-center p-2 shadow-sm">
+              <img src="bnp.svg" alt="BNP Paribas" class="w-full h-full object-contain">
+            </div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider text-center leading-tight">BNP<br>Paribas</span>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
   `
 })
 export class TeramindComponent {

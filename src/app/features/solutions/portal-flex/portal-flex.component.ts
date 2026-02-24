@@ -6,27 +6,23 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="bg-bm-blue text-white pt-32 pb-24 relative overflow-hidden">
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-bm-blue via-bm-blue to-transparent z-0"></div>
       
       <div class="container mx-auto px-6 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-          
           <div>
             <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-blue-100 mb-6 uppercase tracking-wider">
               <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> Paperless & Workflow
             </div>
-            
             <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
               A plataforma completa para <br>
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">eliminar o papel</span> da sua empresa.
             </h1>
-            
             <p class="text-lg text-white-300 mb-8 leading-relaxed">
               O <strong>Portal Flex</strong> centraliza a assinatura de documentos (Digital e Eletrônica), automação de processos (BPM) e custódia de arquivos em um ambiente seguro e com validade jurídica.
             </p>
-            
             <div class="flex flex-col sm:flex-row gap-4">
               <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
                 Solicitar Demonstração
@@ -35,7 +31,6 @@ import { CommonModule } from '@angular/common';
                 Conhecer Recursos
               </button>
             </div>
-            
             <div class="mt-8 flex gap-6 text-sm text-white-400 font-medium">
               <div class="flex items-center gap-2">
                 <span class="text-green-400">✓</span> ICP-Brasil
@@ -48,52 +43,12 @@ import { CommonModule } from '@angular/common';
               </div>
             </div>
           </div>
-
-          <div class="relative group perspective-1000 hidden lg:block">
-             <div class="bg-white rounded-xl shadow-2xl border border-gray-700/50 overflow-hidden relative z-10 transform transition-transform duration-500 hover:rotate-y-2 hover:rotate-x-2">
-                <div class="bg-gray-100 h-10 flex items-center px-4 gap-2 border-b border-gray-200">
-                   <div class="flex gap-1.5">
-                     <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                     <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                     <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                   </div>
-                   <div class="h-5 w-48 bg-white rounded border border-gray-200 ml-4"></div>
-                </div>
-                
-                <div class="p-6 bg-gray-50 grid grid-cols-4 gap-4 h-[350px]">
-                   <div class="col-span-1 bg-white rounded shadow-sm p-3 space-y-3">
-                      <div class="h-2 w-1/2 bg-gray-200 rounded mb-4"></div>
-                      <div class="h-2 w-full bg-blue-100 rounded"></div>
-                      <div class="h-2 w-3/4 bg-gray-100 rounded"></div>
-                      <div class="h-2 w-5/6 bg-gray-100 rounded"></div>
-                   </div>
-                   <div class="col-span-3 space-y-4">
-                      <div class="flex justify-between items-center bg-white p-3 rounded shadow-sm border border-gray-100">
-                         <div class="h-3 w-1/3 bg-gray-300 rounded"></div>
-                         <div class="px-2 py-1 bg-bm-red rounded text-white text-[9px] font-bold uppercase tracking-wider">Pendente de Assinatura</div>
-                      </div>
-                      
-                      <div class="bg-white p-6 rounded shadow-sm border border-gray-100 h-48 relative">
-                         <div class="space-y-2 opacity-50">
-                            <div class="h-2 w-full bg-gray-200 rounded"></div>
-                            <div class="h-2 w-full bg-gray-200 rounded"></div>
-                            <div class="h-2 w-2/3 bg-gray-200 rounded"></div>
-                            <div class="h-2 w-full bg-gray-200 rounded mt-4"></div>
-                         </div>
-                         
-                         <div class="absolute bottom-4 right-4">
-                            <button class="bg-green-500 text-white text-xs px-4 py-2 rounded shadow-lg font-bold flex items-center gap-1 animate-pulse">
-                               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                               Assinar Digitalmente
-                            </button>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-             <div class="absolute -inset-4 bg-blue-500/30 blur-3xl -z-10 rounded-full"></div>
+          <div class="hidden lg:flex justify-center relative perspective-1000">
+            <div class="relative w-[130%] max-w-none -mr-20 rounded-2xl overflow-hidden transform rotate-y-[-5deg] hover:rotate-y-0 hover:scale-105 transition-all duration-700">
+              <img src="pfxdashboard.png" alt="Painel de Controle Portal Flex" class="w-full h-auto object-cover">
+            </div>
+            <div class="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full -z-10"></div>
           </div>
-
         </div>
       </div>
     </section>

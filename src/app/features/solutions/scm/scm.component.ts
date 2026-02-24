@@ -7,13 +7,11 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <section class="bg-bm-blue text-white pt-32 pb-24 relative overflow-hidden">
-      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-bm-blue via-bm-blue to-transparent z-0"></div>
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center"></div>
       
       <div class="container mx-auto px-6 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-          
           <div>
             <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-blue-100 mb-6 uppercase tracking-wider">
               <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> Sectigo Certificate Manager
