@@ -21,7 +21,6 @@ import { CommonModule } from '@angular/common';
                </span>
             </div>
           }
-
         </div>
       </div>
     </div>

@@ -6,6 +6,25 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
+      <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
+      <div class="container mx-auto px-2 md:px-6">
+      <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
+
+    @for (partner of partners(); track partner.name) {
+            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+               <img [src]="partner.img" [alt]="partner.name" 
+                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+               
+               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                 {{ partner.name }}
+               </span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
     <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       
       <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -17,8 +36,8 @@ import { CommonModule } from '@angular/common';
             Certificados SSL/TLS <br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Máxima Confiança</span>.
           </h1>
-          <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
-            Proteja o seu website, os dados dos seus clientes e impulsione o seu SEO com a Autoridade de Certificação (CA) comercial líder mundial. A BM Tech simplifica a emissão e a gestão dos seus certificados.
+          <p class="text-lg text-bm-white mb-8 leading-relaxed max-w-xl">
+            Proteja o seu site, os dados dos seus clientes e impulsione o seu SEO com a Autoridade de Certificação (CA) comercial líder mundial. A BM Tech simplifica a emissão e a gestão dos seus certificados.
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
@@ -57,11 +76,11 @@ import { CommonModule } from '@angular/common';
             <h3 class="text-2xl font-bold text-bm-blue mb-2">Domain Validation (DV)</h3>
             <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em Minutos</p>
             <p class="text-gray-600 mb-6 flex-grow">
-              Valida apenas a propriedade do domínio. É a opção mais rápida e básica, ideal para blogs, portafólios e websites que não recolhem dados sensíveis.
+              Valida apenas a propriedade do domínio. É a opção mais rápida e básica, ideal para blogs, portfólios e sites que não coletam dados sensíveis.
             </p>
             <ul class="space-y-3 mb-8 text-sm text-gray-600">
               <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Criptografia 256-bit forte</li>
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Cadeado de segurança no browser</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Cadeado de segurança no navegador</li>
               <li class="flex items-center gap-2 text-gray-400"><span class="text-gray-300 font-bold">X</span> Sem validação da empresa</li>
             </ul>
             <button (click)="openModal('DV')" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded font-bold hover:bg-bm-blue hover:text-white transition mt-auto">
@@ -134,12 +153,12 @@ import { CommonModule } from '@angular/common';
             
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados SSL Wildcard</h3>
             <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-              Proteja o seu domínio principal e subdomínios ilimitados sob um único certificado. Os certificados SSL Wildcard são a forma mais conveniente de fornecer proteção SSL e criptografia para um domínio e os seus subdomínios.
+              Proteja o seu domínio principal e subdomínios ilimitados sob um único certificado. Os certificados SSL Wildcard são a forma mais conveniente de fornecer proteção SSL e criptografia para um domínio e seus subdomínios.
             </p>
 
             <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Wildcard OV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Wildcard OV SSL
                   </span>
@@ -147,7 +166,7 @@ import { CommonModule } from '@angular/common';
                 </a>
               </li>
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Wildcard DV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Wildcard DV SSL
                   </span>
@@ -172,7 +191,7 @@ import { CommonModule } from '@angular/common';
 
             <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Multi Domain EV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Multi Domain EV SSL
                   </span>
@@ -180,7 +199,7 @@ import { CommonModule } from '@angular/common';
                 </a>
               </li>
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Multi Domain OV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Multi Domain OV SSL
                   </span>
@@ -188,7 +207,7 @@ import { CommonModule } from '@angular/common';
                 </a>
               </li>
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Multi Domain DV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Multi Domain DV SSL
                   </span>
@@ -213,7 +232,7 @@ import { CommonModule } from '@angular/common';
 
             <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Single Domain EV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Single Domain EV SSL
                   </span>
@@ -221,7 +240,7 @@ import { CommonModule } from '@angular/common';
                 </a>
               </li>
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Single Domain OV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Single Domain OV SSL
                   </span>
@@ -229,7 +248,7 @@ import { CommonModule } from '@angular/common';
                 </a>
               </li>
               <li>
-                <a href="#" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
+                <a href="#" (click)="openContactModal('Single Domain DV SSL', $event)" class="group flex items-center justify-between text-sm text-gray-500 hover:text-bm-blue transition">
                   <span class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-gray-300 rounded-sm"></span> Single Domain DV SSL
                   </span>
@@ -254,7 +273,7 @@ import { CommonModule } from '@angular/common';
           <div class="p-4">
             <p class="text-4xl font-bold mb-2 text-cyan-400">99.9%</p>
             <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Reconhecimento</p>
-            <p class="text-xs text-blue-200 mt-2">Compatível com todos os browsers.</p>
+            <p class="text-xs text-blue-200 mt-2">Compatível com todos os navegadores.</p>
           </div>
           <div class="p-4">
             <p class="text-4xl font-bold mb-2 text-cyan-400">Ilimitado</p>
@@ -275,7 +294,7 @@ import { CommonModule } from '@angular/common';
         
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
         
-        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up">
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
           
           <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -287,15 +306,15 @@ import { CommonModule } from '@angular/common';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
               </div>
               <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação de Domínio (DV)</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">O certificado de Validação de Domínio (DV) é o tipo mais básico e rápido de SSL. A Autoridade de Certificação (Sectigo) verifica apenas se quem está a solicitar o certificado tem controlo administrativo sobre o domínio específico.</p>
+              <p class="text-gray-600 mb-4 leading-relaxed">O certificado de Validação de Domínio (DV) é o tipo mais básico e rápido de SSL. A Autoridade de Certificação (Sectigo) verifica apenas se quem está solicitando o certificado tem controle administrativo sobre o domínio específico.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
-              <p class="text-gray-600 text-sm mb-4">Normalmente é feito de forma automatizada por e-mail (admin&#64;seudominio.com), adicionando um ficheiro ao seu servidor (HTTP Hash) ou através de um registo de DNS.</p>
+              <p class="text-gray-600 text-sm mb-4">Normalmente é feito de forma automatizada por e-mail (admin&#64;seudominio.com), adicionando um arquivo ao seu servidor (HTTP Hash) ou através de um registro de DNS.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
               <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                <li>Blogs e websites pessoais</li>
-                <li>Páginas institucionais que não recolhem dados (sem formulários de login/pagamento)</li>
+                <li>Blogs e sites pessoais</li>
+                <li>Páginas institucionais que não coletam dados (sem formulários de login/pagamento)</li>
                 <li>Ambientes de teste ou desenvolvimento interno</li>
               </ul>
             </div>
@@ -307,14 +326,14 @@ import { CommonModule } from '@angular/common';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
               </div>
               <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação Organizacional (OV)</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">Um passo acima na confiança. Para além de verificar o controlo do domínio, a Sectigo efectua verificações manuais para confirmar a existência legal e física da sua empresa, garantindo aos visitantes que o site pertence a uma organização legítima.</p>
+              <p class="text-gray-600 mb-4 leading-relaxed">Um passo acima na confiança. Além de verificar o controle do domínio, a Sectigo efetua verificações manuais para confirmar a existência legal e física da sua empresa, garantindo aos visitantes que o site pertence a uma organização legítima.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
-              <p class="text-gray-600 text-sm mb-4">A Sectigo verifica os registos governamentais da sua empresa (como CNPJ no Brasil), confere se a empresa está ativa, valida o endereço físico e faz uma chamada telefónica de verificação para o número registado oficialmente.</p>
+              <p class="text-gray-600 text-sm mb-4">A Sectigo verifica os registros governamentais da sua empresa (como CNPJ no Brasil), confere se a empresa está ativa, valida o endereço físico e faz uma ligação telefônica de verificação para o número registrado oficialmente.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
               <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                <li>Websites corporativos e institucionais de médias e grandes empresas</li>
+                <li>Sites corporativos e institucionais de médias e grandes empresas</li>
                 <li>Sistemas de webmail, VPNs e Intranets</li>
                 <li>Portais que solicitam dados de login ou informações pessoais dos clientes</li>
               </ul>
@@ -327,34 +346,93 @@ import { CommonModule } from '@angular/common';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
               </div>
               <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação Estendida (EV)</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">O padrão de ouro da confiança online. Os certificados EV exigem a verificação mais rigorosa da indústria. Quando os utilizadores clicam no cadeado no browser, o nome legal da sua empresa é apresentado de forma proeminente, provando a 100% que não se trata de um site de phishing.</p>
+              <p class="text-gray-600 mb-4 leading-relaxed">O padrão ouro da confiança online. Os certificados EV exigem a verificação mais rigorosa da indústria. Quando os usuários clicam no cadeado no navegador, os detalhes da sua empresa são apresentados de forma proeminente, provando 100% que não se trata de um site falso.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
-              <p class="text-gray-600 text-sm mb-4">Para além de todas as verificações do OV (domínio, registo legal, morada e telefone), a Sectigo verifica a identidade do solicitante e o seu vínculo empregatício com a empresa, garantindo que ele tem autoridade para solicitar o certificado.</p>
+              <p class="text-gray-600 text-sm mb-4">Além de todas as verificações do OV (domínio, registro legal, endereço e telefone), a Sectigo verifica a identidade do solicitante e o seu vínculo empregatício com a empresa, garantindo que ele tem autoridade para solicitar o certificado.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
               <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
                 <li>Bancos, Fintechs e Instituições Financeiras</li>
                 <li>Lojas virtuais (E-commerce) de alto volume</li>
-                <li>Qualquer website que procure a máxima taxa de conversão e proteção de marca</li>
+                <li>Qualquer site que busque a máxima taxa de conversão e proteção de marca</li>
               </ul>
             </div>
           }
 
-          <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end">
-             <button (click)="closeModal()" class="bg-gray-100 text-gray-700 px-6 py-2 rounded font-bold hover:bg-gray-200 transition">Fechar</button>
-          </div>
+          @if (activeModal() === 'CONTACT') {
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
+              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre o certificado <strong>{{ selectedCertificateName() }}</strong>.</p>
+              
+              <form (submit)="onSubmitContact($event)" class="space-y-4">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <input type="text" name="user_name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <input type="email" name="user_email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <input type="tel" name="user_phone" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <input type="text" name="company_name" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <input type="text" name="product_subject" [value]="selectedCertificateName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
+                  <textarea name="message" rows="3" placeholder="Quantos domínios pretende proteger? Precisa de ajuda na instalação?" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-bm-blue hover:bg-blue-900 text-white font-bold py-3 px-4 rounded transition shadow-md">
+                  Enviar Solicitação
+                </button>
+              </form>
+            </div>
+          }
+
+          @if (activeModal() !== 'CONTACT') {
+            <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end">
+                <button (click)="closeModal()" class="bg-gray-100 text-gray-700 px-6 py-2 rounded font-bold hover:bg-gray-200 transition">Fechar</button>
+            </div>
+          }
         </div>
       </div>
     }
   `
 })
 export class SectigoComponent {
-  activeModal = signal<'DV' | 'OV' | 'EV' | null>(null);
+  activeModal = signal<'DV' | 'OV' | 'EV' | 'CONTACT' | null>(null);
+  
+  selectedCertificateName = signal<string>('');
 
   openModal(type: 'DV' | 'OV' | 'EV') {
     this.activeModal.set(type);
+    document.body.style.overflow = 'hidden';
+  }
 
+  openContactModal(certName: string, event: Event) {
+    event.preventDefault();
+    this.selectedCertificateName.set(certName);
+    this.activeModal.set('CONTACT');
     document.body.style.overflow = 'hidden';
   }
 
@@ -362,4 +440,24 @@ export class SectigoComponent {
     this.activeModal.set(null);
     document.body.style.overflow = 'auto';
   }
+
+  onSubmitContact(event: Event) {
+    event.preventDefault(); // Impede a página de recarregar
+    
+    // AQUI VOCÊ COLOCARÁ A LÓGICA DO EMAILJS FUTURAMENTE.
+    // Exemplo: emailjs.sendForm('SERVICE_ID', 'TEMPLATE_ID', event.target as HTMLFormElement, 'PUBLIC_KEY')...
+    
+    alert('Os campos estão prontos para integração com o EmailJS!');
+    this.closeModal();
+  }
+
+  partners = signal([
+    { name: 'Sectigo', img: 'partners/sectigo.svg' },
+    { name: 'Teramind', img: 'partners/teramind.svg' },
+    { name: 'Hexnode', img: 'partners/hexnode.svg' },
+    { name: 'KickIdler', img: 'partners/kickidler.png' },
+    { name: 'Portal Flex', img: 'partners/pfx.svg' },
+    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+  ]);
+
 }

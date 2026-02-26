@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -7,10 +7,29 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="bg-bm-blue text-white pt-32 pb-24 relative overflow-hidden">
-      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-bm-blue via-bm-blue to-transparent z-0"></div>
-      
+    <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
+      <div class="container mx-auto px-2 md:px-6">
+        <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
+
+        @for (partner of partners(); track partner.name) {
+            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+               <img [src]="partner.img" [alt]="partner.name" 
+                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+               
+               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                 {{ partner.name }}
+               </span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      </div>
+
       <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <div class="inline-flex items-center gap-2 bg-bm-red/20 border border-bm-red/30 px-3 py-1 rounded-full text-xs font-bold text-red-200 mb-6 uppercase tracking-wider">
@@ -50,7 +69,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
                   </div>
                 </div>
                 <div>
-                  <h4 class="font-bold text-gray-900 text-sm">BM Tech Brasil</h4>
+                  <h4 class="font-bold text-gray-900 text-sm">BMTech Brasil</h4>
                   <p class="text-xs font-bold text-gray-800">Sua segurança digital foi atualizada</p>
                   <p class="text-xs text-gray-500">Olá, confirmamos a ativação do seu certificado...</p>
                 </div>
@@ -199,13 +218,13 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
       </div>
     </section>
 
-    <section class="py-24 bg-gray-50 border-t border-gray-200">
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6">
         
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-bm-blue mb-4">Veja o VMC em Ação</h2>
+          <h2 class="text-3xl font-bold text-bm-white mb-4">Veja o VMC em Ação</h2>
           <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
-          <p class="text-gray-600 max-w-2xl mx-auto">
+          <p class="text-bm-white max-w-2xl mx-auto">
             Entenda em poucos minutos como a tecnologia BIMI em conjunto com os certificados VMC protegem a sua marca e aumentam a confiança dos seus clientes.
           </p>
         </div>
@@ -216,7 +235,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             </iframe>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -347,4 +365,13 @@ export class VmcComponent {
     const url = `https://www.youtube.com/embed/${this.videoId}?rel=0&modestbranding=1`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+      partners = signal([
+    { name: 'Sectigo', img: 'partners/sectigo.svg' },
+    { name: 'Teramind', img: 'partners/teramind.svg' },
+    { name: 'Hexnode', img: 'partners/hexnode.svg' },
+    { name: 'KickIdler', img: 'partners/kickidler.png' },
+    { name: 'Portal Flex', img: 'partners/pfx.svg' },
+    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+  ]);
 }
