@@ -1,5 +1,6 @@
 import { Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-home',
@@ -25,34 +26,38 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
 
-    <section class="min-h-[85vh] flex items-center relative overflow-hidden bg-white py-12">
-      
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="absolute right-0 top-0 w-1/2 h-full skew-x-12 translate-x-20 z-0 overflow-hidden border-l-4 border-white/50">
-        <div class="w-full h-full relative">
+        
+        <div class="absolute top-0 -left-[25%] w-[150%] h-full -skew-x-12">
+          
           @for (img of heroImages; track $index) {
-            <div class="absolute inset-0 w-full h-full -skew-x-12 transition-all duration-1000 ease-in-out"
-                 [ngClass]="{'opacity-100 scale-105': currentHeroIndex() === $index, 'opacity-0 scale-100': currentHeroIndex() !== $index}">
+            <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out"
+                 [ngClass]="{'opacity-100 z-10': currentHeroIndex() === $index, 'opacity-0 z-0': currentHeroIndex() !== $index}">
               
-              <img [src]="img" class="w-full h-full object-cover" alt="Banner Security">
+              <img [src]="img" class="w-full h-full object-cover transition-transform duration-1000 ease-in-out" 
+                   [ngClass]="{'scale-105': currentHeroIndex() === $index, 'scale-100': currentHeroIndex() !== $index}"
+                   alt="Banner Security">
               
               <div class="absolute inset-0 bg-bm-blue/30 mix-blend-multiply"></div>
             </div>
           }
+
         </div>
       </div>
 
       <div class="container mx-auto px-6 relative z-10 flex items-center">
         <div class="max-w-3xl">
           <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block">Segurança & Identidade Digital</span>
-          <h1 class="text-5xl md:text-7xl font-bold text-bm-blue mb-6 leading-tight">Sua empresa segura <br>para crescer <span class="text-bm-red">sem limites.</span></h1>
-          <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
+          <h1 class="text-5xl md:text-7xl font-bold text-bm-white mb-6 leading-tight">Sua empresa segura <br>para crescer <span class="text-bm-red">sem limites.</span></h1>
+          <p class="text-xl text-white-600 mb-10 leading-relaxed max-w-xl">
             Especialistas em PKI, Certificados Digitais e Cibersegurança a mais de <strong>22 anos</strong>. 
             Revendedores oficiais <span class="font-bold text-green-500">Sectigo</span> no Brasil, Peru e EUA.
           </p>
           <div class="flex flex-col md:flex-row gap-4">
-            <button class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Falar com um Consultor</button>
+            <button (click)="openContactModal('Consultoria de Segurança', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Falar com um Consultor</button>
             
-            <button (click)="scrollTo('nossas-solucoes')" class="border-2 border-bm-blue text-bm-blue px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
+            <button (click)="scrollTo('nossas-solucoes')" class="border-2 border-bm-white text-bm-white px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
               Nossas Soluções
             </button>
             
@@ -124,6 +129,78 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
     </section>
+
+    @if (activeModal() !== null) {
+      <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
+          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          
+          @if (activeModal() === 'CONTACT') {
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
+              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              
+              <form (submit)="onSubmitContact($event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Conte-nos como podemos ajudar a proteger a sua empresa" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                </div>
+
+                <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
+                        [ngClass]="{'bg-green-500 hover:bg-green-600': submitSuccess(), 'bg-bm-blue hover:bg-blue-900': !submitSuccess()}"
+                        class="w-full text-white font-bold py-3 px-4 rounded transition shadow-md flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                  @if (isSubmitting()) {
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  } @else if (submitSuccess()) {
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Solicitação Enviada!
+                  } @else {
+                    Enviar Solicitação
+                  }
+                </button>
+              </form>
+            </div>
+          }
+        </div>
+      </div>
+    }
   `
 })
 export class HomeComponent implements OnInit, OnDestroy {
@@ -160,6 +237,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     { id: 12, name: 'XPI', img: 'clients/xp_investimentos.png', url: 'https://www.xpi.com.br'},
   ]);
 
+  activeModal = signal<'CONTACT' | null>(null);
+  selectedProductName = signal<string>('');
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
+
   ngOnInit() {
     this.intervalId = setInterval(() => {
       this.currentHeroIndex.update((index) => (index + 1) % this.heroImages.length);
@@ -176,6 +258,49 @@ export class HomeComponent implements OnInit, OnDestroy {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  openContactModal(productName: string, event: Event) {
+    event.preventDefault();
+    this.selectedProductName.set(productName);
+    this.activeModal.set('CONTACT');
+    this.submitSuccess.set(false);
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal() {
+    this.activeModal.set(null);
+    document.body.style.overflow = 'auto';
+  }
+
+  async onSubmitContact(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    
+    this.isSubmitting.set(true);
+
+    try {
+      await emailjs.sendForm(
+        'service_v5pa4n7',
+        'template_vg8qiqn',
+        form,
+        'Ja_KrZXfa-gEENU3O'
+      );
+      
+      this.submitSuccess.set(true);
+      
+      setTimeout(() => {
+        this.closeModal();
+        this.submitSuccess.set(false);
+        form.reset();
+      }, 3000);
+
+    } catch (error) {
+      console.error('Falha ao enviar o e-mail via EmailJS', error);
+      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+    } finally {
+      this.isSubmitting.set(false);
     }
   }
 }

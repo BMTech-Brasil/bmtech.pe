@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-sectigo',
@@ -7,10 +8,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
       <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
-      <div class="container mx-auto px-2 md:px-6">
-      <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
+        <div class="container mx-auto px-2 md:px-6">
+          <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
 
-    @for (partner of partners(); track partner.name) {
+          @for (partner of partners(); track partner.name) {
             <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                <img [src]="partner.img" [alt]="partner.name" 
                     class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
@@ -41,7 +42,7 @@ import { CommonModule } from '@angular/common';
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1">
+            <button (click)="openContactModal('Consultoria Sectigo SSL', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1">
               Falar com Especialista
             </button>
           </div>
@@ -373,22 +374,22 @@ import { CommonModule } from '@angular/common';
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
-                    <input type="text" name="user_name" required class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
-                    <input type="email" name="user_email" required class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
-                    <input type="tel" name="user_phone" required class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
-                    <input type="text" name="company_name" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
@@ -398,12 +399,26 @@ import { CommonModule } from '@angular/common';
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
-                  <textarea name="message" rows="3" placeholder="Quantos domínios pretende proteger? Precisa de ajuda na instalação?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none"></textarea>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Deixe aqui o maior número de informações possíveis" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-bm-blue hover:bg-blue-900 text-white font-bold py-3 px-4 rounded transition shadow-md">
-                  Enviar Solicitação
+                <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
+                        [ngClass]="{'bg-green-500 hover:bg-green-600': submitSuccess(), 'bg-bm-blue hover:bg-blue-900': !submitSuccess()}"
+                        class="w-full text-white font-bold py-3 px-4 rounded transition shadow-md flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                  
+                  @if (isSubmitting()) {
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  } @else if (submitSuccess()) {
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Solicitação Enviada!
+                  } @else {
+                    Enviar Solicitação
+                  }
                 </button>
               </form>
             </div>
@@ -421,8 +436,10 @@ import { CommonModule } from '@angular/common';
 })
 export class SectigoComponent {
   activeModal = signal<'DV' | 'OV' | 'EV' | 'CONTACT' | null>(null);
-  
   selectedCertificateName = signal<string>('');
+
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
 
   openModal(type: 'DV' | 'OV' | 'EV') {
     this.activeModal.set(type);
@@ -433,7 +450,8 @@ export class SectigoComponent {
     event.preventDefault();
     this.selectedCertificateName.set(certName);
     this.activeModal.set('CONTACT');
-    document.body.style.overflow = 'hidden';
+    this.submitSuccess.set(false);
+    document.body.style.overflow = 'hidden'
   }
 
   closeModal() {
@@ -441,13 +459,34 @@ export class SectigoComponent {
     document.body.style.overflow = 'auto';
   }
 
-  onSubmitContact(event: Event) {
-    event.preventDefault(); 
+  async onSubmitContact(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
 
-    
-    
-    alert('Os campos estão prontos para integração com o EmailJS!');
-    this.closeModal();
+    this.isSubmitting.set(true);
+
+    try {
+      await emailjs.sendForm(
+        'service_v5pa4n7',
+        'template_vg8qiqn',
+        form,
+        'Ja_KrZXfa-gEENU3O'
+      );
+
+      this.submitSuccess.set(true);
+
+      setTimeout(() => {
+        this.closeModal();
+        this.submitSuccess.set(false);
+        form.reset();
+      }, 3000);
+
+    } catch (error) {
+      console.error('Falha ao enviar o e-mail via EmailJS', error);
+      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');  
+    } finally {
+      this.isSubmitting.set(false);
+    }
   }
 
   partners = signal([
@@ -458,5 +497,4 @@ export class SectigoComponent {
     { name: 'Portal Flex', img: 'partners/pfx.svg' },
     { name: 'Keytalk', img: 'partners/keytalk.svg' }
   ]);
-
 }

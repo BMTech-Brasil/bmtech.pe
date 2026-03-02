@@ -77,8 +77,8 @@ import { RouterLink } from '@angular/router';
                 <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Bloqueio automático de ações suspeitas</li>
               </ul>
               
-              <a routerLink="/solutions/hexnode" class="block w-full text-center bg-gray-50 border border-gray-200 text-orange-600 py-3 rounded-lg font-bold group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 transition-colors mt-auto">
-              Conhecer o Hexnode &rarr;
+              <a routerLink="/solutions/teramind" class="block w-full text-center bg-gray-50 border border-gray-200 text-orange-600 py-3 rounded-lg font-bold group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 transition-colors mt-auto">
+              Conhecer o Teramind &rarr;
               </a>
             </div>
           </div>

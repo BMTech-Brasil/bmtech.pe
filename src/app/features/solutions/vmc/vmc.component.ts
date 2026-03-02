@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-vmc',
@@ -44,12 +45,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+            <button (click)="openContactModal('Cotação VMC (BIMI)', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
               Solicitar Cotação VMC
-            </button>
-            <button class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Ver Requisitos
             </button>
           </div>
         </div>
@@ -298,9 +295,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             </li>
           </ul>
 
-          <a href="#" class="block w-full bg-bm-blue text-white text-center py-4 rounded-lg font-bold hover:bg-blue-900 transition shadow-md">
+          <button (click)="openContactModal('Consultoria e Cotação VMC', $event)" class="block w-full bg-bm-blue text-white text-center py-4 rounded-lg font-bold hover:bg-blue-900 transition shadow-md">
             Falar com Especialista VMC
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -355,6 +352,78 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
         </div>
       </div>
     </section>
+
+    @if (activeModal() !== null) {
+      <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
+          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          
+          @if (activeModal() === 'CONTACT') {
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
+              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              
+              <form (submit)="onSubmitContact($event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Você já possui a marca registrada no INPI e a política DMARC ativada?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                </div>
+
+                <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
+                        [ngClass]="{'bg-green-500 hover:bg-green-600': submitSuccess(), 'bg-bm-blue hover:bg-blue-900': !submitSuccess()}"
+                        class="w-full text-white font-bold py-3 px-4 rounded transition shadow-md flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                  @if (isSubmitting()) {
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  } @else if (submitSuccess()) {
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Solicitação Enviada!
+                  } @else {
+                    Enviar Solicitação
+                  }
+                </button>
+              </form>
+            </div>
+          }
+        </div>
+      </div>
+    }
   `
 })
 export class VmcComponent {
@@ -366,7 +435,7 @@ export class VmcComponent {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-      partners = signal([
+  partners = signal([
     { name: 'Sectigo', img: 'partners/sectigo.svg' },
     { name: 'Teramind', img: 'partners/teramind.svg' },
     { name: 'Hexnode', img: 'partners/hexnode.svg' },
@@ -374,4 +443,52 @@ export class VmcComponent {
     { name: 'Portal Flex', img: 'partners/pfx.svg' },
     { name: 'Keytalk', img: 'partners/keytalk.svg' }
   ]);
+
+  activeModal = signal<'CONTACT' | null>(null);
+  selectedProductName = signal<string>('');
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
+
+  openContactModal(productName: string, event: Event) {
+    event.preventDefault();
+    this.selectedProductName.set(productName);
+    this.activeModal.set('CONTACT');
+    this.submitSuccess.set(false);
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal() {
+    this.activeModal.set(null);
+    document.body.style.overflow = 'auto';
+  }
+
+  async onSubmitContact(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    
+    this.isSubmitting.set(true);
+
+    try {
+      await emailjs.sendForm(
+        'service_v5pa4n7',
+        'template_vg8qiqn',
+        form,
+        'Ja_KrZXfa-gEENU3O'
+      );
+      
+      this.submitSuccess.set(true);
+      
+      setTimeout(() => {
+        this.closeModal();
+        this.submitSuccess.set(false);
+        form.reset();
+      }, 3000);
+
+    } catch (error) {
+      console.error('Falha ao enviar o e-mail via EmailJS', error);
+      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+    } finally {
+      this.isSubmitting.set(false);
+    }
+  }
 }

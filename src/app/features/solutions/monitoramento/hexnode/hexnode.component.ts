@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser'; 
 
 @Component({
   selector: 'app-hexnode',
@@ -42,11 +43,8 @@ import { CommonModule } from '@angular/common';
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-[0_4px_20px_rgba(220,38,38,0.4)] transform hover:-translate-y-1">
+            <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-[0_4px_20px_rgba(220,38,38,0.4)] transform hover:-translate-y-1">
               Agendar Demonstração
-            </button>
-            <button class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
-              Ver Planos e Preços
             </button>
           </div>
         </div>
@@ -168,36 +166,34 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
-    <section class="py-24 bg-bm-blue text-white relative overflow-hidden">
-      <div class="absolute -right-20 -bottom-20 w-96 h-96"></div>
-      
+    <section class="py-20 bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900">
       <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold mb-4">Por que licenciar o Hexnode com a BMTech?</h2>
-          <p class="text-blue-100 text-lg">Nós não vendemos apenas a licença do software. Entregamos a solução operando perfeitamente no seu ambiente, com condições comerciais exclusivas para o Brasil.</p>
+          <h2 class="text-3xl font-bold mb-4 text-white">Por que licenciar o Hexnode com a BMTech?</h2>
+          <p class="text-gray-300 text-lg">Nós não vendemos apenas a licença do software. Entregamos a solução operando perfeitamente no seu ambiente, com condições comerciais exclusivas para o Brasil.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-12 text-center">
+        <div class="grid md:grid-cols-3 gap-12 text-center text-white">
           <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
             <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
             </div>
             <h4 class="text-xl font-bold mb-3">Setup Guiado pela BMTech</h4>
-            <p class="text-blue-100 text-sm">Nossa equipe de suporte realiza reuniões de <i>Onboarding</i> para ajudar a configurar as políticas de segurança, integrar com seu Active Directory e conectar os primeiros aparelhos.</p>
+            <p class="text-gray-300 text-sm">Nossa equipe de suporte realiza reuniões de <i>Onboarding</i> para ajudar a configurar as políticas de segurança, integrar com seu Active Directory e conectar os primeiros aparelhos.</p>
           </div>
           <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
             <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </div>
             <h4 class="text-xl font-bold mb-3">Suporte N1/N2 Nacional</h4>
-            <p class="text-blue-100 text-sm">Problemas acontecem. Tenha acesso direto ao suporte técnico da BMTech via ticket e telefone em português, eliminando barreiras de idioma e fuso horário do fabricante.</p>
+            <p class="text-gray-300 text-sm">Problemas acontecem. Tenha acesso direto ao suporte técnico da BMTech via ticket e telefone em português, eliminando barreiras de idioma e fuso horário do fabricante.</p>
           </div>
           <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
             <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             </div>
             <h4 class="text-xl font-bold mb-3">Faturamento em Reais (BRL)</h4>
-            <p class="text-blue-100 text-sm">Esqueça o cartão de crédito corporativo e o IOF. Faturamos o contrato no Brasil, em Reais, com emissão de Nota Fiscal (NF-e) e pagamento via boleto bancário.</p>
+            <p class="text-gray-300 text-sm">Esqueça o cartão de crédito corporativo e o IOF. Faturamos o contrato no Brasil, em Reais, com emissão de Nota Fiscal (NF-e) e pagamento via boleto bancário.</p>
           </div>
         </div>
       </div>
@@ -209,16 +205,93 @@ import { CommonModule } from '@angular/common';
         <p class="text-gray-600 max-w-2xl mx-auto mb-10 text-lg">
           Agende uma Prova de Conceito (PoC) gratuita com a BMTech. Vamos desenhar as políticas de segurança e provar o valor do Hexnode UEM operando diretamente no seu ambiente.
         </p>
-        <button class="bg-red-600 hover:bg-red-800 text-white px-10 py-4 rounded font-bold transition shadow-lg text-lg transform hover:-translate-y-1">
+        <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-red-600 hover:bg-red-800 text-white px-10 py-4 rounded font-bold transition shadow-lg text-lg transform hover:-translate-y-1">
           Solicitar Proposta e Demonstração
         </button>
       </div>
     </section>
-  `
+
+    @if (activeModal() !== null) {
+      <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
+        
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
+          
+          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          
+          @if (activeModal() === 'CONTACT') {
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
+              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              
+              <form (submit)="onSubmitContact($event)" class="space-y-4">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Quantos dispositivos pretende gerenciar? São celulares ou tablets?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                </div>
+
+                <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
+                        [ngClass]="{'bg-green-500 hover:bg-green-600': submitSuccess(), 'bg-bm-blue hover:bg-blue-900': !submitSuccess()}"
+                        class="w-full text-white font-bold py-3 px-4 rounded transition shadow-md flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                  
+                  @if (isSubmitting()) {
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  } @else if (submitSuccess()) {
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Solicitação Enviada!
+                  } @else {
+                    Enviar Solicitação
+                  }
+                </button>
+              </form>
+            </div>
+          }
+        </div>
+      </div>
+    }
+    `
 })
 export class HexnodeComponent {
 
-    partners = signal([
+  partners = signal([
     { name: 'Sectigo', img: 'partners/sectigo.svg' },
     { name: 'Teramind', img: 'partners/teramind.svg' },
     { name: 'Hexnode', img: 'partners/hexnode.svg' },
@@ -226,4 +299,53 @@ export class HexnodeComponent {
     { name: 'Portal Flex', img: 'partners/pfx.svg' },
     { name: 'Keytalk', img: 'partners/keytalk.svg' }
   ]);
+
+  activeModal = signal<'CONTACT' | null>(null);
+  selectedProductName = signal<string>('');
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
+
+  openContactModal(productName: string, event: Event) {
+    event.preventDefault();
+    this.selectedProductName.set(productName);
+    this.activeModal.set('CONTACT');
+    this.submitSuccess.set(false);
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal() {
+    this.activeModal.set(null);
+    document.body.style.overflow = 'auto';
+  }
+
+  async onSubmitContact(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    
+    this.isSubmitting.set(true);
+
+    try {
+
+      await emailjs.sendForm(
+        'service_v5pa4n7',
+        'template_vg8qiqn',
+        form,
+        'Ja_KrZXfa-gEENU3O'
+      );
+      
+      this.submitSuccess.set(true);
+      
+      setTimeout(() => {
+        this.closeModal();
+        this.submitSuccess.set(false);
+        form.reset();
+      }, 3000);
+
+    } catch (error) {
+      console.error('Falha ao enviar o e-mail via EmailJS', error);
+      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+    } finally {
+      this.isSubmitting.set(false);
+    }
+  }
 }
