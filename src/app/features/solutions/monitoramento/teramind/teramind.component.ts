@@ -8,8 +8,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   imports: [CommonModule],
   template: `
       <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
-      <div class="container mx-auto px-2 md:px-6">
-        <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
+        <div class="container mx-auto px-2 md:px-6">
+          <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
 
         @for (partner of partners(); track partner.name) {
             <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">

@@ -46,9 +46,6 @@ import { CommonModule } from '@angular/common';
               <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
                 Solicitar Demonstração
               </button>
-              <button class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
-                Conhecer Recursos
-              </button>
             </div>
             <div class="mt-8 flex gap-6 text-sm text-white-400 font-medium">
               <div class="flex items-center gap-2">
@@ -228,7 +225,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
-    <section class="py-24 bg-bm-blue relative overflow-hidden text-center text-white">
+    <section class="py-24 bg-bm-blue relative overflow-hidden text-center text-white shadow-sm">
       <div class="container mx-auto px-6 relative z-10">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para digitalizar sua empresa?</h2>
         <p class="text-blue-100 max-w-2xl mx-auto mb-10 text-lg">

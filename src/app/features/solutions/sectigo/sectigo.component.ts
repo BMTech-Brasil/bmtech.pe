@@ -373,22 +373,22 @@ import { CommonModule } from '@angular/common';
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
-                    <input type="text" name="user_name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="text" name="user_name" required class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
                   </div>
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
-                    <input type="email" name="user_email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="email" name="user_email" required class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
-                    <input type="tel" name="user_phone" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="tel" name="user_phone" required class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
                   </div>
                   <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
-                    <input type="text" name="company_name" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
+                    <input type="text" name="company_name" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition">
                   </div>
                 </div>
 
@@ -399,7 +399,7 @@ import { CommonModule } from '@angular/common';
 
                 <div>
                   <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
-                  <textarea name="message" rows="3" placeholder="Quantos domínios pretende proteger? Precisa de ajuda na instalação?" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none"></textarea>
+                  <textarea name="message" rows="3" placeholder="Quantos domínios pretende proteger? Precisa de ajuda na instalação?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none"></textarea>
                 </div>
 
                 <button type="submit" class="w-full bg-bm-blue hover:bg-blue-900 text-white font-bold py-3 px-4 rounded transition shadow-md">
@@ -442,10 +442,9 @@ export class SectigoComponent {
   }
 
   onSubmitContact(event: Event) {
-    event.preventDefault(); // Impede a página de recarregar
+    event.preventDefault(); 
+
     
-    // AQUI VOCÊ COLOCARÁ A LÓGICA DO EMAILJS FUTURAMENTE.
-    // Exemplo: emailjs.sendForm('SERVICE_ID', 'TEMPLATE_ID', event.target as HTMLFormElement, 'PUBLIC_KEY')...
     
     alert('Os campos estão prontos para integração com o EmailJS!');
     this.closeModal();
