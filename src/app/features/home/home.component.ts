@@ -1,11 +1,12 @@
 import { Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: `
     <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
       <div class="container mx-auto px-2 md:px-6">
@@ -106,7 +107,7 @@ import emailjs from '@emailjs/browser';
             <p class="text-gray-600 text-sm mb-4">
               Emissão imediata de certificados OV e EV com garantia <strong>Sectigo</strong>.
             </p>
-            <a href="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a routerLink="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
@@ -115,7 +116,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Assinatura Digital/Automação de Processos</h3>
             <p class="text-gray-600 text-sm mb-4">Elimine papel com validade jurídica total e gestão de documentos em nuvem.</p>
-            <a href="/solutions/portal-flex" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a routerLink="/solutions/portal-flex" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
@@ -124,7 +125,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Monitoramento DLP</h3>
             <p class="text-gray-600 text-sm mb-4">Previna vazamento de dados e monitore ameaças internas com Teramind.</p>
-            <a href="/solutions/monitoramento" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a routerLink="/solutions/monitoramento" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
           </div>
         </div>
       </div>

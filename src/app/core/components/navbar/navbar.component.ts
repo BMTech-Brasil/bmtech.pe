@@ -28,7 +28,7 @@ import emailjs from '@emailjs/browser';
               <div class="py-2">
                 
                 <div class="relative group/sectigo">
-                  <a href="/solutions/sectigo" class="flex items-center justify-between w-full px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-bm-red transition-colors font-sans cursor-pointer">
+                  <a routerLink="/solutions/sectigo" class="flex items-center justify-between w-full px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-bm-red transition-colors font-sans cursor-pointer">
                     <span>Sectigo</span>
                     <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-hover/sectigo:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -37,7 +37,7 @@ import emailjs from '@emailjs/browser';
 
                   <div class="absolute left-full top-0 w-48 bg-white shadow-xl rounded-lg border border-gray-100 opacity-0 invisible group-hover/sectigo:opacity-100 group-hover/sectigo:visible transition-all duration-300 transform translate-x-2 group-hover/sectigo:translate-x-0 ml-1">
                     <div class="py-2">
-                      <a href="/solutions/scm" class="dropdown-item">SCM</a>
+                      <a routerLink="/solutions/scm" class="dropdown-item">SCM</a>
                       <a routerLink="/solutions/vmc" class="dropdown-item">VMC</a>
                     </div>
                   </div>
