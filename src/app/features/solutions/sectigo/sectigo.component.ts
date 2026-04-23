@@ -7,21 +7,32 @@ import emailjs from '@emailjs/browser';
   standalone: true,
   imports: [CommonModule],
   template: `
-      <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
-        <div class="container mx-auto px-2 md:px-6">
-          <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
-
-          @for (partner of partners(); track partner.name) {
-            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-               <img [src]="partner.img" [alt]="partner.name" 
-                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-               
-               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
-                 {{ partner.name }}
-               </span>
+      <div class="bg-gray-50 border-b border-gray-200 mt-20 py-6 relative z-20 shadow-sm">
+      <div class="container mx-auto px-2 md:px-6">
+        <div class="flex flex-wrap justify-center items-start gap-8 md:gap-16">
+          
+          @for (group of partnerGroups(); track group.category) {
+            <div class="flex flex-col items-center">
+              <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
+                {{ group.category }}
+              </span>
+              
+              <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                @for (partner of group.items; track partner.name) {
+                  <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                     <img [src]="partner.img" [alt]="partner.name" 
+                          class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     
+                     <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                       {{ partner.name }}
+                     </span>
+                  </div>
+                }
+              </div>
             </div>
           }
+
         </div>
       </div>
     </div>
@@ -31,19 +42,19 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-green-100 mb-6 uppercase tracking-wider">
-            <span class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span> Revendedor Oficial Sectigo
+            <span class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span> Distribuidor Oficial Sectigo
           </div>
           <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
             Certificados SSL/TLS <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Máxima Confiança</span>.
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Máxima Confianza</span>.
           </h1>
           <p class="text-lg text-bm-white mb-8 leading-relaxed max-w-xl">
-            Proteja o seu site, os dados dos seus clientes e impulsione o seu SEO com a Autoridade de Certificação (CA) comercial líder mundial. A BM Tech simplifica a emissão e a gestão dos seus certificados.
+            Proteja su sitio web, los datos de sus clientes e impulse su SEO con la Autoridad de Certificación (CA) comercial líder a nivel mundial. BM Tech simplifica la emisión y la gestión de sus certificados.
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button (click)="openContactModal('Consultoria Sectigo SSL', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1">
-              Falar com Especialista
+            <button (click)="openContactModal('Consultoría Sectigo SSL', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1">
+              Hablar con un Especialista
             </button>
           </div>
         </div>
@@ -62,10 +73,10 @@ import emailjs from '@emailjs/browser';
     <section class="py-24 bg-gray-50 border-b border-gray-200">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold text-bm-blue mb-4">Escolha o nível de validação ideal</h2>
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Elija el nivel de validación ideal</h2>
           <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
           <p class="text-gray-600">
-            Diferentes projetos exigem diferentes níveis de confiança e verificação de identidade. Conheça as três principais categorias de certificados SSL/TLS da Sectigo.
+            Diferentes proyectos exigen distintos niveles de confianza y verificación de identidad. Conozca las tres categorías principales de certificados SSL/TLS de Sectigo.
           </p>
         </div>
 
@@ -75,17 +86,17 @@ import emailjs from '@emailjs/browser';
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
             </div>
             <h3 class="text-2xl font-bold text-bm-blue mb-2">Domain Validation (DV)</h3>
-            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em Minutos</p>
+            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emisión en Minutos</p>
             <p class="text-gray-600 mb-6 flex-grow">
-              Valida apenas a propriedade do domínio. É a opção mais rápida e básica, ideal para blogs, portfólios e sites que não coletam dados sensíveis.
+              Valida únicamente la propiedad del dominio. Es la opción más rápida y básica, ideal para blogs, portafolios y sitios web que no recopilan datos sensibles.
             </p>
             <ul class="space-y-3 mb-8 text-sm text-gray-600">
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Criptografia 256-bit forte</li>
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Cadeado de segurança no navegador</li>
-              <li class="flex items-center gap-2 text-gray-400"><span class="text-gray-300 font-bold">X</span> Sem validação da empresa</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Cifrado fuerte de 256 bits</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Candado de seguridad en el navegador</li>
+              <li class="flex items-center gap-2 text-gray-400"><span class="text-gray-300 font-bold">X</span> Sin validación de la empresa</li>
             </ul>
             <button (click)="openModal('DV')" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded font-bold hover:bg-bm-blue hover:text-white transition mt-auto">
-              Saber mais
+              Saber más
             </button>
           </div>
 
@@ -97,17 +108,17 @@ import emailjs from '@emailjs/browser';
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
             </div>
             <h3 class="text-2xl font-bold text-bm-blue mb-2">Organization Validation (OV)</h3>
-            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em 1 a 3 dias</p>
+            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emisión en 1 a 3 días</p>
             <p class="text-gray-600 mb-6 flex-grow">
-              Autentica a existência legal e operacional da sua empresa. Adiciona uma camada extra de confiança, ideal para portais corporativos e intranets.
+              Autentica la existencia legal y operativa de su empresa. Añade una capa extra de confianza, ideal para portales corporativos e intranets.
             </p>
             <ul class="space-y-3 mb-8 text-sm text-gray-600">
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Detalhes da empresa no certificado</li>
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Criptografia 256-bit forte</li>
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Maior garantia financeira</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Detalles de la empresa en el certificado</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Cifrado fuerte de 256 bits</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Mayor garantía financiera</li>
             </ul>
             <button (click)="openModal('OV')" class="w-full bg-bm-blue text-white py-3 rounded font-bold hover:bg-blue-900 transition mt-auto">
-              Saber mais
+              Saber más
             </button>
           </div>
 
@@ -116,17 +127,17 @@ import emailjs from '@emailjs/browser';
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <h3 class="text-2xl font-bold text-bm-blue mb-2">Extended Validation (EV)</h3>
-            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emissão em 1 a 5 dias</p>
+            <p class="text-sm text-gray-500 font-bold mb-4 uppercase tracking-wider">Emisión en 1 a 5 días</p>
             <p class="text-gray-600 mb-6 flex-grow">
-              O mais alto nível de autenticação comercial. O processo de verificação é rigoroso, ideal para bancos, e-commerce e sites que transacionam valores.
+              El más alto nivel de autenticación comercial. El proceso de verificación es riguroso, ideal para bancos, e-commerce y sitios web que procesan transacciones de valor.
             </p>
             <ul class="space-y-3 mb-8 text-sm text-gray-600">
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Nome da empresa visível</li>
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Máxima confiança e conversão</li>
-              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Proteção máxima contra phishing</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Nombre de la empresa visible</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Máxima confianza y conversión</li>
+              <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Protección máxima contra phishing</li>
             </ul>
             <button (click)="openModal('EV')" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded font-bold hover:bg-bm-blue hover:text-white transition mt-auto">
-              Saber mais
+              Saber más
             </button>
           </div>
         </div>
@@ -138,7 +149,7 @@ import emailjs from '@emailjs/browser';
         
         <div class="flex items-center justify-center mb-16">
           <div class="h-px bg-green-500 flex-grow max-w-[100px] md:max-w-[200px]"></div>
-          <h2 class="text-3xl font-bold text-bm-blue mx-6 text-center">Certificados SSL por Cobertura de Domínio</h2>
+          <h2 class="text-3xl font-bold text-bm-blue mx-6 text-center">Certificados SSL por Cobertura de Dominio</h2>
           <div class="h-px bg-green-500 flex-grow max-w-[100px] md:max-w-[200px]"></div>
         </div>
 
@@ -154,7 +165,7 @@ import emailjs from '@emailjs/browser';
             
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados SSL Wildcard</h3>
             <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-              Proteja o seu domínio principal e subdomínios ilimitados sob um único certificado. Os certificados SSL Wildcard são a forma mais conveniente de fornecer proteção SSL e criptografia para um domínio e seus subdomínios.
+              Proteja su dominio principal y subdominios ilimitados bajo un solo certificado. Los certificados SSL Wildcard son la forma más conveniente de proporcionar protección SSL y cifrado para un dominio y sus subdominios.
             </p>
 
             <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
@@ -185,9 +196,9 @@ import emailjs from '@emailjs/browser';
               </svg>
             </div>
             
-            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados SSL Multi-Domínio</h3>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados SSL Multidominio</h3>
             <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-              Proteja até 100 nomes de domínio com um único certificado. Os certificados SSL Multi-domínio (também referidos como certificados SAN/UCC) permitem que um único certificado proteja múltiplos nomes de domínio.
+              Proteja hasta 100 nombres de dominio con un solo certificado. Los certificados SSL Multidominio (también conocidos como certificados SAN/UCC) permiten que un único certificado proteja múltiples nombres de dominio.
             </p>
 
             <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
@@ -226,9 +237,9 @@ import emailjs from '@emailjs/browser';
               </svg>
             </div>
             
-            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados de Domínio Único</h3>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Certificados de Dominio Único</h3>
             <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
-              Proteja um domínio individual com um certificado Sectigo Single SSL. Disponíveis nas opções de Validação de Domínio, Validação Organizacional e Validação Estendida. Inclui um selo de segurança Trust Logo.
+              Proteja un dominio individual con un certificado Sectigo Single SSL. Disponibles en las opciones de Validación de Dominio, Validación Organizacional y Validación Extendida. Incluye un sello de seguridad Trust Logo.
             </p>
 
             <ul class="w-full text-left space-y-3 mb-8 border-t border-gray-100 pt-6">
@@ -268,23 +279,23 @@ import emailjs from '@emailjs/browser';
         <div class="grid md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
           <div class="p-4">
             <p class="text-4xl font-bold mb-2 text-cyan-400">256-bit</p>
-            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Criptografia Forte</p>
-            <p class="text-xs text-blue-200 mt-2">Padrão da indústria (RSA ou ECC).</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Cifrado Fuerte</p>
+            <p class="text-xs text-blue-200 mt-2">Estándar de la industria (RSA o ECC).</p>
           </div>
           <div class="p-4">
             <p class="text-4xl font-bold mb-2 text-cyan-400">99.9%</p>
-            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Reconhecimento</p>
-            <p class="text-xs text-blue-200 mt-2">Compatível com todos os navegadores.</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Reconocimiento</p>
+            <p class="text-xs text-blue-200 mt-2">Compatible con todos los navegadores.</p>
           </div>
           <div class="p-4">
             <p class="text-4xl font-bold mb-2 text-cyan-400">Ilimitado</p>
-            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Licenças de Servidor</p>
-            <p class="text-xs text-blue-200 mt-2">Instale em quantos servidores precisar.</p>
+            <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Licencias de Servidor</p>
+            <p class="text-xs text-blue-200 mt-2">Instálelo en todos los servidores que necesite.</p>
           </div>
           <div class="p-4">
-            <p class="text-4xl font-bold mb-2 text-cyan-400">Selo</p>
+            <p class="text-4xl font-bold mb-2 text-cyan-400">Sello</p>
             <p class="text-sm text-blue-100 font-bold uppercase tracking-wider">Sectigo Trust Seal</p>
-            <p class="text-xs text-blue-200 mt-2">Selo dinâmico para o seu site.</p>
+            <p class="text-xs text-blue-200 mt-2">Sello dinámico para su sitio web.</p>
           </div>
         </div>
       </div>
@@ -306,17 +317,17 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação de Domínio (DV)</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">O certificado de Validação de Domínio (DV) é o tipo mais básico e rápido de SSL. A Autoridade de Certificação (Sectigo) verifica apenas se quem está solicitando o certificado tem controle administrativo sobre o domínio específico.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validación de Dominio (DV)</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">El certificado de Validación de Dominio (DV) es el tipo de SSL más básico y rápido. La Autoridad de Certificación (Sectigo) verifica únicamente si quien solicita el certificado tiene control administrativo sobre el dominio específico.</p>
               
-              <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
-              <p class="text-gray-600 text-sm mb-4">Normalmente é feito de forma automatizada por e-mail (admin&#64;seudominio.com), adicionando um arquivo ao seu servidor (HTTP Hash) ou através de um registro de DNS.</p>
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">¿Cómo funciona la validación?</h4>
+              <p class="text-gray-600 text-sm mb-4">Normalmente se realiza de forma automatizada por e-mail (admin&#64;sudominio.com), agregando un archivo a su servidor (HTTP Hash) o a través de un registro DNS.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
               <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                <li>Blogs e sites pessoais</li>
-                <li>Páginas institucionais que não coletam dados (sem formulários de login/pagamento)</li>
-                <li>Ambientes de teste ou desenvolvimento interno</li>
+                <li>Blogs y sitios web personales</li>
+                <li>Páginas institucionales que no recopilan datos (sin formularios de inicio de sesión o pagos)</li>
+                <li>Entornos de prueba o desarrollo interno</li>
               </ul>
             </div>
           }
@@ -326,17 +337,17 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação Organizacional (OV)</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">Um passo acima na confiança. Além de verificar o controle do domínio, a Sectigo efetua verificações manuais para confirmar a existência legal e física da sua empresa, garantindo aos visitantes que o site pertence a uma organização legítima.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validación Organizacional (OV)</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">Un paso adelante en confianza. Además de verificar el control del dominio, Sectigo realiza verificaciones manuales para confirmar la existencia legal y física de su empresa, garantizando a los visitantes que el sitio web pertenece a una organización legítima.</p>
               
-              <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
-              <p class="text-gray-600 text-sm mb-4">A Sectigo verifica os registros governamentais da sua empresa (como CNPJ no Brasil), confere se a empresa está ativa, valida o endereço físico e faz uma ligação telefônica de verificação para o número registrado oficialmente.</p>
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">¿Cómo funciona la validación?</h4>
+              <p class="text-gray-600 text-sm mb-4">Sectigo verifica los registros gubernamentales de su empresa (como el RUC en Perú), comprueba si la empresa está activa, valida la dirección física y realiza una llamada telefónica de verificación al número registrado oficialmente.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
               <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                <li>Sites corporativos e institucionais de médias e grandes empresas</li>
+                <li>Sitios web corporativos e institucionales de medianas y grandes empresas</li>
                 <li>Sistemas de webmail, VPNs e Intranets</li>
-                <li>Portais que solicitam dados de login ou informações pessoais dos clientes</li>
+                <li>Portales que solicitan datos de inicio de sesión o información personal de los clientes</li>
               </ul>
             </div>
           }
@@ -346,17 +357,17 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validação Estendida (EV)</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">O padrão ouro da confiança online. Os certificados EV exigem a verificação mais rigorosa da indústria. Quando os usuários clicam no cadeado no navegador, os detalhes da sua empresa são apresentados de forma proeminente, provando 100% que não se trata de um site falso.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Validación Extendida (EV)</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">El estándar de oro de la confianza online. Los certificados EV exigen la verificación más rigurosa de la industria. Cuando los usuarios hacen clic en el candado del navegador, los detalles de su empresa se muestran de forma destacada, demostrando al 100% que no se trata de un sitio web falso.</p>
               
-              <h4 class="font-bold text-gray-800 mt-6 mb-2">Como funciona a validação?</h4>
-              <p class="text-gray-600 text-sm mb-4">Além de todas as verificações do OV (domínio, registro legal, endereço e telefone), a Sectigo verifica a identidade do solicitante e o seu vínculo empregatício com a empresa, garantindo que ele tem autoridade para solicitar o certificado.</p>
+              <h4 class="font-bold text-gray-800 mt-6 mb-2">¿Cómo funciona la validación?</h4>
+              <p class="text-gray-600 text-sm mb-4">Además de todas las verificaciones del OV (dominio, registro legal, dirección y teléfono), Sectigo verifica la identidad del solicitante y su vínculo laboral con la empresa, garantizando que tiene autoridad para solicitar el certificado.</p>
               
               <h4 class="font-bold text-gray-800 mt-6 mb-2">Ideal para:</h4>
               <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
-                <li>Bancos, Fintechs e Instituições Financeiras</li>
-                <li>Lojas virtuais (E-commerce) de alto volume</li>
-                <li>Qualquer site que busque a máxima taxa de conversão e proteção de marca</li>
+                <li>Bancos, Fintechs e Instituciones Financieras</li>
+                <li>Tiendas virtuales (E-commerce) de alto volumen</li>
+                <li>Cualquier sitio web que busque la máxima tasa de conversión y protección de marca</li>
               </ul>
             </div>
           }
@@ -366,14 +377,14 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
-              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre o certificado <strong>{{ selectedCertificateName() }}</strong>.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización</h3>
+              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir una propuesta comercial y asesoría sobre el certificado <strong>{{ selectedCertificateName() }}</strong>.</p>
               
               <form (submit)="onSubmitContact($event)" class="space-y-4">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre Completo *</label>
                     <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
@@ -384,23 +395,23 @@ import emailjs from '@emailjs/browser';
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Teléfono / WhatsApp *</label>
                     <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre de la Empresa</label>
                     <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Producto de Interés</label>
                   <input type="text" name="product_subject" [value]="selectedCertificateName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto</label>
-                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Deixe aqui o maior número de informações possíveis" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalles del Proyecto</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Déjenos aquí la mayor cantidad de información posible" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
                 </div>
 
                 <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
@@ -415,9 +426,9 @@ import emailjs from '@emailjs/browser';
                     Enviando...
                   } @else if (submitSuccess()) {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    Solicitação Enviada!
+                    ¡Solicitud Enviada!
                   } @else {
-                    Enviar Solicitação
+                    Enviar Solicitud
                   }
                 </button>
               </form>
@@ -426,7 +437,7 @@ import emailjs from '@emailjs/browser';
 
           @if (activeModal() !== 'CONTACT') {
             <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end">
-                <button (click)="closeModal()" class="bg-gray-100 text-gray-700 px-6 py-2 rounded font-bold hover:bg-gray-200 transition">Fechar</button>
+                <button (click)="closeModal()" class="bg-gray-100 text-gray-700 px-6 py-2 rounded font-bold hover:bg-gray-200 transition">Cerrar</button>
             </div>
           }
         </div>
@@ -482,19 +493,36 @@ export class SectigoComponent {
       }, 3000);
 
     } catch (error) {
-      console.error('Falha ao enviar o e-mail via EmailJS', error);
-      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');  
+      console.error('Falla al enviar el e-mail vía EmailJS', error);
+      alert('Ocurrió un error de comunicación. Por favor, intente nuevamente o contáctenos por WhatsApp.');  
     } finally {
       this.isSubmitting.set(false);
     }
   }
 
-  partners = signal([
-    { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'Teramind', img: 'partners/teramind.svg' },
-    { name: 'Hexnode', img: 'partners/hexnode.svg' },
-    { name: 'KickIdler', img: 'partners/kickidler.png' },
-    { name: 'Portal Flex', img: 'partners/pfx.svg' },
-    { name: 'Keytalk', img: 'partners/keytalk.svg' }
-  ]);
+  partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg' },
+        { name: 'DigiCert', img: 'partners/digicert.svg' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg' },
+        { name: 'Tablex', img: 'partners/tablex.png' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg' },
+        { name: 'KickIdler', img: 'partners/kickidler.png' }
+      ]
+    }
+  ])
 }

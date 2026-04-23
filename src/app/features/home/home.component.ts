@@ -8,21 +8,32 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
+    <div class="bg-gray-50 border-b border-gray-200 mt-20 py-6 relative z-20 shadow-sm">
       <div class="container mx-auto px-2 md:px-6">
-        <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
+        <div class="flex flex-wrap justify-center items-start gap-8 md:gap-16">
           
-          @for (partner of partners(); track partner.name) {
-            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-               <img [src]="partner.img" [alt]="partner.name" 
-                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-               
-               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
-                 {{ partner.name }}
-               </span>
+          @for (group of partnerGroups(); track group.category) {
+            <div class="flex flex-col items-center">
+              <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
+                {{ group.category }}
+              </span>
+              
+              <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                @for (partner of group.items; track partner.name) {
+                  <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                     <img [src]="partner.img" [alt]="partner.name" 
+                          class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     
+                     <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                       {{ partner.name }}
+                     </span>
+                  </div>
+                }
+              </div>
             </div>
           }
+
         </div>
       </div>
     </div>
@@ -38,7 +49,7 @@ import { RouterLink } from "@angular/router";
               
               <img [src]="img" class="w-full h-full object-cover transition-transform duration-1000 ease-in-out" 
                    [ngClass]="{'scale-105': currentHeroIndex() === $index, 'scale-100': currentHeroIndex() !== $index}"
-                   alt="Banner Security">
+                   alt="Banner Seguridad">
               
               <div class="absolute inset-0 bg-bm-blue/30 mix-blend-multiply"></div>
             </div>
@@ -49,17 +60,17 @@ import { RouterLink } from "@angular/router";
 
       <div class="container mx-auto px-6 relative z-10 flex items-center">
         <div class="max-w-3xl">
-          <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block">Segurança & Identidade Digital</span>
-          <h1 class="text-5xl md:text-7xl font-bold text-bm-white mb-6 leading-tight">Sua empresa segura <br>para crescer <span class="text-bm-red">sem limites.</span></h1>
+          <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block">Seguridad e Identidad Digital</span>
+          <h1 class="text-5xl md:text-7xl font-bold text-bm-white mb-6 leading-tight">Su empresa segura <br>para crecer <span class="text-bm-red">sin límites.</span></h1>
           <p class="text-xl text-white-600 mb-10 leading-relaxed max-w-xl">
-            Especialistas em PKI, Certificados Digitais e Cibersegurança a mais de <strong>22 anos</strong>. 
-            Revendedores oficiais <span class="font-bold text-green-500">Sectigo</span> no Brasil, Peru e EUA.
+            Especialistas en PKI, Certificados Digitales y Ciberseguridad por más de <strong>22 años</strong>. 
+            Distribuidores oficiales <span class="font-bold text-green-500">Sectigo</span> en Perú, Brasil y EE.UU.
           </p>
           <div class="flex flex-col md:flex-row gap-4">
-            <button (click)="openContactModal('Consultoria de Segurança', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Falar com um Consultor</button>
+            <button (click)="openContactModal('Consultoría de Seguridad', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Hablar con un Asesor</button>
             
-            <button (click)="scrollTo('nossas-solucoes')" class="border-2 border-bm-white text-bm-white px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
-              Nossas Soluções
+            <button (click)="scrollTo('nuestras-soluciones')" class="border-2 border-bm-white text-bm-white px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
+              Nuestras Soluciones
             </button>
             
           </div>
@@ -69,7 +80,7 @@ import { RouterLink } from "@angular/router";
 
     <section class="py-16 bg-white overflow-hidden border-y border-gray-100 shadow-sm">
       <div class="container mx-auto px-6 mb-10 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Quem confia na BM Tech</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Quiénes confían en BM Tech</h2>
         <div class="w-20 h-1 bg-bm-red mx-auto"></div>
       </div>
 
@@ -91,10 +102,10 @@ import { RouterLink } from "@angular/router";
       </div>
     </section>
 
-    <section id="nossas-solucoes" class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
+    <section id="nuestras-soluciones" class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-bm-white mb-4">Nossas Soluções</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-bm-white mb-4">Nuestras Soluciones</h2>
           <div class="w-20 h-1 bg-bm-red mx-auto"></div>
         </div>
 
@@ -105,27 +116,27 @@ import { RouterLink } from "@angular/router";
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Certificados SSL</h3>
             <p class="text-gray-600 text-sm mb-4">
-              Emissão imediata de certificados OV e EV com garantia <strong>Sectigo</strong>.
+              Emisión inmediata de certificados OV y EV con garantía <strong>Sectigo</strong>.
             </p>
-            <a routerLink="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <a routerLink="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
             <div class="w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center mb-6 text-bm-red group-hover:bg-bm-red group-hover:text-white transition-colors">
                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
             </div>
-            <h3 class="text-xl font-bold text-bm-blue mb-3">Assinatura Digital/Automação de Processos</h3>
-            <p class="text-gray-600 text-sm mb-4">Elimine papel com validade jurídica total e gestão de documentos em nuvem.</p>
-            <a routerLink="/solutions/portal-flex" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <h3 class="text-xl font-bold text-bm-blue mb-3">Firma Digital y Automatización de Procesos</h3>
+            <p class="text-gray-600 text-sm mb-4">Elimine el papel con total validez jurídica y gestión de documentos en la nube.</p>
+            <a routerLink="/solutions/portal-flex" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
             <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-bm-blue group-hover:bg-bm-blue group-hover:text-white transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
-            <h3 class="text-xl font-bold text-bm-blue mb-3">Monitoramento DLP</h3>
-            <p class="text-gray-600 text-sm mb-4">Previna vazamento de dados e monitore ameaças internas com Teramind.</p>
-            <a routerLink="/solutions/monitoramento" class="text-bm-red font-bold text-sm hover:underline">Ver detalhes →</a>
+            <h3 class="text-xl font-bold text-bm-blue mb-3">Monitoreo DLP</h3>
+            <p class="text-gray-600 text-sm mb-4">Prevenga la fuga de datos y monitoree amenazas internas con Teramind.</p>
+            <a routerLink="/solutions/monitoramento" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
           </div>
         </div>
       </div>
@@ -144,13 +155,13 @@ import { RouterLink } from "@angular/router";
               <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
-              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización</h3>
+              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir una propuesta comercial y asesoría sobre la solución <strong>{{ selectedProductName() }}</strong>.</p>
               
               <form (submit)="onSubmitContact($event)" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre Completo *</label>
                     <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
@@ -161,23 +172,23 @@ import { RouterLink } from "@angular/router";
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Teléfono / WhatsApp *</label>
                     <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre de la Empresa</label>
                     <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Producto de Interés</label>
                   <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
-                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Conte-nos como podemos ajudar a proteger a sua empresa" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalles del Proyecto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Cuéntenos cómo podemos ayudar a proteger a su empresa" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
                 </div>
 
                 <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
@@ -191,9 +202,9 @@ import { RouterLink } from "@angular/router";
                     Enviando...
                   } @else if (submitSuccess()) {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    Solicitação Enviada!
+                    ¡Solicitud Enviada!
                   } @else {
-                    Enviar Solicitação
+                    Enviar Solicitud
                   }
                 </button>
               </form>
@@ -214,28 +225,45 @@ export class HomeComponent implements OnInit, OnDestroy {
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'
   ];
 
-  partners = signal([
-    { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'Teramind', img: 'partners/teramind.svg' },
-    { name: 'Hexnode', img: 'partners/hexnode.svg' },
-    { name: 'KickIdler', img: 'partners/kickidler.png' },
-    { name: 'Portal Flex', img: 'partners/pfx.svg' },
-    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+  partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg' },
+        { name: 'DigiCert', img: 'partners/digicert.svg' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg' },
+        { name: 'Tablex', img: 'partners/tablex.svg' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg' },
+        { name: 'KickIdler', img: 'partners/kickidler.png' }
+      ]
+    }
   ]);
 
   clients = signal([
-    { id: 1, name: 'Coritiba', img: 'clients/coritiba.svg', url: 'https://coritiba.com.br'},
-    { id: 2, name: 'JBS', img: 'clients/jbs-logo.svg', url: 'https://www.jbs.com.br'},
-    { id: 3, name: 'MBRF', img: 'clients/mbrf.svg', url: 'https://www.mbrf.com'},
-    { id: 4, name: 'Melitta', img: 'clients/melitta.svg', url: 'https://www.melitta.com.br'},
-    { id: 5, name: 'NTT', img: 'clients/ntt-logo.png', url: 'https://br.nttdata.com'},
-    { id: 6, name: 'Nubank', img: 'clients/nubank.svg', url: 'https://nubank.com.br'},
-    { id: 7, name: 'Sicredi', img: 'clients/sicredi.svg', url: 'https://www.sicredi.com.br/home'},
-    { id: 8, name: 'Taurus', img: 'clients/taurus-logo.svg', url: 'https://taurusarmas.com.br/home'},
-    { id: 9, name: 'Telefonica', img: 'clients/telefonica-logo.png', url: 'https://www.telefonica.com.br'},
-    { id: 10, name: 'Vigor', img: 'clients/vigor.svg', url: 'https://www.vigor.com.br'},
-    { id: 11, name: 'WEG', img: 'clients/weg.svg', url: 'https://www.weg.net/institutional/BR/pt'},
-    { id: 12, name: 'XPI', img: 'clients/xp_investimentos.png', url: 'https://www.xpi.com.br'},
+    { id: 1, name: 'Alfin', img: 'clients/Alfin.svg', url: 'https://alfinbanco.pe/'},
+    { id: 2, name: 'Anglo American', img: 'clients/angloamerican.png', url: 'https://peru.angloamerican.com/'},
+    { id: 3, name: 'BCRP', img: 'clients/bancocentral.png', url: 'https://www.bcrp.gob.pe/'},
+    { id: 4, name: 'Bitel', img: 'clients/bitel.png', url: 'https://bitel.com.pe/'},
+    { id: 5, name: 'JNE', img: 'clients/JNE.png', url: 'https://www.jne.gob.pe/'},
+    { id: 6, name: 'SIDER', img: 'clients/SIDERPERU.jpg', url: 'https://www.siderperu.com.pe/'},
+    { id: 7, name: 'Mibanco', img: 'clients/mibanco.png', url: 'https://www.mibanco.com.pe/'},
+    { id: 8, name: 'Luz del Sur', img: 'clients/luzdelsur.svg', url: 'https://www.luzdelsur.pe/es'},
+    { id: 9, name: 'MIMP', img: 'clients/mimp.jpeg', url: 'https://www.gob.pe/mimp'},
+    { id: 10, name: 'Mincetur', img: 'clients/mincetur.png', url: 'https://www.gob.pe/mincetur'},
+    { id: 11, name: 'Santander', img: 'clients/santander.svg', url: 'https://www.santander.com.pe/'},
+    { id: 12, name: 'Good Hope', img: 'clients/goodhope.jpg', url: 'https://www.goodhope.org.pe/'},
   ]);
 
   activeModal = signal<'CONTACT' | null>(null);
@@ -298,8 +326,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 3000);
 
     } catch (error) {
-      console.error('Falha ao enviar o e-mail via EmailJS', error);
-      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+      console.error('Falla al enviar el e-mail vía EmailJS', error);
+      alert('Ocurrió un error de comunicación. Por favor, intente nuevamente o contáctenos por WhatsApp.');
     } finally {
       this.isSubmitting.set(false);
     }

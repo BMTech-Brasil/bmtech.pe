@@ -137,7 +137,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Biometria Facial</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Adicione uma camada extra de segurança. Exija que o signatário faça o reconhecimento facial antes de assinar contratos sensíveis.
+              Añade una capa adicional de seguridad. Exige al firmante que realice el reconocimiento facial antes de firmar contratos confidenciales.
             </p>
           </div>
 

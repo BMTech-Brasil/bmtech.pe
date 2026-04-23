@@ -9,7 +9,6 @@ export const routes: Routes = [
     path: 'solutions',
     children: [
       { path: 'teramind', loadComponent: () => import('./features/solutions/monitoramento/teramind/teramind.component').then(c => c.TeramindComponent) },
-      { path: 'vmc', loadComponent: () => import('./features/solutions/vmc/vmc.component').then(c => c.VmcComponent) },
       { path: 'portal-flex', loadComponent: () => import('./features/solutions/portal-flex/portal-flex.component').then(c => c.PortalFlexComponent) },
       { path: 'sectigo', loadComponent: () => import('./features/solutions/sectigo/sectigo.component').then(c => c.SectigoComponent) },
       { path: 'scm', loadComponent: () => import('./features/solutions/scm/scm.component').then(c => c.ScmComponent) },
