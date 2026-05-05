@@ -12,15 +12,25 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-2 md:px-6">
         <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
 
-        @for (partner of partners(); track partner.name) {
-            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-               <img [src]="partner.img" [alt]="partner.name" 
-                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-               
-               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
-                 {{ partner.name }}
-               </span>
+                @for (group of partnerGroups(); track group.category) {
+            <div class="flex flex-col items-center">
+              <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
+                {{ group.category }}
+              </span>
+              
+              <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                @for (partner of group.items; track partner.name) {
+                  <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                     <img [src]="partner.img" [alt]="partner.name" 
+                          class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     
+                     <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                       {{ partner.name }}
+                     </span>
+                  </div>
+                }
+              </div>
             </div>
           }
         </div>
@@ -38,20 +48,20 @@ import emailjs from '@emailjs/browser';
             </div>
             
             <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              A automação definitiva para <br>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Certificados Digitais</span>.
+              La automatización definitiva para <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Certificados Digitales</span>.
             </h1>
             
             <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-              O <strong>Sectigo Certificate Manager (SCM)</strong> descobre, gere e automatiza a renovação de toda a sua infraestrutura de certificados Sectigo, evitando falhas sistémicas e simplificando o trabalho da sua equipa de TI.
+              El <strong>Sectigo Certificate Manager (SCM)</strong> descubre, gestiona y automatiza la renovación de toda su infraestructura de certificados Sectigo, evitando fallas sistémicas y simplificando el trabajo de su equipo de TI.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4">
-              <button (click)="openContactModal('Sectigo SCM - Demonstração', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
-                Agendar Demonstração SCM
+              <button (click)="openContactModal('Sectigo SCM - Demostración', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+                Agendar Demostración SCM
               </button>
-              <button (click)="openContactModal('Consultoria Sectigo SCM', $event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
-                Falar com Especialista
+              <button (click)="openContactModal('Consultoría Sectigo SCM', $event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
+                Hablar con un Especialista
               </button>
             </div>
           </div>
@@ -69,20 +79,20 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
           <div>
-            <p class="text-4xl font-bold text-bm-blue mb-1">Zero</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Downtime por Expiração</p>
+            <p class="text-4xl font-bold text-bm-blue mb-1">Cero</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Inactividad por Expiración</p>
           </div>
           <div>
             <p class="text-4xl font-bold text-bm-blue mb-1">100%</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Visibilidade da Rede</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Visibilidad de la Red</p>
           </div>
           <div>
-            <p class="text-4xl font-bold text-bm-blue mb-1">Agil</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Gestão num só painel</p>
+            <p class="text-4xl font-bold text-bm-blue mb-1">Ágil</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Gestión en un solo panel</p>
           </div>
           <div>
             <p class="text-4xl font-bold text-bm-blue mb-1">DevOps</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Integração Nativa</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Integración Nativa</p>
           </div>
         </div>
       </div>
@@ -96,27 +106,27 @@ import emailjs from '@emailjs/browser';
                <div class="absolute -top-4 -left-4 w-12 h-12 bg-bm-red rounded-full flex items-center justify-center text-white shadow-lg shadow-red-500/30">
                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                </div>
-               <h3 class="text-xl font-bold text-gray-800 mb-4">O risco da gestão manual</h3>
+               <h3 class="text-xl font-bold text-gray-800 mb-4">El riesgo de la gestión manual</h3>
                <div class="space-y-4">
                  <div class="flex items-center gap-3 p-3 bg-red-50 text-red-700 rounded border border-red-100">
-                   <span class="font-bold">❌</span> <span>Planilhas de Excel desatualizadas</span>
+                   <span class="font-bold">❌</span> <span>Hojas de cálculo de Excel desactualizadas</span>
                  </div>
                  <div class="flex items-center gap-3 p-3 bg-red-50 text-red-700 rounded border border-red-100">
-                   <span class="font-bold">❌</span> <span>Certificados "invisíveis" (Shadow IT)</span>
+                   <span class="font-bold">❌</span> <span>Certificados "invisibles" (Shadow IT)</span>
                  </div>
                  <div class="flex items-center gap-3 p-3 bg-red-50 text-red-700 rounded border border-red-100">
-                   <span class="font-bold">❌</span> <span>Sistemas fora do ar (Prejuízo)</span>
+                   <span class="font-bold">❌</span> <span>Sistemas caídos (Pérdidas)</span>
                  </div>
                </div>
             </div>
           </div>
           <div class="order-1 lg:order-2">
-            <h2 class="text-3xl font-bold text-bm-blue mb-6">A gestão manual já não é sustentável.</h2>
+            <h2 class="text-3xl font-bold text-bm-blue mb-6">La gestión manual ya no es sostenible.</h2>
             <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-              Com as novas políticas de segurança globais, o tempo de vida dos certificados SSL/TLS públicos diminuiu consideravelmente. Acompanhar dezenas ou centenas de certificados manualmente é um convite a falhas humanas e interrupções de serviço críticas.
+              Con las nuevas políticas de seguridad globales, el tiempo de vida de los certificados SSL/TLS públicos ha disminuido considerablemente. Monitorear decenas o cientos de certificados manualmente es una invitación a errores humanos e interrupciones de servicio críticas.
             </p>
             <p class="text-gray-600 text-lg leading-relaxed">
-              Com o <strong>Sectigo Certificate Manager</strong>, a sua equipa de TI muda o foco: deixa de apagar incêndios e passa a governar a criptografia corporativa de forma inteligente e automatizada.
+              Con <strong>Sectigo Certificate Manager</strong>, su equipo de TI cambia el enfoque: deja de apagar incendios y pasa a gobernar la criptografía corporativa de forma inteligente y automatizada.
             </p>
           </div>
         </div>
@@ -126,7 +136,7 @@ import emailjs from '@emailjs/browser';
     <section class="py-24 bg-white border-b border-gray-100">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold text-bm-blue mb-4">Como o SCM resolve os seus problemas</h2>
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Cómo el SCM resuelve sus problemas</h2>
           <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
@@ -134,22 +144,22 @@ import emailjs from '@emailjs/browser';
             <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-bm-blue">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Discovery Automático</h3>
-            <p class="text-gray-600 text-sm">Faça varreduras na sua rede e encontre todos os certificados Sectigo instalados. Mantenha um inventário sempre atualizado.</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Descubrimiento Automático</h3>
+            <p class="text-gray-600 text-sm">Realice escaneos en su red y encuentre todos los certificados Sectigo instalados. Mantenga un inventario siempre actualizado.</p>
           </div>
           <div class="p-8 rounded-xl bg-gray-50 border border-gray-100 hover:shadow-lg transition">
             <div class="w-14 h-14 bg-red-100 rounded-lg flex items-center justify-center mb-6 text-bm-red">
                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Renovação Zero-Touch</h3>
-            <p class="text-gray-600 text-sm">Automatize o ciclo completo (emissão, renovação, instalação) utilizando protocolos nativos da indústria como ACME, SCEP e REST APIs.</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Renovación Zero-Touch</h3>
+            <p class="text-gray-600 text-sm">Automatice el ciclo completo (emisión, renovación, instalación) utilizando protocolos nativos de la industria como ACME, SCEP y APIs REST.</p>
           </div>
           <div class="p-8 rounded-xl bg-gray-50 border border-gray-100 hover:shadow-lg transition">
             <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-bm-blue">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Plataforma Unificada</h3>
-            <p class="text-gray-600 text-sm">Gira todos os seus ativos da Sectigo (SSL Público, PKI Privada, S/MIME, Code Signing) a partir de um único Painel de Controlo.</p>
+            <p class="text-gray-600 text-sm">Gestione todos sus activos de Sectigo (SSL Público, PKI Privada, S/MIME, Code Signing) desde un único Panel de Control.</p>
           </div>
         </div>
       </div>
@@ -162,16 +172,16 @@ import emailjs from '@emailjs/browser';
 
       <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-          <span class="text-bm-blue font-bold tracking-widest uppercase mb-4 block text-sm">Estratégia Completa de Segurança</span>
+          <span class="text-bm-blue font-bold tracking-widest uppercase mb-4 block text-sm">Estrategia Completa de Seguridad</span>
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Quer ir além da ferramenta e entender o conceito de <span class="text-bm-red">Sectigo CLM</span>?
+            ¿Quiere ir más allá de la herramienta y entender el concepto de <span class="text-bm-red">Sectigo CLM</span>?
           </h2>
           <p class="text-gray-600 mb-10 text-lg leading-relaxed">
-            O SCM é o seu painel de comando, mas o <strong>Certificate Lifecycle Management (CLM)</strong> é a solução arquitetónica que protege cada identidade da sua empresa. Descubra como garantir a segurança de ponta a ponta com o ecossistema Sectigo.
+            El SCM es su panel de comando, pero el <strong>Certificate Lifecycle Management (CLM)</strong> es la solución arquitectónica que protege cada identidad de su empresa. Descubra cómo garantizar la seguridad de extremo a extremo con el ecosistema Sectigo.
           </p>
           
           <a routerLink="/solutions/clm" class="inline-flex items-center gap-3 bg-white border-2 border-bm-blue text-bm-blue px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition group shadow-md hover:shadow-xl">
-            Conhecer o Sectigo CLM
+            Conocer Sectigo CLM
             <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
         </div>
@@ -180,12 +190,12 @@ import emailjs from '@emailjs/browser';
 
     <section class="py-24 bg-gray-900 text-center relative overflow-hidden">
       <div class="container mx-auto px-6 relative z-10">
-        <h2 class="text-3xl font-bold text-white mb-6">Assuma o controlo da sua criptografia</h2>
+        <h2 class="text-3xl font-bold text-white mb-6">Tome el control de su criptografía</h2>
         <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
-          Fale com a nossa equipe e descubra como implementar o Sectigo Certificate Manager (SCM) e automatizar 100% a sua infraestrutura de certificados.
+          Hable con nuestro equipo y descubra cómo implementar Sectigo Certificate Manager (SCM) y automatizar al 100% su infraestructura de certificados.
         </p>
-        <button (click)="openContactModal('Sectigo SCM - Assessment', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
-          Solicitar Assessment e Demo
+        <button (click)="openContactModal('Sectigo SCM - Assessment y Demo', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
+          Solicitar Assessment y Demo
         </button>
       </div>
     </section>
@@ -203,40 +213,40 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
-              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización</h3>
+              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir una propuesta comercial y orientación sobre la solución <strong>{{ selectedProductName() }}</strong>.</p>
               
               <form (submit)="onSubmitContact($event)" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre Completo *</label>
                     <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Correo Corporativo *</label>
                     <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Teléfono / WhatsApp *</label>
                     <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre de la Empresa</label>
                     <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Producto Deseado</label>
                   <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
-                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Conte-nos sobre sua necessidade" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalles del Proyecto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Cuéntenos sobre su necesidad" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
                 </div>
 
                 <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
@@ -250,9 +260,9 @@ import emailjs from '@emailjs/browser';
                     Enviando...
                   } @else if (submitSuccess()) {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    Solicitação Enviada!
+                    ¡Solicitud Enviada!
                   } @else {
-                    Enviar Solicitação
+                    Enviar Solicitud
                   }
                 </button>
               </form>
@@ -264,13 +274,30 @@ import emailjs from '@emailjs/browser';
   `
 })
 export class ScmComponent {
-  partners = signal([
-    { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'Teramind', img: 'partners/teramind.svg' },
-    { name: 'Hexnode', img: 'partners/hexnode.svg' },
-    { name: 'KickIdler', img: 'partners/kickidler.png' },
-    { name: 'Portal Flex', img: 'partners/pfx.svg' },
-    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+  partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg' },
+        { name: 'DigiCert', img: 'partners/digicert.svg' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg' },
+        { name: 'Tablex', img: 'partners/tablex.svg' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg' },
+        { name: 'KickIdler', img: 'partners/kickidler.png' }
+      ]
+    }
   ]);
 
   activeModal = signal<'CONTACT' | null>(null);
@@ -314,8 +341,8 @@ export class ScmComponent {
       }, 3000);
 
     } catch (error) {
-      console.error('Falha ao enviar o e-mail via EmailJS', error);
-      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+      console.error('Error al enviar el correo vía EmailJS', error);
+      alert('Ocurrió un error de comunicación. Por favor, intente nuevamente o comuníquese por WhatsApp.');
     } finally {
       this.isSubmitting.set(false);
     }

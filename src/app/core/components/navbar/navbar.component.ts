@@ -12,7 +12,7 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-6 h-20 flex justify-between items-center">
         
         <a routerLink="/" class="flex items-center hover:opacity-90 transition select-none">
-          <img src="bmtechlogo.png" alt="Logo de BM Tech" class="h-12 w-auto object-contain">
+          <img src="bmtechlogo.png" alt="Logo de BMTech" class="h-12 w-auto object-contain">
         </a>
 
         <div class="hidden md:flex items-center gap-6 lg:gap-8">
@@ -61,7 +61,7 @@ import emailjs from '@emailjs/browser';
           </div>
 
           <div class="relative group h-20 flex items-center">
-            <button class="nav-item flex items-center gap-1 focus:outline-none">
+            <button routerLink="/solutions/monitoramento" class="nav-item flex items-center gap-1 focus:outline-none">
               Monitoreo
               <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>

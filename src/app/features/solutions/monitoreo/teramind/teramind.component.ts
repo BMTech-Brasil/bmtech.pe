@@ -30,17 +30,17 @@ import emailjs from '@emailjs/browser';
     <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center"><div>
           <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-orange-200 mb-6 uppercase tracking-wider">
-            <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span> Data Loss Prevention
+            <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span> Prevención de Pérdida de Datos
           </div>
-          <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Monitoramento de Usuários & <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-white">Prevenção de Perda de Dados</span>
+          <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Monitoreo de Usuarios & <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-white">Prevención de Pérdida de Datos</span>
           </h1>
           <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-            Detecte ameaças internas, previna vazamentos de dados (DLP) e otimize a produtividade da sua equipe com a plataforma líder global.
+            Detecte amenazas internas, prevenga fugas de datos (DLP) y optimice la productividad de su equipo con la plataforma líder a nivel mundial.
           </p> 
           <div class="flex gap-4">
             <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg">
-              Agendar Demonstração
+              Agendar Demostración
             </button>
             <button class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition">
               Ver Funcionalidades
@@ -50,7 +50,7 @@ import emailjs from '@emailjs/browser';
 
         <div class="bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20 shadow-2xl relative z-20">
           <div class="aspect-video rounded-lg overflow-hidden relative bg-black shadow-inner">
-            <iframe [src]="safeVideoUrl" title="Apresentação Teramind" class="absolute inset-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            <iframe [src]="safeVideoUrl" title="Presentación Teramind" class="absolute inset-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
             </iframe>
           </div>
         </div>
@@ -60,29 +60,29 @@ import emailjs from '@emailjs/browser';
     <section class="py-24 bg-white">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-bm-blue mb-4">Por que escolher Teramind?</h2>
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">¿Por qué elegir Teramind?</h2>
           <div class="w-16 h-1 bg-bm-red mx-auto"></div>
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
           <div class="bg-gray-50 p-8 rounded-xl hover:-translate-y-2 transition duration-300 border-t-4 border-bm-blue shadow-sm hover:shadow-md">
-            <h3 class="text-2xl font-bold text-bm-blue mb-4">Monitoramento de Atividade</h3>
+            <h3 class="text-2xl font-bold text-bm-blue mb-4">Monitoreo de Actividad</h3>
             <p class="text-gray-600 text-base leading-relaxed">
-              Grave sessões de tela, monitore e-mails, chats, transferências de arquivos e impressões em tempo real. Saiba exatamente o que acontece na sua rede.
+              Grabe sesiones de pantalla, monitoree correos electrónicos, chats, transferencias de archivos e impresiones en tiempo real. Sepa exactamente qué ocurre en su red.
             </p>
           </div>
 
           <div class="bg-gray-50 p-8 rounded-xl hover:-translate-y-2 transition duration-300 border-t-4 border-bm-red shadow-sm hover:shadow-md">
-            <h3 class="text-2xl font-bold text-bm-blue mb-4">DLP (Data Loss Prevention)</h3>
+            <h3 class="text-2xl font-bold text-bm-blue mb-4">DLP (Prevención de Pérdida de Datos)</h3>
             <p class="text-gray-600 text-base leading-relaxed">
-              Bloqueie automaticamente ações suspeitas. Impeça que dados sensíveis (CPF, Cartões, Projetos) sejam copiados para USB ou enviados por e-mail.
+              Bloquee automáticamente acciones sospechosas. Evite que datos sensibles (DNI, tarjetas, proyectos) sean copiados a USB o enviados por correo electrónico.
             </p>
           </div>
 
           <div class="bg-gray-50 p-8 rounded-xl hover:-translate-y-2 transition duration-300 border-t-4 border-bm-blue shadow-sm hover:shadow-md">
-            <h3 class="text-2xl font-bold text-bm-blue mb-4">Análise de Produtividade</h3>
+            <h3 class="text-2xl font-bold text-bm-blue mb-4">Análisis de Productividad</h3>
             <p class="text-gray-600 text-base leading-relaxed">
-              Identifique gargalos de fluxo de trabalho, analise o tempo ativo vs. ocioso e otimize a performance de equipes remotas e presenciais.
+              Identifique cuellos de botella en el flujo de trabajo, analice el tiempo activo vs. inactivo y optimice el rendimiento de equipos remotos y presenciales.
             </p>
           </div>  
         </div>
@@ -92,15 +92,15 @@ import emailjs from '@emailjs/browser';
     <section class="py-20 bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900">
       <div class="container mx-auto px-6">
         <div class="text-center mb-12 max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold text-white mb-4">Níveis Teramind: Compare os Recursos</h2>
-          <p class="text-gray-300">Escolha a versão ideal para a maturidade de segurança da sua empresa.</p>
+          <h2 class="text-3xl font-bold text-white mb-4">Niveles Teramind: Compare las Funcionalidades</h2>
+          <p class="text-gray-300">Elija la versión ideal según la madurez de seguridad de su empresa.</p>
         </div>
 
         <div class="overflow-x-auto shadow-xl rounded-xl border border-gray-100 bg-white max-w-5xl mx-auto">
           <table class="w-full text-left border-collapse min-w-[800px]">
             <thead>
               <tr class="bg-bm-blue text-white">
-                <th class="p-4 font-bold text-sm uppercase tracking-wider w-1/4 rounded-tl-xl">Recurso de Segurança</th>
+                <th class="p-4 font-bold text-sm uppercase tracking-wider w-1/4 rounded-tl-xl">Funcionalidad de Seguridad</th>
                 <th class="p-4 font-bold text-center w-[18%] bg-white/5">Starter</th>
                 <th class="p-4 font-bold text-center w-[18%] bg-white/10">UAM</th>
                 <th class="p-4 font-bold text-center w-[18%] bg-white/5">DLP</th>
@@ -110,7 +110,7 @@ import emailjs from '@emailjs/browser';
             <tbody class="text-sm text-gray-700 divide-y divide-gray-100">
               
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Gravação de Tela e Replay</td>
+                <td class="p-4 font-medium text-gray-800">Grabación de Pantalla y Reproducción</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -118,7 +118,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Monitoramento de Apps/Sites</td>
+                <td class="p-4 font-medium text-gray-800">Monitoreo de Apps/Sitios Web</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -126,7 +126,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Análise de Produtividade</td>
+                <td class="p-4 font-medium text-gray-800">Análisis de Productividad</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -134,7 +134,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Gestão de Sessões em Nuvem/RDP</td>
+                <td class="p-4 font-medium text-gray-800">Gestión de Sesiones en Nube/RDP</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -142,7 +142,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Prevenção de Perda de Dados (DLP)</td>
+                <td class="p-4 font-medium text-gray-800">Prevención de Pérdida de Datos (DLP)</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -150,7 +150,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Monitoramento de Transferência (USB/Nuvem)</td>
+                <td class="p-4 font-medium text-gray-800">Monitoreo de Transferencias (USB/Nube)</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -158,7 +158,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Monitoramento de E-mail</td>
+                <td class="p-4 font-medium text-gray-800">Monitoreo de Correo Electrónico</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -166,7 +166,7 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Regras de Bloqueio e Alertas</td>
+                <td class="p-4 font-medium text-gray-800">Reglas de Bloqueo y Alertas</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -174,15 +174,15 @@ import emailjs from '@emailjs/browser';
               </tr>
 
               <tr class="hover:bg-gray-50 transition group">
-                <td class="p-4 font-medium text-gray-800">Análise Forense e Compliance</td>
+                <td class="p-4 font-medium text-gray-800">Análisis Forense y Cumplimiento</td>
                 <td class="p-4 text-center"><span class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full border border-gray-200">Básico</span></td>
-                <td class="p-4 text-center"><span class="text-xs font-bold text-bm-blue bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">Avançado</span></td>
+                <td class="p-4 text-center"><span class="text-xs font-bold text-bm-blue bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">Avanzado</span></td>
                 <td class="p-4 text-center"><span class="text-xs font-bold text-bm-blue bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">Máximo</span></td>
                 <td class="p-4 text-center bg-red-50/30 group-hover:bg-red-50/50"><span class="text-xs font-bold text-white bg-bm-red px-3 py-1.5 rounded-full shadow-sm">Total</span></td>
               </tr>
 
               <tr class="hover:bg-gray-50 transition group border-b border-gray-100">
-                <td class="p-4 font-medium text-gray-800">OCR (Texto em Imagens)</td>
+                <td class="p-4 font-medium text-gray-800">OCR (Texto en Imágenes)</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
@@ -192,16 +192,16 @@ import emailjs from '@emailjs/browser';
               <tr class="bg-gray-50">
                 <td class="p-4"></td>
                 <td class="p-4 text-center">
-                  <button (click)="openContactModal('Teramind Starter', $event)" class="text-xs font-bold text-bm-blue border-2 border-bm-blue px-4 py-2.5 rounded hover:bg-bm-blue hover:text-white transition w-full">Cotação</button>
+                  <button (click)="openContactModal('Teramind Starter', $event)" class="text-xs font-bold text-bm-blue border-2 border-bm-blue px-4 py-2.5 rounded hover:bg-bm-blue hover:text-white transition w-full">Cotización</button>
                 </td>
                 <td class="p-4 text-center">
-                  <button (click)="openContactModal('Teramind UAM', $event)" class="text-xs font-bold text-bm-blue border-2 border-bm-blue px-4 py-2.5 rounded hover:bg-bm-blue hover:text-white transition w-full">Cotação</button>
+                  <button (click)="openContactModal('Teramind UAM', $event)" class="text-xs font-bold text-bm-blue border-2 border-bm-blue px-4 py-2.5 rounded hover:bg-bm-blue hover:text-white transition w-full">Cotización</button>
                 </td>
                 <td class="p-4 text-center">
-                  <button (click)="openContactModal('Teramind DLP', $event)" class="text-xs font-bold text-bm-blue border-2 border-bm-blue px-4 py-2.5 rounded hover:bg-bm-blue hover:text-white transition w-full">Cotação</button>
+                  <button (click)="openContactModal('Teramind DLP', $event)" class="text-xs font-bold text-bm-blue border-2 border-bm-blue px-4 py-2.5 rounded hover:bg-bm-blue hover:text-white transition w-full">Cotización</button>
                 </td>
                 <td class="p-4 text-center bg-red-50/30">
-                  <button (click)="openContactModal('Teramind Enterprise', $event)" class="text-xs font-bold text-white bg-bm-red border-2 border-bm-red px-4 py-2.5 rounded hover:bg-red-800 hover:border-red-800 transition w-full shadow-md">Cotação</button>
+                  <button (click)="openContactModal('Teramind Enterprise', $event)" class="text-xs font-bold text-white bg-bm-red border-2 border-bm-red px-4 py-2.5 rounded hover:bg-red-800 hover:border-red-800 transition w-full shadow-md">Cotización</button>
                 </td>
               </tr>
             </tbody>
@@ -213,26 +213,26 @@ import emailjs from '@emailjs/browser';
     <section class="bg-gray-100 py-16 border-y border-gray-200">
       <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-bm-blue mb-6">Compliance Garantido</h2>
+          <h2 class="text-3xl font-bold text-bm-blue mb-6">Cumplimiento Garantizado</h2>
           <ul class="space-y-4">
             <li class="flex items-center gap-3">
               <span class="text-green-600 font-bold">✓</span>
-              <span class="text-gray-700">Conformidade total com a <strong>LGPD</strong></span>
+              <span class="text-gray-700">Cumplimiento total con la <strong>Ley de Protección de Datos Personales</strong></span>
             </li>
             <li class="flex items-center gap-3">
               <span class="text-green-600 font-bold">✓</span>
-              <span class="text-gray-700">Auditoria Forense detalhada</span>
+              <span class="text-gray-700">Auditoría forense detallada</span>
             </li>
             <li class="flex items-center gap-3">
               <span class="text-green-600 font-bold">✓</span>
-              <span class="text-gray-700">Relatórios automatizados para gestores</span>
+              <span class="text-gray-700">Reportes automatizados para gerentes</span>
             </li>
           </ul>
         </div>
         
         <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-          <p class="text-bm-blue font-bold text-xl mb-2">Reconhecido Mundialmente</p>
-          <p class="text-gray-500 mb-6">Eleita a melhor solução de Insider Threat pelo Gartner Peer Insights.</p>
+          <p class="text-bm-blue font-bold text-xl mb-2">Reconocido Mundialmente</p>
+          <p class="text-gray-500 mb-6">Elegida como la mejor solución de Insider Threat por Gartner Peer Insights.</p>
           <div class="flex justify-center gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
             <div class="flex flex-col items-center gap-2">
               <div class="w-14 h-14 bg-white border border-gray-200 rounded-full flex items-center justify-center p-2.5 shadow-sm">
@@ -273,41 +273,41 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
-              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización</h3>
+              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir una propuesta comercial y orientación sobre la solución <strong>{{ selectedProductName() }}</strong>.</p>
               
               <form (submit)="onSubmitContact($event)" class="space-y-4">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre Completo *</label>
                     <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Correo Corporativo *</label>
                     <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Teléfono / WhatsApp *</label>
                     <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre de la Empresa</label>
                     <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Producto Deseado</label>
                   <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
-                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Quantos usuários pretende monitorar? Precisa de DLP?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalles del Proyecto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="¿Cuántos usuarios desea monitorear? ¿Necesita DLP?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
                 </div>
 
                 <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
@@ -322,9 +322,9 @@ import emailjs from '@emailjs/browser';
                     Enviando...
                   } @else if (submitSuccess()) {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    Solicitação Enviada!
+                    ¡Solicitud Enviada!
                   } @else {
-                    Enviar Solicitação
+                    Enviar Solicitud
                   }
                 </button>
               </form>
@@ -385,8 +385,8 @@ export class TeramindComponent {
       }, 3000);
 
     } catch (error) {
-      console.error('Falha ao enviar o e-mail via EmailJS', error);
-      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+      console.error('Error al enviar el correo mediante EmailJS', error);
+      alert('Ocurrió un error de comunicación. Por favor, inténtelo nuevamente o contáctenos por WhatsApp.');
     } finally {
       this.isSubmitting.set(false);
     }

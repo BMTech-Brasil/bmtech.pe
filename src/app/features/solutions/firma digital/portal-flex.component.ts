@@ -11,15 +11,25 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-2 md:px-6">
         <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
 
-        @for (partner of partners(); track partner.name) {
-            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-               <img [src]="partner.img" [alt]="partner.name" 
-                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-               
-               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
-                 {{ partner.name }}
-               </span>
+            @for (group of partnerGroups(); track group.category) {
+            <div class="flex flex-col items-center">
+              <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
+                {{ group.category }}
+              </span>
+              
+              <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                @for (partner of group.items; track partner.name) {
+                  <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                     <img [src]="partner.img" [alt]="partner.name" 
+                          class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     
+                     <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                       {{ partner.name }}
+                     </span>
+                  </div>
+                }
+              </div>
             </div>
           }
         </div>
@@ -37,15 +47,15 @@ import emailjs from '@emailjs/browser';
               <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> Paperless & Workflow
             </div>
             <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              A plataforma completa para <br>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">eliminar o papel</span> da sua empresa.
+              La plataforma completa para <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">eliminar el papel</span> de su empresa.
             </h1>
             <p class="text-lg text-white-300 mb-8 leading-relaxed">
-              O <strong>Portal Flex</strong> centraliza a assinatura de documentos (Digital e Eletrônica), automação de processos (BPM) e custódia de arquivos em um ambiente seguro e com validade jurídica.
+              El <strong>Portal Flex</strong> centraliza la firma de documentos (Digital y Electrónica), la automatización de procesos (BPM) y la custodia de archivos en un entorno seguro y con validez legal.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
-              <button (click)="openContactModal('Portal Flex - Demonstração', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
-                Solicitar Demonstração
+              <button (click)="openContactModal('Portal Flex - Demostración', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+                Solicitar Demostración
               </button>
             </div>
             <div class="mt-8 flex gap-6 text-sm text-white-400 font-medium">
@@ -53,7 +63,7 @@ import emailjs from '@emailjs/browser';
                 <span class="text-green-400">✓</span> ICP-Brasil
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-green-400">✓</span> Lei 14.063/20
+                <span class="text-green-400">✓</span> Ley 14.063/20
               </div>
               <div class="flex items-center gap-2">
                 <span class="text-green-400">✓</span> LGPD Ready
@@ -62,7 +72,7 @@ import emailjs from '@emailjs/browser';
           </div>
           <div class="hidden lg:flex justify-center relative perspective-1000">
             <div class="relative w-[130%] max-w-none -mr-20 rounded-2xl overflow-hidden transform rotate-y-[-5deg] hover:rotate-y-0 hover:scale-105 transition-all duration-700">
-              <img src="pfxdashboard.png" alt="Painel de Controle Portal Flex" class="w-full h-auto object-cover">
+              <img src="pfxdashboard.png" alt="Panel de Control Portal Flex" class="w-full h-auto object-cover">
             </div>
             <div class="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full -z-10"></div>
           </div>
@@ -74,20 +84,20 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
           <div>
-            <p class="text-4xl font-bold text-bm-blue mb-1">+1 Mi</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Documentos/Mês</p>
+            <p class="text-4xl font-bold text-bm-blue mb-1">+1 M</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Documentos/Mes</p>
           </div>
           <div>
             <p class="text-4xl font-bold text-bm-blue mb-1">100%</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Validade Jurídica</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Validez Legal</p>
           </div>
           <div>
             <p class="text-4xl font-bold text-bm-blue mb-1">-80%</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Custos Operacionais</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Costos Operativos</p>
           </div>
           <div>
-            <p class="text-4xl font-bold text-bm-blue mb-1">Zero</p>
-            <p class="text-xs uppercase tracking-widest text-gray-500">Papel Impresso</p>
+            <p class="text-4xl font-bold text-bm-blue mb-1">Cero</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500">Papel Impreso</p>
           </div>
         </div>
       </div>
@@ -96,8 +106,8 @@ import emailjs from '@emailjs/browser';
     <section class="py-24 bg-gray-50">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold text-bm-blue mb-4">Soluções integradas para gestão documental</h2>
-          <p class="text-gray-500">O Portal Flex não é apenas um assinador. É um ecossistema completo para gerenciar o ciclo de vida dos seus documentos.</p>
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Soluciones integradas para la gestión documental</h2>
+          <p class="text-gray-500">Portal Flex no es solo un firmador. Es un ecosistema completo para gestionar el ciclo de vida de sus documentos.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
@@ -105,9 +115,9 @@ import emailjs from '@emailjs/browser';
             <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-blue transition">
               <svg class="w-6 h-6 text-bm-blue group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Assinatura Híbrida</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Firma Híbrida</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Combine a segurança máxima do <strong>Certificado Digital (e-CPF/e-CNPJ)</strong> com a praticidade da <strong>Assinatura Eletrônica</strong> (Token, SMS, E-mail).
+              Combine la seguridad máxima del <strong>Certificado Digital (e-CPF/e-CNPJ)</strong> con la practicidad de la <strong>Firma Electrónica</strong> (Token, SMS, Correo Electrónico).
             </p>
           </div>
 
@@ -117,7 +127,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Workflow (BPM)</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Desenhe fluxos de aprovação. O documento passa automaticamente de um departamento para outro, com regras de alçada e notificações.
+              Diseñe flujos de aprobación. El documento pasa automáticamente de un departamento a otro, con reglas de autorización y notificaciones.
             </p>
           </div>
 
@@ -125,9 +135,9 @@ import emailjs from '@emailjs/browser';
             <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-blue transition">
               <svg class="w-6 h-6 text-bm-blue group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Arquivo Digital (GED)</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Archivo Digital (GED)</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Armazene tudo na nuvem com <strong>Tabela de Temporalidade</strong>. O sistema avisa quando um documento expira e organiza tudo automaticamente.
+              Almacene todo en la nube con <strong>Tabla de Temporalidad</strong>. El sistema avisa cuando un documento expira y organiza todo automáticamente.
             </p>
           </div>
 
@@ -135,7 +145,7 @@ import emailjs from '@emailjs/browser';
             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-blue transition">
               <svg class="w-6 h-6 text-bm-blue group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.2-2.85.567-4.167"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Biometria Facial</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Biometría Facial</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
               Añade una capa adicional de seguridad. Exige al firmante que realice el reconocimiento facial antes de firmar contratos confidenciales.
             </p>
@@ -145,9 +155,9 @@ import emailjs from '@emailjs/browser';
             <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-red transition">
               <svg class="w-6 h-6 text-bm-red group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">API de Integração</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">API de Integración</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Integre o Portal Flex ao seu ERP (SAP, Totvs, Senior) via API REST. Gere o documento no seu sistema e envie para assinatura automaticamente.
+              Integre el Portal Flex a su ERP (SAP, Totvs, Senior) mediante API REST. Genere el documento en su sistema y envíelo para firma automáticamente.
             </p>
           </div>
 
@@ -157,7 +167,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">OCR Inteligente</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Digitalize papel e transforme em dados pesquisáveis. Encontre qualquer documento digitando uma palavra que está escrita nele.
+              Digitalice papel y transfórmelo en datos buscables. Encuentre cualquier documento escribiendo una palabra que esté en él.
             </p>
           </div>
 
@@ -177,24 +187,24 @@ import emailjs from '@emailjs/browser';
                  <div class="flex items-center gap-4">
                    <div class="w-10 h-10 bg-bm-blue text-white rounded-full flex items-center justify-center font-bold shadow-md z-10">1</div>
                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex-1">
-                     <p class="font-bold text-bm-blue">Envio do Documento</p>
-                     <p class="text-xs text-gray-500">Upload PDF ou criação via modelo.</p>
+                     <p class="font-bold text-bm-blue">Envío del Documento</p>
+                     <p class="text-xs text-gray-500">Carga de PDF o creación mediante plantilla.</p>
                    </div>
                  </div>
                  
                  <div class="flex items-center gap-4">
                    <div class="w-10 h-10 bg-white border-2 border-bm-blue text-bm-blue rounded-full flex items-center justify-center font-bold shadow-md z-10">2</div>
                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex-1">
-                     <p class="font-bold text-gray-700">Coleta de Assinaturas</p>
-                     <p class="text-xs text-gray-500">Notificação via E-mail, SMS ou WhatsApp.</p>
+                     <p class="font-bold text-gray-700">Recolección de Firmas</p>
+                     <p class="text-xs text-gray-500">Notificación vía Correo Electrónico, SMS o WhatsApp.</p>
                    </div>
                  </div>
                  
                  <div class="flex items-center gap-4">
                    <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold shadow-md z-10">✓</div>
                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex-1">
-                     <p class="font-bold text-gray-700">Conclusão e Arquivo</p>
-                     <p class="text-xs text-gray-500">Guarda legal com carimbo do tempo.</p>
+                     <p class="font-bold text-gray-700">Conclusión y Archivo</p>
+                     <p class="text-xs text-gray-500">Custodia legal con sello de tiempo.</p>
                    </div>
                  </div>
                </div>
@@ -202,22 +212,22 @@ import emailjs from '@emailjs/browser';
           </div>
 
           <div class="order-1 lg:order-2">
-            <h2 class="text-3xl font-bold text-bm-blue mb-6">Controle total do fluxo de trabalho</h2>
+            <h2 class="text-3xl font-bold text-bm-blue mb-6">Control total del flujo de trabajo</h2>
             <p class="text-gray-600 mb-6 text-lg">
-              Chega de perder tempo procurando quem precisa assinar o documento. Com o <strong>Portal Flex</strong>, você desenha o caminho que o documento deve percorrer.
+              Basta de perder tiempo buscando quién debe firmar el documento. Con el <strong>Portal Flex</strong>, usted diseña el camino que debe recorrer el documento.
             </p>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
                 <span class="text-green-500 font-bold mt-1">✓</span>
-                <p class="text-gray-600"><strong>Notificações Automáticas:</strong> O sistema cobra quem está atrasando a assinatura.</p>
+                <p class="text-gray-600"><strong>Notificaciones Automáticas:</strong> El sistema envía recordatorios a quien retrasa la firma.</p>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 font-bold mt-1">✓</span>
-                <p class="text-gray-600"><strong>Painel de Controle:</strong> Veja em tempo real em que etapa está cada processo.</p>
+                <p class="text-gray-600"><strong>Panel de Control:</strong> Vea en tiempo real en qué etapa se encuentra cada proceso.</p>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-green-500 font-bold mt-1">✓</span>
-                <p class="text-gray-600"><strong>Compliance:</strong> Garanta que todos os processos sigam as regras da empresa.</p>
+                <p class="text-gray-600"><strong>Cumplimiento (Compliance):</strong> Garantice que todos los procesos sigan las reglas de la empresa.</p>
               </li>
             </ul>
           </div>
@@ -229,12 +239,12 @@ import emailjs from '@emailjs/browser';
     <section id="nossas-solucoes" class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para digitalizar sua empresa?</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para digitalizar su empresa?</h2>
         <p class="text-white-100 max-w-2xl mx-auto mb-10 text-lg">
-          Fale com nossos especialistas e descubra como o Portal Flex pode reduzir seus custos e aumentar a segurança jurídica dos seus documentos.
+          Hable con nuestros especialistas y descubra cómo Portal Flex puede reducir sus costos y aumentar la seguridad legal de sus documentos.
         </p>
-        <button (click)="openContactModal('Consultoria Portal Flex', $event)" class="bg-bm-red text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-red-700 transition shadow-2xl hover:scale-105 transform duration-200">
-          Falar com um Consultor
+        <button (click)="openContactModal('Consultoría Portal Flex', $event)" class="bg-bm-red text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-red-700 transition shadow-2xl hover:scale-105 transform duration-200">
+          Hablar con un Consultor
         </button>
       </div>
     </div>
@@ -253,40 +263,40 @@ import emailjs from '@emailjs/browser';
               <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Orçamento</h3>
-              <p class="text-gray-600 mb-6">Preencha os dados abaixo para receber uma proposta comercial e orientações sobre a solução <strong>{{ selectedProductName() }}</strong>.</p>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización</h3>
+              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir una propuesta comercial y orientación sobre la solución <strong>{{ selectedProductName() }}</strong>.</p>
               
               <form (submit)="onSubmitContact($event)" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome Completo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre Completo *</label>
                     <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">E-mail Corporativo *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Correo Corporativo *</label>
                     <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Telefone / WhatsApp *</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Teléfono / WhatsApp *</label>
                     <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Nome da Empresa</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre de la Empresa</label>
                     <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Produto Desejado</label>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Producto Deseado</label>
                   <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalhes do Projeto (Opcional)</label>
-                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Qual o volume mensal de assinaturas estimado?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Detalles del Proyecto (Opcional)</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="¿Cuál es el volumen mensual estimado de firmas?" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
                 </div>
 
                 <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
@@ -300,9 +310,9 @@ import emailjs from '@emailjs/browser';
                     Enviando...
                   } @else if (submitSuccess()) {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    Solicitação Enviada!
+                    ¡Solicitud Enviada!
                   } @else {
-                    Enviar Solicitação
+                    Enviar Solicitud
                   }
                 </button>
               </form>
@@ -314,14 +324,30 @@ import emailjs from '@emailjs/browser';
   `
 })
 export class PortalFlexComponent {
-
-  partners = signal([
-    { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'Teramind', img: 'partners/teramind.svg' },
-    { name: 'Hexnode', img: 'partners/hexnode.svg' },
-    { name: 'KickIdler', img: 'partners/kickidler.png' },
-    { name: 'Portal Flex', img: 'partners/pfx.svg' },
-    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+   partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg' },
+        { name: 'DigiCert', img: 'partners/digicert.svg' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg' },
+        { name: 'Tablex', img: 'partners/tablex.svg' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg' },
+        { name: 'KickIdler', img: 'partners/kickidler.png' }
+      ]
+    }
   ]);
 
   activeModal = signal<'CONTACT' | null>(null);
@@ -365,8 +391,8 @@ export class PortalFlexComponent {
       }, 3000);
 
     } catch (error) {
-      console.error('Falha ao enviar o e-mail via EmailJS', error);
-      alert('Ocorreu um erro de comunicação. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+      console.error('Error al enviar el correo a través de EmailJS', error);
+      alert('Ocurrió un error de comunicación. Por favor, intente nuevamente o comuníquese por WhatsApp.');
     } finally {
       this.isSubmitting.set(false);
     }

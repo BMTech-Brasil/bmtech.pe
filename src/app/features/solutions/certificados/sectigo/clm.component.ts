@@ -11,15 +11,25 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-2 md:px-6">
         <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
 
-        @for (partner of partners(); track partner.name) {
-            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-               <img [src]="partner.img" [alt]="partner.name" 
-                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-               
-               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
-                 {{ partner.name }}
-               </span>
+        @for (group of partnerGroups(); track group.category) {
+            <div class="flex flex-col items-center">
+              <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
+                {{ group.category }}
+              </span>
+              
+              <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                @for (partner of group.items; track partner.name) {
+                  <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                     <img [src]="partner.img" [alt]="partner.name" 
+                          class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     
+                     <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                       {{ partner.name }}
+                     </span>
+                  </div>
+                }
+              </div>
             </div>
           }
         </div>
@@ -115,7 +125,7 @@ import emailjs from '@emailjs/browser';
                 <span class="text-green-500 text-xl">✓</span> Conformidade global e máxima compatibilidade nos navegadores
               </li>
               <li class="flex items-center gap-3 font-medium text-gray-700">
-                <span class="text-green-500 text-xl">✓</span> Suporte local e consultoria especializada através da BM Tech
+                <span class="text-green-500 text-xl">✓</span> Suporte local e consultoria especializada através da BMTech
               </li>
             </ul>
           </div>
@@ -200,7 +210,7 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-6 relative z-10">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para unificar sua segurança com a Sectigo?</h2>
         <p class="text-blue-100 max-w-2xl mx-auto mb-10 text-lg">
-          Pare de apagar incêndios devido a certificados expirados. Agende uma consultoria técnica gratuita com os especialistas da BM Tech e implemente um CLM de classe mundial.
+          Pare de apagar incêndios devido a certificados expirados. Agende uma consultoria técnica gratuita com os especialistas da BMTech e implemente um CLM de classe mundial.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <button (click)="openContactModal('Consultoria Sectigo CLM', $event)" class="bg-bm-red hover:bg-red-700 text-white px-10 py-4 rounded font-bold text-lg transition shadow-lg">
@@ -284,13 +294,30 @@ import emailjs from '@emailjs/browser';
   `
 })
 export class ClmComponent {
-  partners = signal([
-    { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'Teramind', img: 'partners/teramind.svg' },
-    { name: 'Hexnode', img: 'partners/hexnode.svg' },
-    { name: 'KickIdler', img: 'partners/kickidler.png' },
-    { name: 'Portal Flex', img: 'partners/pfx.svg' },
-    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+   partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg' },
+        { name: 'DigiCert', img: 'partners/digicert.svg' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg' },
+        { name: 'Tablex', img: 'partners/tablex.svg' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg' },
+        { name: 'KickIdler', img: 'partners/kickidler.png' }
+      ]
+    }
   ]);
 
   activeModal = signal<'CONTACT' | null>(null);

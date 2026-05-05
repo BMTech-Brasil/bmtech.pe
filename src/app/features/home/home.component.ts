@@ -33,7 +33,6 @@ import { RouterLink } from "@angular/router";
               </div>
             </div>
           }
-
         </div>
       </div>
     </div>
@@ -64,7 +63,7 @@ import { RouterLink } from "@angular/router";
           <h1 class="text-5xl md:text-7xl font-bold text-bm-white mb-6 leading-tight">Su empresa segura <br>para crecer <span class="text-bm-red">sin límites.</span></h1>
           <p class="text-xl text-white-600 mb-10 leading-relaxed max-w-xl">
             Especialistas en PKI, Certificados Digitales y Ciberseguridad por más de <strong>22 años</strong>. 
-            Distribuidores oficiales <span class="font-bold text-green-500">Sectigo</span> en Perú, Brasil y EE.UU.
+            Distribuidores oficiales <span class="font-bold">Sectigo, Digicert y GlobalSign</span> en Perú, Brasil y EE.UU.
           </p>
           <div class="flex flex-col md:flex-row gap-4">
             <button (click)="openContactModal('Consultoría de Seguridad', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Hablar con un Asesor</button>
@@ -80,7 +79,7 @@ import { RouterLink } from "@angular/router";
 
     <section class="py-16 bg-white overflow-hidden border-y border-gray-100 shadow-sm">
       <div class="container mx-auto px-6 mb-10 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Quiénes confían en BM Tech</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Quiénes confían en BMTech</h2>
         <div class="w-20 h-1 bg-bm-red mx-auto"></div>
       </div>
 

@@ -49,7 +49,7 @@ import emailjs from '@emailjs/browser';
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">Máxima Confianza</span>.
           </h1>
           <p class="text-lg text-bm-white mb-8 leading-relaxed max-w-xl">
-            Proteja su sitio web, los datos de sus clientes e impulse su SEO con la Autoridad de Certificación (CA) comercial líder a nivel mundial. BM Tech simplifica la emisión y la gestión de sus certificados.
+            Proteja su sitio web, los datos de sus clientes e impulse su SEO con la Autoridad de Certificación (CA) comercial líder a nivel mundial. BMTech simplifica la emisión y la gestión de sus certificados.
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
