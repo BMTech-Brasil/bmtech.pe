@@ -23,6 +23,8 @@ import { RouterLink } from '@angular/router';
 
             <div class="flex flex-wrap gap-6 items-center mb-8">
               <img src="partners/sectigo.svg" alt="Socio de Sectigo" class="h-8 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" title="Socio Oficial de Sectigo">
+              <img src="partners/digicert.svg" alt="Socio de DigiCert" class="h-8 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" title="Socio Oficial de DigiCert">
+              <img src="partners/globalsign.svg" alt="Socio de GlobalSign" class="h-8 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" title="Socio Oficial de GlobalSign">
             </div>
 
             <div class="flex items-center gap-4">
@@ -72,6 +74,7 @@ import { RouterLink } from '@angular/router';
             <ul class="space-y-3 text-sm text-gray-500">
               <li><a routerLink="/" class="hover:text-bm-red hover:pl-1 transition-all">Inicio</a></li>
               <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Soluciones Corporativas</a></li>
+              <li><a href="reclamaciones" class="hover:text-bm-red hover:pl-1 transition-all">Libro de Reclamaciones</a></li>
             </ul>
           </div>
         </div>

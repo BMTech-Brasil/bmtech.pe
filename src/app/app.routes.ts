@@ -16,6 +16,9 @@ export const routes: Routes = [
       { path: 'monitoramento', loadComponent: () => import('./features/solutions/monitoreo/monitoreo.component').then(c => c.MonitoramentoComponent) },
       { path: 'hexnode', loadComponent: () => import('./features/solutions/monitoreo/hexnode/hexnode.component').then(c => c.HexnodeComponent) },
       { path: 'kickidler', loadComponent: () => import('./features/solutions/monitoreo/kickidler/kickidler.component').then(c => c.KickidlerComponent) },
+      { path: 'firma-digital', loadComponent: () => import('./features/solutions/firma digital/firma-digital.component').then (c => c.FirmaDigitalComponent) },
+      { path: 'digicert', loadComponent: () => import('./features/solutions/certificados/digicert.component').then(c => c.DigicertComponent) },
+      { path: 'globalsign', loadComponent: () => import('./features/solutions/certificados/globalsign.component').then(c => c.GlobalsignComponent) },
     ]
   }
 ];

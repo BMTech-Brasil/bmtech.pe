@@ -1,16 +1,16 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sectigo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: `
       <div class="bg-gray-50 border-b border-gray-200 mt-20 py-6 relative z-20 shadow-sm">
       <div class="container mx-auto px-2 md:px-6">
-        <div class="flex flex-wrap justify-center items-start gap-8 md:gap-16">
-          
+        <div class="flex flex-wrap lg:flex-nowrap justify-center items-start gap-8 md:gap-12">
           @for (group of partnerGroups(); track group.category) {
             <div class="flex flex-col items-center">
               <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
@@ -19,7 +19,7 @@ import emailjs from '@emailjs/browser';
               
               <div class="flex flex-wrap justify-center gap-2 md:gap-4">
                 @for (partner of group.items; track partner.name) {
-                  <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                  <a [routerLink]="partner.url" class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
                      <img [src]="partner.img" [alt]="partner.name" 
                           class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -27,12 +27,11 @@ import emailjs from '@emailjs/browser';
                      <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
                        {{ partner.name }}
                      </span>
-                  </div>
+                  </a>
                 }
               </div>
             </div>
           }
-
         </div>
       </div>
     </div>
@@ -446,6 +445,31 @@ import emailjs from '@emailjs/browser';
   `
 })
 export class SectigoComponent {
+    partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg', url: '/solutions/sectigo' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg', url: '/solutions/globalsign' },
+        { name: 'DigiCert', img: 'partners/digicert.svg', url: '/solutions/digicert' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg', url: '/solutions/portal-flex' },
+        { name: 'Tablex', img: 'partners/tablex.svg', url: '/solutions/tablex' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg', url: '/solutions/teramind' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg', url: '/solutions/hexnode' },
+        { name: 'KickIdler', img: 'partners/kickidler.png', url: '/solutions/kickidler' }
+      ]
+    }
+  ]);
   activeModal = signal<'DV' | 'OV' | 'EV' | 'CONTACT' | null>(null);
   selectedCertificateName = signal<string>('');
 
@@ -478,10 +502,10 @@ export class SectigoComponent {
 
     try {
       await emailjs.sendForm(
-        'service_v5pa4n7',
-        'template_vg8qiqn',
+        'service_4c3w7jo',
+        'template_8m2pl9r',
         form,
-        'Ja_KrZXfa-gEENU3O'
+        'R_3WXFqcku2A9Eysn'
       );
 
       this.submitSuccess.set(true);
@@ -499,30 +523,4 @@ export class SectigoComponent {
       this.isSubmitting.set(false);
     }
   }
-
-  partnerGroups = signal([
-    {
-      category: 'SSL',
-      items: [
-        { name: 'Sectigo', img: 'partners/sectigo.svg' },
-        { name: 'GlobalSign', img: 'partners/globalsign.svg' },
-        { name: 'DigiCert', img: 'partners/digicert.svg' }
-      ]
-    },
-    {
-      category: 'Firma Digital',
-      items: [
-        { name: 'PFX', img: 'partners/pfx.svg' },
-        { name: 'Tablex', img: 'partners/tablex.png' }
-      ]
-    },
-    {
-      category: 'Monitoreo',
-      items: [
-        { name: 'Teramind', img: 'partners/teramind.svg' },
-        { name: 'Hexnode', img: 'partners/hexnode.svg' },
-        { name: 'KickIdler', img: 'partners/kickidler.png' }
-      ]
-    }
-  ])
 }

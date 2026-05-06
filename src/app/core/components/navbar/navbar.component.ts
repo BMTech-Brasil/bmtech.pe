@@ -147,10 +147,10 @@ export class NavbarComponent {
 
     try {
       await emailjs.sendForm(
-        'service_v5pa4n7',
-        'template_vg8qiqn',
+        'service_4c3w7jo',
+        'template_8m2pl9r',
         form,
-        'Ja_KrZXfa-gEENU3O'
+        'R_3WXFqcku2A9Eysn'
       );
       
       this.submitSuccess.set(true);
