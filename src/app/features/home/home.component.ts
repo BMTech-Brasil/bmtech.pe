@@ -114,9 +114,11 @@ import { RouterLink } from "@angular/router";
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Certificados SSL</h3>
             <p class="text-gray-600 text-sm mb-4">
-              Emisión inmediata de certificados OV y EV con garantía <strong>Sectigo</strong>.
+              Emisión inmediata de certificados OV y EV con garantía <strong>Sectigo</strong>, <strong>DigiCert</strong> y <strong>GlobalSign</strong>.
             </p>
-            <a routerLink="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
+            <div><a routerLink="/solutions/sectigo" class="text-bm-red font-bold text-sm hover:underline">Sectigo →</a></div>
+            <div><a routerLink="/solutions/digicert" class="text-bm-red font-bold text-sm hover:underline">DigiCert →</a></div>
+            <div><a routerLink="/solutions/globalsign" class="text-bm-red font-bold text-sm hover:underline">GlobalSign →</a></div>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
@@ -125,7 +127,7 @@ import { RouterLink } from "@angular/router";
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Firma Digital y Automatización de Procesos</h3>
             <p class="text-gray-600 text-sm mb-4">Elimine el papel con total validez jurídica y gestión de documentos en la nube.</p>
-            <a routerLink="/solutions/portal-flex" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
+            <a routerLink="/solutions/firma-digital" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
           </div>
 
           <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:border-bm-blue transition-colors group">
@@ -134,7 +136,7 @@ import { RouterLink } from "@angular/router";
             </div>
             <h3 class="text-xl font-bold text-bm-blue mb-3">Monitoreo DLP</h3>
             <p class="text-gray-600 text-sm mb-4">Prevenga la fuga de datos y monitoree amenazas internas con Teramind.</p>
-            <a routerLink="/solutions/monitoramento" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
+            <a routerLink="/solutions/monitoreo" class="text-bm-red font-bold text-sm hover:underline">Ver detalles →</a>
           </div>
         </div>
       </div>

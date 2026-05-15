@@ -71,16 +71,17 @@ import { RouterLink } from '@angular/router';
 
           <div>
             <h4 class="text-lg font-bold mb-6 text-bm-blue border-l-4 border-bm-red pl-3">Enlaces Rápidos</h4>
-            <ul class="space-y-3 text-sm text-gray-500">
+            <ul class="space-y-3 text-sm text-gray-500 mb-8">
               <li><a routerLink="/" class="hover:text-bm-red hover:pl-1 transition-all">Inicio</a></li>
-              <li><a href="#" class="hover:text-bm-red hover:pl-1 transition-all">Soluciones Corporativas</a></li>
-              <li><a href="reclamaciones" class="hover:text-bm-red hover:pl-1 transition-all">Libro de Reclamaciones</a></li>
+              <li><a routerLink="/solutions/firma-digital" class="hover:text-bm-red hover:pl-1 transition-all">Soluciones Corporativas</a></li>
+              <li><a routerLink="/solutions/horasadicionales" class="hover:text-bm-red hover:pl-1 transition-all">Soporte Técnico</a></li>
+              <li><a routerLink="/libro-reclamaciones" class="hover:text-bm-red transition-all cursor-pointer">Libro de Reclamaciones</a></li>
             </ul>
           </div>
         </div>
 
         <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <p>© 2026 BMTech Brasil. Todos los derechos reservados.</p>
+          <p>© 2026 BMTech. Todos los derechos reservados.</p>
           
           <div class="flex items-center gap-2 bg-white border border-gray-200 px-3 py-1.5 rounded-md shadow-sm select-none" title="Ambiente Seguro">
             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

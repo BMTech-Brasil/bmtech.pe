@@ -1,25 +1,35 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import emailjs from '@emailjs/browser';
 
 @Component({
-  selector: 'app-monitoramento',
+  selector: 'app-monitoreo',
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
     <div class="bg-gray-50 border-b border-gray-200 mt-20 py-4 relative z-20 shadow-sm">
       <div class="container mx-auto px-2 md:px-6">
-        <div class="flex flex-wrap lg:flex-nowrap justify-center items-center gap-2 md:gap-4">
-
-          @for (partner of partners(); track partner.name) {
-            <div class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-               <img [src]="partner.img" [alt]="partner.name" 
-                    class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-               
-               <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
-                 {{ partner.name }}
-               </span>
+        <div class="flex flex-wrap lg:flex-nowrap justify-center items-start gap-8 md:gap-12">
+          @for (group of partnerGroups(); track group.category) {
+            <div class="flex flex-col items-center">
+              <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-200 pb-1 px-4">
+                {{ group.category }}
+              </span>
+              
+              <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                @for (partner of group.items; track partner.name) {
+                  <a [routerLink]="partner.url" class="group flex items-center justify-center w-20 h-14 md:w-24 md:h-16 lg:w-28 lg:h-16 p-2 rounded-lg border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer" [title]="partner.name">
+                     <img [src]="partner.img" [alt]="partner.name" 
+                          class="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                     
+                     <span class="hidden text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-bm-blue transition-colors select-none text-center leading-tight">
+                       {{ partner.name }}
+                     </span>
+                  </a>
+                }
+              </div>
             </div>
           }
         </div>
@@ -145,21 +155,158 @@ import { RouterLink } from '@angular/router';
         <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
           Nuestro equipo de arquitectos de seguridad realiza una evaluación gratuita de su entorno y recomienda la solución con la mejor relación costo-beneficio para su empresa.
         </p>
-        <button class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
+        <button (click)="openContactModal('Consultoría de Monitoreo', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
           Hablar con un Consultor de BMTech
         </button>
       </div>
     </section>
+
+    @if (activeModal() !== null) {
+      <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
+          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          
+          @if (activeModal() === 'CONTACT') {
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización / Consultoría</h3>
+              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir información detallada sobre: <strong>{{ selectedProductName() }}</strong>.</p>
+              
+              <form (submit)="onSubmitContact($event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre Completo *</label>
+                    <input type="text" name="user_name" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Correo Electrónico *</label>
+                    <input type="email" name="user_email" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Teléfono / Celular *</label>
+                    <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">RUC / Nombre de Empresa</label>
+                    <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Servicio de Interés</label>
+                  <input type="text" name="product_subject" [value]="selectedProductName()" readonly class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-500 cursor-not-allowed outline-none">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-1">Mensaje o Dudas Adicionales</label>
+                  <textarea name="message" rows="3" [disabled]="isSubmitting()" placeholder="Ej: Me gustaría evaluar Teramind para mi equipo de 50 personas..." class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition resize-none disabled:opacity-50"></textarea>
+                </div>
+
+                <button type="submit" [disabled]="isSubmitting() || submitSuccess()" 
+                        [ngClass]="{'bg-green-500 hover:bg-green-600': submitSuccess(), 'bg-bm-blue hover:bg-blue-900': !submitSuccess()}"
+                        class="w-full text-white font-bold py-3 px-4 rounded transition shadow-md flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                  @if (isSubmitting()) {
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  } @else if (submitSuccess()) {
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    ¡Solicitud Enviada!
+                  } @else {
+                    Enviar Solicitud
+                  }
+                </button>
+              </form>
+            </div>
+          }
+        </div>
+      </div>
+    }
   `
 })
-export class MonitoramentoComponent {
+export class MonitoreoComponent {
 
-    partners = signal([
-    { name: 'Sectigo', img: 'partners/sectigo.svg' },
-    { name: 'Teramind', img: 'partners/teramind.svg' },
-    { name: 'Hexnode', img: 'partners/hexnode.svg' },
-    { name: 'KickIdler', img: 'partners/kickidler.png' },
-    { name: 'Portal Flex', img: 'partners/pfx.svg' },
-    { name: 'Keytalk', img: 'partners/keytalk.svg' }
+  partnerGroups = signal([
+    {
+      category: 'SSL',
+      items: [
+        { name: 'Sectigo', img: 'partners/sectigo.svg', url: '/solutions/sectigo' },
+        { name: 'GlobalSign', img: 'partners/globalsign.svg', url: '/solutions/globalsign' },
+        { name: 'DigiCert', img: 'partners/digicert.svg', url: '/solutions/digicert' }
+      ]
+    },
+    {
+      category: 'Firma Digital',
+      items: [
+        { name: 'PFX', img: 'partners/pfx.svg', url: '/solutions/portal-flex' },
+        { name: 'Tablex', img: 'partners/tablex.svg', url: '/solutions/tablex' }
+      ]
+    },
+    {
+      category: 'Monitoreo',
+      items: [
+        { name: 'Teramind', img: 'partners/teramind.svg', url: '/solutions/teramind' },
+        { name: 'Hexnode', img: 'partners/hexnode.svg', url: '/solutions/hexnode' },
+        { name: 'KickIdler', img: 'partners/kickidler.png', url: '/solutions/kickidler' }
+      ]
+    }
   ]);
+
+  activeModal = signal<'CONTACT' | null>(null);
+  selectedProductName = signal<string>('');
+  isSubmitting = signal(false);
+  submitSuccess = signal(false);
+
+  openContactModal(productName: string, event: Event) {
+    event.preventDefault();
+    this.selectedProductName.set(productName);
+    this.activeModal.set('CONTACT');
+    this.submitSuccess.set(false);
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal() {
+    this.activeModal.set(null);
+    document.body.style.overflow = 'auto';
+  }
+
+  async onSubmitContact(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    
+    this.isSubmitting.set(true);
+
+    try {
+      await emailjs.sendForm(
+        'service_4c3w7jo',
+        'template_8m2pl9r',
+        form,
+        'R_3WXFqcku2A9Eysn'
+      );
+      
+      this.submitSuccess.set(true);
+      
+      setTimeout(() => {
+        this.closeModal();
+        this.submitSuccess.set(false);
+        form.reset();
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error al enviar el correo a través de EmailJS', error);
+      alert('Ocurrió un error de comunicación. Por favor, intente nuevamente o comuníquese por WhatsApp.');
+    } finally {
+      this.isSubmitting.set(false);
+    }
+  }
 }

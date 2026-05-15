@@ -113,56 +113,56 @@ import emailjs from '@emailjs/browser';
     <section class="py-24 bg-gray-50">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold text-bm-blue mb-4">Portabilidad y Seguridad en tus manos</h2>
+          <h2 class="text-3xl font-bold text-bm-blue mb-4">Portabilidad y Seguridad a tu medida</h2>
           <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
           <p class="text-gray-600 text-lg">
-            Nuestros certificados digitales se entregan en dispositivos criptográficos físicos de alta seguridad (Hardware Criptográfico), protegiendo tu clave privada contra robos y copias. Elige el formato que mejor se adapte a tu empresa.
+            Nuestros certificados digitales se emiten cumpliendo estrictamente con la normativa peruana. Puedes optar por un dispositivo criptográfico físico (Token) de alta seguridad, o por un certificado en software ideal para facturación electrónica y automatización.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
             <div class="h-48 bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-6 border-b border-gray-100 relative">
-              <div class="absolute top-4 right-4 bg-blue-100 text-bm-blue text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Más popular</div>
+              <div class="absolute top-4 right-4 bg-blue-100 text-bm-blue text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Máxima Seguridad Física</div>
               <svg class="w-24 h-24 text-bm-blue opacity-80 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.2-2.85.567-4.167"></path>
                 <rect x="8" y="16" width="8" height="6" rx="1" fill="currentColor" class="text-bm-blue"></rect>
               </svg>
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">Token USB Criptográfico</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Firma Digital (con Token)</h3>
               <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                Dispositivo similar a un USB tradicional, pero diseñado específicamente para almacenar certificados. Es portátil, fácil de usar (Plug & Play) y no requiere equipo adicional para conectarlo a la PC.
+                Dispositivo similar a un pendrive USB, diseñado para generar y almacenar certificados de forma inexpugnable. Es la opción preferida por profesionales independientes, gerentes y representantes legales.
               </p>
               <ul class="space-y-3 mb-8">
-                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Conexión directa al puerto USB</li>
-                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Ideal para profesionales independientes</li>
-                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Contraseña PIN de seguridad</li>
+                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Conexión directa al puerto USB (Plug & Play)</li>
+                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> La clave privada nunca sale del dispositivo</li>
+                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Protección adicional con PIN</li>
               </ul>
-              <button (click)="openContactModal('Firma Digital - Token USB', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded-lg font-bold hover:bg-bm-blue hover:text-white transition">Cotizar Token</button>
+              <button (click)="openContactModal('Firma Digital - Token USB', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded-lg font-bold hover:bg-bm-blue hover:text-white transition">Cotizar con Token</button>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
             <div class="h-48 bg-gradient-to-br from-red-50 to-white flex items-center justify-center p-6 border-b border-gray-100">
               <div class="relative group-hover:scale-110 transition-transform">
-                <div class="w-32 h-20 bg-bm-blue rounded-xl shadow-inner border-2 border-white flex items-center px-4 relative overflow-hidden">
-                  <div class="w-8 h-6 bg-yellow-400 rounded-sm opacity-80 border border-yellow-500"></div>
-                  <div class="absolute right-[-10px] top-[-10px] w-20 h-20 bg-white/10 rounded-full"></div>
-                </div>
+                <svg class="w-24 h-24 text-bm-red opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v.01"></path>
+                </svg>
               </div>
             </div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">Smartcard (Tarjeta Inteligente)</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Firma Digital (Sin Token)</h3>
               <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                Tarjeta plástica con un chip criptográfico incorporado. Requiere de una lectora de tarjetas conectada a la PC. Es el estándar corporativo para la identificación física y digital combinada de empleados.
+                Entregado como un archivo cifrado (.p12 / .pfx). Regulado bajo la Infraestructura Oficial de Firma Electrónica (IOFE). Es la opción estándar y más ágil para integrarse con sistemas de <strong>Facturación Electrónica (SUNAT)</strong>.
               </p>
               <ul class="space-y-3 mb-8">
-                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Requiere Lectora de Smartcard</li>
-                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Ideal para uso corporativo y oficinas</li>
-                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Opción de impresión de fotocheck</li>
+                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Formato instalable y respaldable (.p12 o .pfx)</li>
+                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> 100% Homologado para Facturación SUNAT</li>
+                <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Integración rápida con sistemas ERP</li>
               </ul>
-              <button (click)="openContactModal('Firma Digital - Smartcard', $event)" class="w-full border-2 border-bm-red text-bm-red py-3 rounded-lg font-bold hover:bg-bm-red hover:text-white transition">Cotizar Smartcard</button>
+              <button (click)="openContactModal('Firma Digital - Certificado en Software', $event)" class="w-full border-2 border-bm-red text-bm-red py-3 rounded-lg font-bold hover:bg-bm-red hover:text-white transition">Cotizar Certificado (Sin Token)</button>
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ import emailjs from '@emailjs/browser';
                   </div>
                   <div>
                     <h4 class="text-lg font-bold text-gray-900 mb-2">Persona Jurídica (Representante Legal)</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">Vincula a un representante legal con su empresa (RUC). Indispensable para firmar contratos comerciales, laborales y trámites ante SUNAT y Ministerios.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">Vincula a un representante legal con su empresa (RUC). Indispensable para firmar contratos comerciales, laborales y trámites ante SUNAT, OSCE y Ministerios.</p>
                   </div>
                 </div>
 
@@ -190,7 +190,7 @@ import emailjs from '@emailjs/browser';
                   </div>
                   <div>
                     <h4 class="text-lg font-bold text-gray-900 mb-2">Persona Natural (Profesionales)</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">Identifica digitalmente a un individuo (DNI/CE). Usado por médicos, ingenieros, abogados y ciudadanos para firmar documentos a título personal.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">Identifica digitalmente a un individuo (DNI/CE). Usado por médicos, ingenieros, abogados y ciudadanos para firmar documentos a título personal con plena validez legal.</p>
                   </div>
                 </div>
              </div>
@@ -200,7 +200,7 @@ import emailjs from '@emailjs/browser';
             <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block text-sm">Elige el perfil adecuado</span>
             <h2 class="text-3xl font-bold text-bm-blue mb-6">¿Qué tipo de certificado necesitas?</h2>
             <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-              En BM Tech emitimos el certificado digital vinculándolo estrictamente a la identidad que requieres demostrar en el mundo digital peruano, pasando por un riguroso proceso de validación.
+              En BM Tech emitimos el certificado digital vinculándolo estrictamente a la identidad que requieres demostrar en el entorno digital peruano, pasando por un riguroso proceso de validación validado por INDECOPI.
             </p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-center gap-3 text-gray-700">
@@ -224,87 +224,83 @@ import emailjs from '@emailjs/browser';
     <section class="py-24 bg-gray-50 border-t border-gray-200">
       <div class="container mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
-          
           <div>
-            <span class="text-bm-red font-bold tracking-widest uppercase text-sm mb-4 block">Software Especializado</span>
-            <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-6">Conoce PFX: Tu plataforma de Firma Digital</h2>
+            <span class="text-bm-red font-bold tracking-widest uppercase text-sm mb-4 block">Software de Firma</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-6">Potencia tu Certificado con PFX</h2>
             <p class="text-gray-600 mb-8 text-lg leading-relaxed">
-              Tener el certificado (Token o Smartcard) es solo el primer paso. <strong>Portal Flex (PFX)</strong> es nuestro software de escritorio diseñado para optimizar el flujo de documentos de tu empresa, permitiéndote firmar PDFs de manera rápida, masiva y con total validez legal (INDECOPI).
+              Tener tu Certificado Digital es solo el primer paso. <strong>Portal Flex (PFX)</strong> es nuestro software especializado diseñado para optimizar el flujo de documentos de tu empresa, permitiéndote firmar PDFs de manera masiva y segura.
             </p>
-            
-            <ul class="space-y-6 mb-10">
-              <li class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-full bg-blue-100 text-bm-blue flex items-center justify-center shrink-0 mt-1">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-center gap-3 text-gray-700">
+                <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <div>
-                  <strong class="text-gray-900 block text-lg">Firma Masiva (Por Lotes)</strong>
-                  <span class="text-sm text-gray-600 leading-relaxed">Selecciona decenas o cientos de contratos, boletas de pago o facturas y fírmalos todos a la vez ingresando tu PIN una sola vez. Ahorra horas de trabajo manual.</span>
-                </div>
+                <strong>Firma Masiva (Por Lotes)</strong> ahorrando horas de trabajo
               </li>
-              
-              <li class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-full bg-blue-100 text-bm-blue flex items-center justify-center shrink-0 mt-1">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <li class="flex items-center gap-3 text-gray-700">
+                <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <div>
-                  <strong class="text-gray-900 block text-lg">Estampado Visual y Código QR</strong>
-                  <span class="text-sm text-gray-600 leading-relaxed">PFX incrusta automáticamente un sello gráfico en tus PDFs con la fecha, hora y datos del firmante, brindando una representación visual clara de la firma electrónica.</span>
+                <strong>Estampado Visual y Código QR</strong> para representación impresa
+              </li>
+              <li class="flex items-center gap-3 text-gray-700">
+                <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
+                <strong>100% Válido por INDECOPI</strong> en el territorio peruano
               </li>
             </ul>
-
+            
             <a routerLink="/solutions/portal-flex" class="bg-bm-blue hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg inline-flex items-center justify-center gap-2 w-max cursor-pointer">
-            Conozca PFX
+              Conozca PFX
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
           </div>
 
-          <div class="bg-white rounded-2xl p-8 border border-gray-200 relative overflow-hidden shadow-xl lg:ml-8">
+          <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-xl relative overflow-hidden lg:ml-8">
              <div class="border-b border-gray-100 pb-4 mb-6 flex items-center gap-2">
                <div class="w-3 h-3 rounded-full bg-red-400"></div>
                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
                <div class="w-3 h-3 rounded-full bg-green-400"></div>
-               <div class="ml-4 text-xs text-gray-400 font-medium">Portal Flex - BM Tech</div>
+               <div class="ml-4 text-xs text-gray-400 font-medium">Portal Flex - Desktop</div>
              </div>
              
              <div class="space-y-4">
-               <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg border border-gray-100">
-                 <div class="flex items-center gap-3">
-                   <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
-                   <div>
-                     <div class="text-sm font-bold text-gray-700">Contrato_Laboral_001.pdf</div>
-                     <div class="text-xs text-green-500 font-bold flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Firmado Correctamente</div>
+               <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg border border-gray-100">
+                 <div class="flex items-center gap-4">
+                   <div class="w-10 h-10 bg-red-100 text-red-500 rounded flex items-center justify-center shrink-0">
+                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
                    </div>
-                 </div>
-               </div>
-
-               <div class="flex items-center justify-between bg-gray-50 p-3 rounded-lg border border-gray-100">
-                 <div class="flex items-center gap-3">
-                   <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
                    <div>
-                     <div class="text-sm font-bold text-gray-700">Factura_Electronica_F001.pdf</div>
-                     <div class="text-xs text-green-500 font-bold flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Firmado Correctamente</div>
+                     <div class="text-sm font-bold text-gray-700">Contratos_Masivos_001.pdf</div>
+                     <div class="text-xs text-green-500 font-bold flex items-center gap-1 mt-1">
+                       <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 
+                       50 Documentos Firmados
+                     </div>
                    </div>
                  </div>
                </div>
                
-               <div class="flex items-center justify-between bg-blue-50 p-3 rounded-lg border border-blue-100 animate-pulse">
-                 <div class="flex items-center gap-3">
-                   <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+               <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg border border-gray-100">
+                 <div class="flex items-center gap-4">
+                   <div class="w-10 h-10 bg-red-100 text-red-500 rounded flex items-center justify-center shrink-0">
+                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                   </div>
                    <div>
-                     <div class="text-sm font-bold text-bm-blue">Boleta_Pago_Masiva.pdf</div>
-                     <div class="text-xs text-blue-500 font-medium flex items-center gap-1">Procesando firma con Token...</div>
+                     <div class="text-sm font-bold text-gray-700">Factura_Electronica_F001.pdf</div>
+                     <div class="text-xs text-green-500 font-bold flex items-center gap-1 mt-1">
+                       <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 
+                       Firmado Correctamente
+                     </div>
                    </div>
                  </div>
                </div>
              </div>
-
+             
              <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-gradient-to-br from-cyan-400/20 to-bm-blue/20 rounded-full blur-2xl"></div>
           </div>
-
         </div>
       </div>
     </section>
@@ -313,7 +309,7 @@ import emailjs from '@emailjs/browser';
       <div class="container mx-auto px-6 relative z-10">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Firma tus documentos en segundos</h2>
         <p class="text-blue-100 max-w-2xl mx-auto mb-10 text-lg">
-          No imprimas, no escanees, no uses mensajería. Obtén tu Firma Digital en Token o Smartcard y moderniza los procesos de tu empresa hoy mismo.
+          No imprimas, no escanees, no uses mensajería. Obtén tu Firma Digital en Token o Software y moderniza los procesos de tu empresa hoy mismo.
         </p>
         <button (click)="openContactModal('Cotización Firma Digital General', $event)" class="bg-bm-red text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-red-700 transition shadow-2xl hover:scale-105 transform duration-200">
           Solicitar mi Firma Digital
