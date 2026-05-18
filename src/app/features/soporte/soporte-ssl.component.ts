@@ -33,6 +33,12 @@ import { RouterLink } from '@angular/router';
             </a>
           }
         </div>
+        <div>
+          <p class="text-xs text-gray-500 mt-5 flex items-start gap-2 bg-gray-50 p-3 rounded-lg border border-gray-100">
+          <svg class="w-4 h-4 text-bm-blue shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          * Archivo CSR en un formato reconocido por la Autoridad Certificadora. Las configuraciones aplican para entornos estándar; entornos customizados podrían diferir.
+        </p>
+        </div>
       </div>
     </section>
 
@@ -43,15 +49,13 @@ import { RouterLink } from '@angular/router';
           <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
           <p class="text-gray-600">Guías paso a paso para crear un CSR (Solicitud de Firma), instalar su certificado SSL y realizar una copia de seguridad correcta.</p>
         </div>
-
+          
         <div class="overflow-x-auto bg-white rounded-xl shadow-lg border border-gray-200">
           <table class="w-full text-left border-collapse min-w-[800px]">
             <thead>
               <tr class="bg-gray-100 border-b border-gray-200 uppercase text-[11px] tracking-wider">
                 <th class="p-4 font-bold text-gray-600">Tipo de Servidor</th>
-                <th class="p-4 font-bold text-gray-600 text-center">Crear CSR</th>
                 <th class="p-4 font-bold text-gray-600 text-center">Instalar el Certificado</th>
-                <th class="p-4 font-bold text-gray-600 text-center">Respaldar Certificado</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 text-sm">
@@ -59,26 +63,8 @@ import { RouterLink } from '@angular/router';
                 <tr class="hover:bg-blue-50/50 transition-colors">
                   <td class="p-4 font-bold text-gray-800">{{ server.name }}</td>
                   <td class="p-4 text-center">
-                    @if (server.csr) { 
-                      <a [href]="server.csr" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-bm-blue bg-blue-50 px-3 py-1.5 rounded-full hover:bg-bm-blue hover:text-white transition-colors">
-                        VER GUÍA <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                      </a> 
-                    } @else { 
-                      <span class="text-gray-400 font-medium text-xs">N/A</span> 
-                    }
-                  </td>
-                  <td class="p-4 text-center">
                     @if (server.install) { 
                       <a [href]="server.install" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-green-600 bg-green-50 px-3 py-1.5 rounded-full hover:bg-green-600 hover:text-white transition-colors">
-                        VER GUÍA <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                      </a> 
-                    } @else { 
-                      <span class="text-gray-400 font-medium text-xs">N/A</span> 
-                    }
-                  </td>
-                  <td class="p-4 text-center">
-                    @if (server.backup) { 
-                      <a [href]="server.backup" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-purple-600 bg-purple-50 px-3 py-1.5 rounded-full hover:bg-purple-600 hover:text-white transition-colors">
                         VER GUÍA <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                       </a> 
                     } @else { 
@@ -90,10 +76,6 @@ import { RouterLink } from '@angular/router';
             </tbody>
           </table>
         </div>
-        <p class="text-xs text-gray-500 mt-5 flex items-start gap-2 bg-gray-50 p-3 rounded-lg border border-gray-100">
-          <svg class="w-4 h-4 text-bm-blue shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          * Archivo CSR en un formato reconocido por la Autoridad Certificadora. Las configuraciones aplican para entornos estándar; entornos customizados podrían diferir.
-        </p>
       </div>
     </section>
 
@@ -114,7 +96,6 @@ import { RouterLink } from '@angular/router';
                 <th class="p-4 font-bold text-gray-600">Tipo de Servidor</th>
                 <th class="p-4 font-bold text-gray-600 text-center">Cifrado Seguro (HSTS)</th>
                 <th class="p-4 font-bold text-gray-600 text-center">Redirección HTTP a HTTPS</th>
-                <th class="p-4 font-bold text-gray-600 text-center">Redirección IP a Dominio</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 text-sm">
@@ -127,10 +108,6 @@ import { RouterLink } from '@angular/router';
                   </td>
                   <td class="p-4 text-center">
                     @if (adv.http2https) { <a [href]="adv.http2https" class="text-bm-red font-bold text-xs hover:underline">VER</a> }
-                    @else { <span class="text-gray-400 text-xs">N/A</span> }
-                  </td>
-                  <td class="p-4 text-center">
-                    @if (adv.ip2domain) { <a [href]="adv.ip2domain" class="text-bm-red font-bold text-xs hover:underline">VER</a> }
                     @else { <span class="text-gray-400 text-xs">N/A</span> }
                   </td>
                 </tr>
@@ -186,18 +163,13 @@ export class SoporteSslComponent {
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>'
     },
     { 
-      name: 'Descarga la Raíz', 
-      url: '#', 
-      icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>'
-    },
-    { 
       name: 'Concordancia de Llaves', 
       url: '#', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>'
     },
     { 
-      name: 'Descarga KSE 5.3.2', 
-      url: '#', 
+      name: 'Descarga KeyStore Explorer', 
+      url: 'https://keystore-explorer.org/downloads.html', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>'
     }
   ]);
@@ -213,10 +185,13 @@ export class SoporteSslComponent {
     { name: 'JBoss', csr: '#', install: '#', backup: '#' },
     { name: 'Juniper Secure Access VPN', csr: '#', install: '#', backup: null },
     { name: 'Lotus Domino', csr: '#', install: '#', backup: null },
-    { name: 'Mac OS X', csr: '#', install: '#', backup: null },
+    { name: 'Microsoft Exchange 2007', csr: '#', install: '#', backup: null },
+    { name: 'Microsoft Exchange 2010', csr: '#', install: '#', backup: null },
     { name: 'Microsoft Exchange 2013', csr: '#', install: '#', backup: null },
-    { name: 'Microsoft IIS 7 / 8+', csr: '#', install: '#', backup: '#' },
+    { name: 'Microsoft IIS 5 / 5', csr: '#', install: '#', backup: '#' },
+    { name: 'Microsoft IIS 7+', csr: '#', install: '#', backup: '#' },
     { name: 'NGINX', csr: '#', install: '#', backup: null },
+    { name: 'Tomcat 8 y anteriores', csr: '#', install: '#', backup: null },
     { name: 'Tomcat 8.5+', csr: '#', install: '#', backup: null },
     { name: 'Weblogic', csr: '#', install: '#', backup: null },
     { name: 'WildFly', csr: '#', install: '#', backup: '#' },
