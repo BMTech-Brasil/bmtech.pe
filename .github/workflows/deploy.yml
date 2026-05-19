@@ -3,7 +3,7 @@ name: Building and Deploying bmtech.pe website
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
