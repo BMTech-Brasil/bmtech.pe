@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import emailjs from '@emailjs/browser';
@@ -11,19 +11,39 @@ import emailjs from '@emailjs/browser';
     <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm">
       <div class="container mx-auto px-6 h-20 flex justify-between items-center">
         
-        <a routerLink="/" class="flex items-center hover:opacity-90 transition select-none">
+        <a routerLink="/" class="flex items-center hover:opacity-90 transition select-none z-[60]" (click)="closeMobileMenu()">
           <img src="bmtechlogo.png" alt="Logo de BMTech" class="h-12 w-auto object-contain">
         </a>
 
-        <div class="hidden md:flex items-center gap-6 lg:gap-8">
-          <a routerLink="/" class="nav-item">Inicio</a>
+        <button (click)="toggleMobileMenu()" class="md:hidden text-gray-600 focus:outline-none z-[60] p-2 hover:bg-gray-50 rounded-lg transition-colors">
+          <svg *ngIf="!isMobileMenuOpen()" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+          <svg *ngIf="isMobileMenuOpen()" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
 
-          <div class="relative group h-20 flex items-center">
-            <button class="nav-item flex items-center gap-1 focus:outline-none">
+        <div 
+          [class.translate-x-full]="!isMobileMenuOpen()" 
+          [class.translate-x-0]="isMobileMenuOpen()" 
+          class="fixed md:static top-0 right-0 w-3/4 md:w-auto h-full md:h-auto bg-white md:bg-transparent shadow-2xl md:shadow-none flex flex-col md:flex-row items-start md:items-center pt-24 md:pt-0 px-6 md:px-0 gap-6 lg:gap-8 transition-transform duration-300 ease-in-out md:translate-x-0 z-50 overflow-y-auto md:overflow-visible">
+          
+          <a routerLink="/" class="nav-item text-lg md:text-sm w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100" (click)="closeMobileMenu()">Inicio</a>
+
+          <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
+            <button (click)="toggleMobileDropdown('certificados')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Certificados
-              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg [class.rotate-180]="isMobileDropdownOpen('certificados')" class="w-5 h-5 md:w-4 md:h-4 transition-transform md:group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div [class.hidden]="!isMobileDropdownOpen('certificados')" class="md:hidden mt-3 ml-4 space-y-3 w-full">
+               <a routerLink="/solutions/sectigo" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Sectigo</a>
+               <a routerLink="/solutions/scm" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Sectigo (SCM)</a>
+               <a routerLink="/solutions/clm" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Certificate (CLM)</a>
+               <a routerLink="/solutions/globalsign" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Global Sign</a>
+               <a routerLink="/solutions/digicert" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">DigiCert</a>
+            </div>
+            <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <div class="py-2">
                 <div class="relative group/sectigo">
                   <a routerLink="/solutions/sectigo" class="flex items-center justify-between w-full px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-bm-red transition-colors font-sans cursor-pointer">
@@ -43,12 +63,17 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
 
-          <div class="relative group h-20 flex items-center">
-            <button class="nav-item flex items-center gap-1 focus:outline-none">
+          <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
+            <button (click)="toggleMobileDropdown('firma')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Firma Digital
-              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg [class.rotate-180]="isMobileDropdownOpen('firma')" class="w-5 h-5 md:w-4 md:h-4 transition-transform md:group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div [class.hidden]="!isMobileDropdownOpen('firma')" class="md:hidden mt-3 ml-4 space-y-3 w-full">
+               <a routerLink="/solutions/firma-digital" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Certificados de Firmas Digitales</a>
+               <a routerLink="/solutions/portal-flex" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">PFX</a>
+               <a routerLink="/solutions/tablex" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Tablex</a>
+            </div>
+            <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <div class="py-2">
                 <a routerLink="/solutions/firma-digital" class="dropdown-item">Certificados de Firmas Digitales</a>
                 <a routerLink="/solutions/portal-flex" class="dropdown-item">PFX</a>
@@ -57,13 +82,20 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
 
-          <div class="relative group h-20 flex items-center">
-            <button routerLink="/solutions/monitoreo" class="nav-item flex items-center gap-1 focus:outline-none">
+          <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
+            <button (click)="toggleMobileDropdown('monitoreo')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Monitoreo
-              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg [class.rotate-180]="isMobileDropdownOpen('monitoreo')" class="w-5 h-5 md:w-4 md:h-4 transition-transform md:group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div [class.hidden]="!isMobileDropdownOpen('monitoreo')" class="md:hidden mt-3 ml-4 space-y-3 w-full">
+               <a routerLink="/solutions/monitoreo" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Ver Todo Monitoreo</a>
+               <a routerLink="/solutions/hexnode" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- HexNode</a>
+               <a routerLink="/solutions/teramind" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Teramind</a>
+               <a routerLink="/solutions/kickidler" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- KickIdler</a>
+            </div>
+            <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <div class="py-2">
+                <a routerLink="/solutions/monitoreo" class="dropdown-item font-bold border-b border-gray-100">Ver Todos</a>
                 <a routerLink="/solutions/hexnode" class="dropdown-item">HexNode</a>
                 <a routerLink="/solutions/teramind" class="dropdown-item">Teramind</a>
                 <a routerLink="/solutions/kickidler" class="dropdown-item">KickIdler</a>
@@ -71,15 +103,19 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
 
-          <div class="relative group h-20 flex items-center">
-            <button class="nav-item flex items-center gap-1 focus:outline-none">
+          <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
+            <button (click)="toggleMobileDropdown('soporte')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Soporte
-              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg [class.rotate-180]="isMobileDropdownOpen('soporte')" class="w-5 h-5 md:w-4 md:h-4 transition-transform md:group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            
-            <div class="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div [class.hidden]="!isMobileDropdownOpen('soporte')" class="md:hidden mt-3 ml-4 space-y-3 w-full">
+               <a routerLink="/solutions/horasadicionales" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Compra horas de soporte</a>
+               <span class="block text-gray-600 font-bold mt-4">Manuales</span>
+               <a routerLink="/solutions/soporte-fe" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Facturacion Electrónica</a>
+               <a routerLink="/solutions/soporte-ssl" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Soporte SSL</a>
+            </div>
+            <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <a routerLink="/solutions/horasadicionales" class="dropdown-item">Compra horas adicionales de soporte</a>
-              
               <div class="py-2">
                 <div class="relative group/soporte">
                   <a class="flex items-center justify-between w-full px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-bm-red transition-colors font-sans cursor-pointer">
@@ -97,18 +133,21 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
           
-          <button (click)="openContactModal('Contacto General', $event)" class="bg-bm-red text-white px-6 py-2 rounded font-bold text-sm hover:bg-red-700 transition shadow-md font-sans whitespace-nowrap">
+          <button (click)="openContactModal('Contacto General', $event); closeMobileMenu()" class="bg-bm-red text-white px-6 py-3 md:py-2 mt-4 md:mt-0 w-full md:w-auto rounded font-bold text-base md:text-sm hover:bg-red-700 transition shadow-md font-sans text-center">
             Contáctanos
           </button>
         </div>
+
+        <div *ngIf="isMobileMenuOpen()" (click)="closeMobileMenu()" class="fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity"></div>
+
       </div>
     </nav>
 
     @if (activeModal() !== null) {
       <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
-        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
-          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 md:p-8 transform transition-all animate-fade-in-up max-h-[90vh] overflow-y-auto">
+          <button (click)="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none bg-gray-100 hover:bg-gray-200 rounded-full p-1">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
           
@@ -118,7 +157,7 @@ import emailjs from '@emailjs/browser';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
               <h3 class="text-2xl font-bold text-bm-blue mb-2">Solicitar Cotización</h3>
-              <p class="text-gray-600 mb-6">Complete los datos a continuación para recibir información detallada sobre: <strong>{{ selectedProductName() }}</strong>.</p>
+              <p class="text-gray-600 mb-6 text-sm md:text-base">Complete los datos a continuación para recibir información detallada sobre: <strong>{{ selectedProductName() }}</strong>.</p>
               
               <form (submit)="onSubmitContact($event)" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -190,6 +229,44 @@ export class NavbarComponent {
   selectedProductName = signal<string>('');
   isSubmitting = signal(false);
   submitSuccess = signal(false);
+
+  isMobileMenuOpen = signal(false);
+  mobileOpenDropdown = signal<string | null>(null);
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen.update(v => !v);
+    if (this.isMobileMenuOpen()) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+      this.mobileOpenDropdown.set(null);
+    }
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen.set(false);
+    this.mobileOpenDropdown.set(null);
+    document.body.style.overflow = 'auto';
+  }
+
+  toggleMobileDropdown(dropdownName: string) {
+    if (this.mobileOpenDropdown() === dropdownName) {
+      this.mobileOpenDropdown.set(null);
+    } else {
+      this.mobileOpenDropdown.set(dropdownName);
+    }
+  }
+
+  isMobileDropdownOpen(dropdownName: string): boolean {
+    return this.mobileOpenDropdown() === dropdownName;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    if (window.innerWidth >= 768 && this.isMobileMenuOpen()) {
+      this.closeMobileMenu();
+    }
+  }
 
   openContactModal(productName: string, event: Event) {
     event.preventDefault();
