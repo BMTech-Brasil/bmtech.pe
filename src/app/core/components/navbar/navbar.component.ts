@@ -239,7 +239,7 @@ export class NavbarComponent {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
-      this.mobileOpenDropdown.set(null);
+      this.mobileOpenDropdown.set(null); 
     }
   }
 
@@ -261,13 +261,12 @@ export class NavbarComponent {
     return this.mobileOpenDropdown() === dropdownName;
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     if (window.innerWidth >= 768 && this.isMobileMenuOpen()) {
       this.closeMobileMenu();
     }
   }
-
   openContactModal(productName: string, event: Event) {
     event.preventDefault();
     this.selectedProductName.set(productName);
