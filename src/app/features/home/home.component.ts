@@ -79,8 +79,8 @@ interface TimeLeft {
 
     <section class="py-20 bg-gray-50 border-y border-gray-200">
       <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold text-bm-blue mb-2">Alerta de la Industria: Reducción de Vida Útil TLS</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto mb-10">⏳ Cuenta Regresiva para la Reducción Definitiva TLS. Anticípese al cambio con BMTECH.</p>
+        <h2 class="text-3xl font-bold text-[#03123a] mb-2">CUENTA REGRESIVA PARA LA REDUCCIÓN DEFINITIVA TLS</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-10">El ecosistema de navegadores (Google, Apple) exigirá ciclos de vida más cortos para los certificados SSL/TLS públicos. Anticípese al cambio con <span class="text-bm-blue font-bold"> BMTECH</span>.</p>
 
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           
