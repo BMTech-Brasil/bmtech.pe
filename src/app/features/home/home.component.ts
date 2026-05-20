@@ -3,6 +3,12 @@ import { CommonModule } from '@angular/common';
 import emailjs from '@emailjs/browser';
 import { RouterLink } from "@angular/router";
 
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -38,9 +44,7 @@ import { RouterLink } from "@angular/router";
 
     <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-24 relative overflow-hidden">
       <div class="absolute right-0 top-0 w-1/2 h-full skew-x-12 translate-x-20 z-0 overflow-hidden border-l-4 border-white/50">
-        
         <div class="absolute top-0 -left-[25%] w-[150%] h-full -skew-x-12">
-          
           @for (img of heroImages; track $index) {
             <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out"
                  [ngClass]="{'opacity-100 z-10': currentHeroIndex() === $index, 'opacity-0 z-0': currentHeroIndex() !== $index}">
@@ -52,7 +56,6 @@ import { RouterLink } from "@angular/router";
               <div class="absolute inset-0 bg-bm-blue/30 mix-blend-multiply"></div>
             </div>
           }
-
         </div>
       </div>
 
@@ -66,17 +69,157 @@ import { RouterLink } from "@angular/router";
           </p>
           <div class="flex flex-col md:flex-row gap-4">
             <button (click)="openContactModal('Consultoría de Seguridad', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Hablar con un Asesor</button>
-            
             <button (click)="scrollTo('nuestras-soluciones')" class="border-2 border-bm-white text-bm-white px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
               Nuestras Soluciones
             </button>
-            
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-16 bg-white overflow-hidden border-y border-gray-100 shadow-sm">
+    <section class="py-20 bg-gray-50 border-y border-gray-200">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-bm-blue mb-2">Alerta de la Industria: Reducción de Vida Útil TLS</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-10">⏳ Cuenta Regresiva para la Reducción Definitiva TLS. Anticípese al cambio con BMTECH.</p>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center hover:-translate-y-1 transition-transform duration-300">
+            <div class="bg-blue-50 text-bm-blue font-bold text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Próxima Reducción
+            </div>
+            
+            <h3 class="text-4xl font-black text-[#1e3a8a] mb-2">A 100 DÍAS</h3>
+            
+            <div class="flex items-center w-full max-w-xs mb-8">
+              <div class="flex-grow h-px bg-gray-200"></div>
+              <span class="px-4 text-sm font-bold text-[#1e3a8a]">15 MAR 2027</span>
+              <div class="flex-grow h-px bg-gray-200"></div>
+            </div>
+
+            <div class="flex gap-2 sm:gap-4 justify-center mb-10">
+              <div class="flex flex-col items-center">
+                <div class="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] text-4xl sm:text-5xl font-bold rounded-xl shadow-sm min-w-[4rem] sm:min-w-[5rem] h-20 sm:h-24 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-gray-200/50"></div>
+                  <span>{{ padZero(timeLeft100().days) }}</span>
+                </div>
+                <span class="text-xs font-bold text-gray-400 uppercase mt-3 tracking-wider">Días</span>
+              </div>
+              <span class="text-4xl font-bold text-gray-300 self-start mt-4">:</span>
+              
+              <div class="flex flex-col items-center">
+                <div class="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] text-4xl sm:text-5xl font-bold rounded-xl shadow-sm min-w-[4rem] sm:min-w-[5rem] h-20 sm:h-24 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-gray-200/50"></div>
+                  <span>{{ padZero(timeLeft100().hours) }}</span>
+                </div>
+                <span class="text-xs font-bold text-gray-400 uppercase mt-3 tracking-wider">Horas</span>
+              </div>
+              <span class="text-4xl font-bold text-gray-300 self-start mt-4">:</span>
+              
+              <div class="flex flex-col items-center">
+                <div class="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] text-4xl sm:text-5xl font-bold rounded-xl shadow-sm min-w-[4rem] sm:min-w-[5rem] h-20 sm:h-24 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-gray-200/50"></div>
+                  <span>{{ padZero(timeLeft100().minutes) }}</span>
+                </div>
+                <span class="text-xs font-bold text-gray-400 uppercase mt-3 tracking-wider">Min</span>
+              </div>
+            </div>
+
+            <div class="w-full relative mt-auto px-4">
+              <div class="absolute top-3 left-8 right-8 h-1 bg-gray-100 z-0 rounded"></div>
+              <div class="absolute top-3 left-8 w-1/2 h-1 bg-[#1e3a8a] z-0 rounded"></div>
+              
+              <div class="flex justify-between relative z-10">
+                <div class="flex flex-col items-center">
+                  <div class="w-7 h-7 bg-[#1e3a8a] rounded-full flex items-center justify-center mb-2 shadow-md">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-[10px] text-gray-500 uppercase font-bold text-center">Fase Actual<br><span class="text-gray-800">200 Días</span></span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-7 h-7 bg-white border-4 border-[#1e3a8a] rounded-full mb-2 shadow-md outline outline-2 outline-offset-2 outline-blue-100"></div>
+                  <span class="text-[10px] text-[#1e3a8a] uppercase font-bold text-center">Próxima Fase<br><span class="text-gray-800">100 Días</span><br>15 Mar 2027</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-7 h-7 bg-white border-[3px] border-gray-200 rounded-full mb-2"></div>
+                  <span class="text-[10px] text-gray-400 uppercase font-bold text-center">Fase Final<br><span class="text-gray-400">47 Días</span><br>15 Mar 2029</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center hover:-translate-y-1 transition-transform duration-300">
+            <div class="bg-red-50 text-bm-red font-bold text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              Reducción Definitiva
+            </div>
+            
+            <h3 class="text-4xl font-black text-bm-red mb-2">A 47 DÍAS</h3>
+            
+            <div class="flex items-center w-full max-w-xs mb-8">
+              <div class="flex-grow h-px bg-gray-200"></div>
+              <span class="px-4 text-sm font-bold text-bm-red">15 MAR 2029</span>
+              <div class="flex-grow h-px bg-gray-200"></div>
+            </div>
+
+            <div class="flex gap-2 sm:gap-4 justify-center mb-10">
+              <div class="flex flex-col items-center">
+                <div class="bg-[#fef2f2] border border-[#fecaca] text-bm-red text-4xl sm:text-5xl font-bold rounded-xl shadow-sm min-w-[4rem] sm:min-w-[5rem] h-20 sm:h-24 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-red-200/50"></div>
+                  <span>{{ padZero(timeLeft47().days) }}</span>
+                </div>
+                <span class="text-xs font-bold text-gray-400 uppercase mt-3 tracking-wider">Días</span>
+              </div>
+              <span class="text-4xl font-bold text-gray-300 self-start mt-4">:</span>
+              
+              <div class="flex flex-col items-center">
+                <div class="bg-[#fef2f2] border border-[#fecaca] text-bm-red text-4xl sm:text-5xl font-bold rounded-xl shadow-sm min-w-[4rem] sm:min-w-[5rem] h-20 sm:h-24 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-red-200/50"></div>
+                  <span>{{ padZero(timeLeft47().hours) }}</span>
+                </div>
+                <span class="text-xs font-bold text-gray-400 uppercase mt-3 tracking-wider">Horas</span>
+              </div>
+              <span class="text-4xl font-bold text-gray-300 self-start mt-4">:</span>
+              
+              <div class="flex flex-col items-center">
+                <div class="bg-[#fef2f2] border border-[#fecaca] text-bm-red text-4xl sm:text-5xl font-bold rounded-xl shadow-sm min-w-[4rem] sm:min-w-[5rem] h-20 sm:h-24 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute top-1/2 left-0 right-0 h-px bg-red-200/50"></div>
+                  <span>{{ padZero(timeLeft47().minutes) }}</span>
+                </div>
+                <span class="text-xs font-bold text-gray-400 uppercase mt-3 tracking-wider">Min</span>
+              </div>
+            </div>
+
+            <div class="w-full relative mt-auto px-4">
+              <div class="absolute top-3 left-8 right-8 h-1 bg-gray-100 z-0 rounded"></div>
+              <div class="absolute top-3 left-8 w-1/2 h-1 bg-[#1e3a8a] z-0 rounded-l"></div>
+              <div class="absolute top-3 left-[50%] w-[35%] h-1 bg-gradient-to-r from-[#1e3a8a] to-bm-red z-0 rounded-r"></div>
+              
+              <div class="flex justify-between relative z-10">
+                <div class="flex flex-col items-center">
+                  <div class="w-7 h-7 bg-[#1e3a8a] rounded-full flex items-center justify-center mb-2 shadow-md">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-[10px] text-gray-500 uppercase font-bold text-center">Fase Actual<br><span class="text-gray-800">200 Días</span></span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-7 h-7 bg-[#1e3a8a] rounded-full flex items-center justify-center mb-2 shadow-md">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-[10px] text-[#1e3a8a] uppercase font-bold text-center">Próxima Fase<br><span class="text-gray-800">100 Días</span><br>15 Mar 2027</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-7 h-7 bg-white border-4 border-bm-red rounded-full mb-2 shadow-[0_0_15px_rgba(237,28,36,0.3)] outline outline-2 outline-offset-2 outline-red-100"></div>
+                  <span class="text-[10px] text-bm-red uppercase font-bold text-center">Fase Final<br><span class="text-gray-800">47 Días</span><br>15 Mar 2029</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white overflow-hidden border-b border-gray-100">
       <div class="container mx-auto px-6 mb-10 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Quiénes confían en BMTech</h2>
         <div class="w-20 h-1 bg-bm-red mx-auto"></div>
@@ -84,7 +227,6 @@ import { RouterLink } from "@angular/router";
 
       <div class="relative w-full overflow-hidden">
         <div class="flex animate-scroll gap-16 items-center w-max">
-
             @for (client of clients(); track 'g1-' + client.id) {
               <a [href]="client.url" target="_blank" class="shrink-0 group px-4" [title]="client.name">
                <img [src]="client.img" [alt]="client.name" class="h-16 w-auto max-w-[150px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer">
@@ -217,7 +359,14 @@ import { RouterLink } from "@angular/router";
 })
 export class HomeComponent implements OnInit, OnDestroy {
   currentHeroIndex = signal(0);
-  private intervalId: any;
+  private sliderIntervalId: any;
+  private countdownIntervalId: any;
+
+  target100 = new Date('2027-03-15T00:00:00'); 
+  target47 = new Date('2029-03-15T00:00:00');  
+
+  timeLeft100 = signal<TimeLeft>(this.calculateTimeLeft(this.target100));
+  timeLeft47 = signal<TimeLeft>(this.calculateTimeLeft(this.target47));
 
   heroImages = [
     'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
@@ -225,7 +374,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'
   ];
 
-    partnerGroups = signal([
+  partnerGroups = signal([
     {
       category: 'SSL',
       items: [
@@ -272,15 +421,35 @@ export class HomeComponent implements OnInit, OnDestroy {
   submitSuccess = signal(false);
 
   ngOnInit() {
-    this.intervalId = setInterval(() => {
+    this.sliderIntervalId = setInterval(() => {
       this.currentHeroIndex.update((index) => (index + 1) % this.heroImages.length);
     }, 4000);
+
+    this.countdownIntervalId = setInterval(() => {
+      this.timeLeft100.set(this.calculateTimeLeft(this.target100));
+      this.timeLeft47.set(this.calculateTimeLeft(this.target47));
+    }, 1000);
   }
 
   ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
+    if (this.sliderIntervalId) clearInterval(this.sliderIntervalId);
+    if (this.countdownIntervalId) clearInterval(this.countdownIntervalId);
+  }
+
+  calculateTimeLeft(targetDate: Date): TimeLeft {
+    const difference = targetDate.getTime() - new Date().getTime();
+    if (difference > 0) {
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60)
+      };
     }
+    return { days: 0, hours: 0, minutes: 0 };
+  }
+
+  padZero(num: number): string {
+    return num.toString().padStart(2, '0');
   }
 
   scrollTo(sectionId: string) {

@@ -56,6 +56,12 @@ import { RouterLink } from '@angular/router';
             <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-[0_4px_20px_rgba(220,38,38,0.4)] transform hover:-translate-y-1">
               Agendar Demostración
             </button>
+            <button (click)="openContactModal('Prueba de 15 días - Hexnode', $event)" class="bg-white hover:bg-gray-100 text-bm-blue px-6 py-3 md:px-8 md:py-4 rounded font-bold transition shadow-lg whitespace-nowrap">
+              Prueba de 15 Días
+            </button>
+            <button (click)="scrollToFeatures($event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition">
+              Ver Funcionalidades
+            </button>
           </div>
         </div>
 
@@ -80,7 +86,7 @@ import { RouterLink } from '@angular/router';
       </div>
     </section>
 
-    <section class="py-24 bg-gray-50 border-b border-gray-200">
+    <section id="features" class="py-24 bg-gray-50 border-b border-gray-200">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16 max-w-3xl mx-auto">
           <h2 class="text-3xl font-bold text-bm-blue mb-4">Funcionalidades de Clase Corporativa</h2>
@@ -342,6 +348,16 @@ export class HexnodeComponent {
   closeModal() {
     this.activeModal.set(null);
     document.body.style.overflow = 'auto';
+  }
+
+  scrollToFeatures(event: Event) {
+    event.preventDefault();
+
+    const section = document.getElementById('features');
+
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   async onSubmitContact(event: Event) {

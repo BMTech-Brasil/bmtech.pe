@@ -56,7 +56,9 @@ import { RouterLink } from '@angular/router';
             <button (click)="openContactModal('Kickidler', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-[0_4px_20px_rgba(220,38,38,0.4)] transform hover:-translate-y-1">
               Agendar Demostración
             </button>
-
+            <button (click)="openContactModal('Prueba de 15 días - KickIdler', $event)" class="bg-white hover:bg-gray-100 text-bm-blue px-6 py-3 md:px-8 md:py-4 rounded font-bold transition shadow-lg whitespace-nowrap">
+              Prueba de 15 Días
+            </button>
             <button (click)="scrollToFeatures($event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition">
               Ver Funcionalidades
             </button>

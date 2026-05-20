@@ -81,7 +81,7 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <p>© 2026 BMTech. Todos los derechos reservados.</p>
+          <p>© 2026 BMTech. RUC: 20555130741. Todos los derechos reservados.</p>
           
           <div class="flex items-center gap-2 bg-white border border-gray-200 px-3 py-1.5 rounded-md shadow-sm select-none" title="Ambiente Seguro">
             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

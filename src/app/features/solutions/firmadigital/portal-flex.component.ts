@@ -51,7 +51,7 @@ import { RouterLink } from '@angular/router';
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white">eliminar el papel</span> de su empresa.
             </h1>
             <p class="text-lg text-white-300 mb-8 leading-relaxed">
-              El <strong>Portal Flex</strong> centraliza la firma de documentos (Digital y Electrónica), la automatización de procesos (BPM) y la custodia de archivos en un entorno seguro y con validez legal.
+              El <strong>Portal Flex</strong> centraliza la firma de documentos (Digital y Electrónica), la automatización de procesos (BPM) y la custodia de archivos en un entorno seguro y con validez legal. Todos los documentos se guardarán en una nube segura.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <button (click)="openContactModal('Portal Flex - Demostración', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
@@ -60,13 +60,13 @@ import { RouterLink } from '@angular/router';
             </div>
             <div class="mt-8 flex gap-6 text-sm text-white-400 font-medium">
               <div class="flex items-center gap-2">
-                <span class="text-green-400">✓</span> ICP-Brasil
+                <span class="text-green-400">✓</span> Ley Nº 29733 (ARCO)
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-green-400">✓</span> Ley 14.063/20
+                <span class="text-green-400">✓</span> Ley nº 27310
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-green-400">✓</span> LGPD Ready
+                <span class="text-green-400">✓</span> Ley nº 29.733
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@ import { RouterLink } from '@angular/router';
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">Archivo Digital (GED)</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Almacene todo en la nube con <strong>Tabla de Temporalidad</strong>. El sistema avisa cuando un documento expira y organiza todo automáticamente.
+              Posicion de Firma Elige la posición de firma dentro del documento.
             </p>
           </div>
 
@@ -145,9 +145,9 @@ import { RouterLink } from '@angular/router';
             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-blue transition">
               <svg class="w-6 h-6 text-bm-blue group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.2-2.85.567-4.167"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Biometría Facial</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">OTP (One-Time Password)</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Añade una capa adicional de seguridad. Exige al firmante que realice el reconocimiento facial antes de firmar contratos confidenciales.
+              Verificación de identidad mediante el envío de un código de una sola vez al correo o whatsapp.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ import { RouterLink } from '@angular/router';
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-3">API de Integración</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Integre el Portal Flex a su ERP (SAP, Totvs, Senior) mediante API REST. Genere el documento en su sistema y envíelo para firma automáticamente.
+              Integre el Portal Flex a su ERP mediante API REST. Genere el documento en su sistema y envíelo para firma automáticamente.
             </p>
           </div>
 
@@ -165,9 +165,9 @@ import { RouterLink } from '@angular/router';
             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-blue transition">
               <svg class="w-6 h-6 text-bm-blue group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">OCR Inteligente</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Firma con DNI</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
-              Digitalice papel y transfórmelo en datos buscables. Encuentre cualquier documento escribiendo una palabra que esté en él.
+              Firme sus documentos digitalmente utilizando su DNI electrónico. Garantice la máxima validez legal, autenticidad y seguridad en todos sus trámites.
             </p>
           </div>
 

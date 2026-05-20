@@ -48,14 +48,19 @@ import { RouterLink } from '@angular/router';
           <p class="text-lg text-gray-300 mb-8 leading-relaxed">
             Detecte amenazas internas, prevenga fugas de datos (DLP) y optimice la productividad de su equipo con la plataforma líder a nivel mundial.
           </p> 
-          <div class="flex gap-4">
-            <button class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg">
+          
+          <div class="flex flex-wrap gap-4">
+            <button (click)="openContactModal('Demostración de Teramind', $event)" class="bg-bm-red hover:bg-red-700 text-white px-6 py-3 md:px-8 md:py-4 rounded font-bold transition shadow-lg whitespace-nowrap">
               Agendar Demostración
             </button>
-            <button class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition">
+            <button (click)="openContactModal('Prueba de 15 días - Teramind', $event)" class="bg-white hover:bg-gray-100 text-bm-blue px-6 py-3 md:px-8 md:py-4 rounded font-bold transition shadow-lg whitespace-nowrap">
+              Prueba de 15 Días
+            </button>
+            <button (click)="scrollToFeatures()" class="border border-white/30 hover:bg-white/10 text-white px-6 py-3 md:px-8 md:py-4 rounded font-bold transition whitespace-nowrap">
               Ver Funcionalidades
             </button>
           </div>
+
         </div>
 
         <div class="bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20 shadow-2xl relative z-20">
@@ -67,7 +72,7 @@ import { RouterLink } from '@angular/router';
       </div>
     </section>
 
-    <section class="py-24 bg-white">
+    <section id="funcionalidades" class="py-24 bg-white">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-bm-blue mb-4">¿Por qué elegir Teramind?</h2>
@@ -195,7 +200,7 @@ import { RouterLink } from '@angular/router';
                 <td class="p-4 font-medium text-gray-800">OCR (Texto en Imágenes)</td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
-                <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
+                <td class="p-4 text-center"><svg class="w-5 h-5 mx-auto text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-4 text-center bg-red-50/30 group-hover:bg-red-50/50"><svg class="w-5 h-5 mx-auto text-bm-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></td>
               </tr>
               
@@ -396,6 +401,13 @@ export class TeramindComponent {
   closeModal() {
     this.activeModal.set(null);
     document.body.style.overflow = 'auto';
+  }
+
+  scrollToFeatures() {
+    const element = document.getElementById('funcionalidades');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   async onSubmitContact(event: Event) {
