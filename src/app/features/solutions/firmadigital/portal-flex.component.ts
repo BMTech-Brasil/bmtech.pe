@@ -63,10 +63,10 @@ import { RouterLink } from '@angular/router';
                 <span class="text-green-400">✓</span> Ley Nº 29733 (ARCO)
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-green-400">✓</span> Ley nº 27310
+                <span class="text-green-400">✓</span> Ley Nº 27310
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-green-400">✓</span> Ley nº 29.733
+                <span class="text-green-400">✓</span> Incluido en la lista ROPS
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@ import { RouterLink } from '@angular/router';
             <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-bm-blue transition">
               <svg class="w-6 h-6 text-bm-blue group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Archivo Digital (GED)</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Posición de Firma</h3>
             <p class="text-gray-500 text-sm leading-relaxed">
               Posicion de Firma Elige la posición de firma dentro del documento.
             </p>

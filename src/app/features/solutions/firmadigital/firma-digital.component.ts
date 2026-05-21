@@ -170,7 +170,7 @@ import emailjs from '@emailjs/browser';
     </section>
 
     <section class="py-24 bg-white border-t border-gray-100">
-      <div class="container mx-auto px-6 max-w-6xl">
+      <div class="container mx-auto px-6 max-w-7xl">
         <div class="text-center mb-16">
           <span class="text-bm-red font-bold tracking-widest uppercase mb-4 block text-sm">Elige el perfil adecuado</span>
           <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">¿Qué tipo de certificado necesitas?</h2>
@@ -180,120 +180,94 @@ import emailjs from '@emailjs/browser';
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
-
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          
           <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
-            <div class="p-8 border-b border-gray-100 bg-gradient-to-br from-red-50 to-white">
-              <div class="w-16 h-16 bg-bm-red text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-900/20 transform group-hover:-rotate-6 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            <div class="p-6 border-b border-gray-100 bg-gradient-to-br from-red-50 to-white flex items-center gap-4">
+              <div class="w-12 h-12 bg-bm-red text-white rounded-xl flex items-center justify-center shadow-lg shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Persona Natural</h3>
-              <p class="text-gray-500 text-sm">Identifica digitalmente a un individuo (DNI/CE).</p>
+              <h3 class="text-xl font-bold text-gray-900 leading-tight">Persona Natural</h3>
             </div>
-            <div class="p-8 flex-grow flex flex-col">
-              <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Firma de documentos a título personal.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Ideal para Médicos, Abogados, Ingenieros.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Declaraciones Juradas y Trámites ciudadanos.</span>
-                </li>
-              </ul>
-              <button (click)="openContactModal('Certificado Digital - Persona Natural (DNI)', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-sm">
-                Solicitar Persona Natural
-              </button>
-            </div>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
-            <div class="p-8 border-b border-gray-100 bg-gradient-to-br from-red-50 to-white">
-              <div class="w-16 h-16 bg-bm-red text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-900/20 transform group-hover:-rotate-6 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-              </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Persona Natural Profesional (colegiatura)</h3>
-              <p class="text-gray-500 text-sm">Identifica digitalmente a un individuo (DNI/CE).</p>
-            </div>
-            <div class="p-8 flex-grow flex flex-col">
-              <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Firma de documentos a título personal.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Ideal para Médicos, Abogados, Ingenieros.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Declaraciones Juradas y Trámites ciudadanos.</span>
-                </li>
-              </ul>
-              <button (click)="openContactModal('Certificado Digital - Persona Natural (DNI)', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-sm">
-                Solicitar Persona Natural
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-gray-600 text-sm mb-6">Identifica digitalmente a un individuo (DNI/CE) para la firma de documentos a título personal.</p>
+              <button (click)="openContactModal('Certificado Digital - Persona Natural', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+                Solicitar
               </button>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
-            <div class="p-8 border-b border-gray-100 bg-gradient-to-br from-blue-50 to-white">
-              <div class="w-16 h-16 bg-bm-blue text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-900/20 transform group-hover:rotate-6 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            <div class="p-6 border-b border-gray-100 bg-gradient-to-br from-red-50 to-white flex items-center gap-4">
+              <div class="w-12 h-12 bg-bm-red text-white rounded-xl flex items-center justify-center shadow-lg shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Persona Jurídica (Representante Legal)</h3>
-              <p class="text-gray-500 text-sm">Vincula al representante legal con la empresa (RUC).</p>
+              <h3 class="text-xl font-bold text-gray-900 leading-tight">Persona Natural Profesional <span class="block text-xs font-normal text-gray-500 mt-1">(Colegiatura)</span></h3>
             </div>
-            <div class="p-8 flex-grow flex flex-col">
-              <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Firma de contratos comerciales y laborales.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Trámites ante SUNAT, OSCE y Ministerios.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Emisión de Facturación Electrónica.</span>
-                </li>
-              </ul>
-              <button (click)="openContactModal('Certificado Digital - Persona Jurídica (RUC)', $event)" class="w-full bg-bm-blue hover:bg-blue-900 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-md">
-                Solicitar Persona Jurídica
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-gray-600 text-sm mb-6">Identificación digital que incluye validación de registro profesional. Ideal para médicos, ingenieros, abogados.</p>
+              <button (click)="openContactModal('Certificado Digital - Persona Natural Profesional', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+                Solicitar
               </button>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
-            <div class="p-8 border-b border-gray-100 bg-gradient-to-br from-blue-50 to-white">
-              <div class="w-16 h-16 bg-bm-blue text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-900/20 transform group-hover:rotate-6 transition-transform">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            <div class="p-6 border-b border-gray-100 bg-gradient-to-br from-blue-50 to-white flex items-center gap-4">
+              <div class="w-12 h-12 bg-bm-blue text-white rounded-xl flex items-center justify-center shadow-lg shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Persona Jurídica Profesional (colegiatura)</h3>
-              <p class="text-gray-500 text-sm">Vincula al representante legal con la empresa (RUC).</p>
+              <h3 class="text-xl font-bold text-gray-900 leading-tight">Persona Jurídica <span class="block text-xs font-normal text-gray-500 mt-1">(Representante Legal)</span></h3>
             </div>
-            <div class="p-8 flex-grow flex flex-col">
-              <ul class="space-y-4 mb-8 flex-grow">
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Firma de contratos comerciales y laborales.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Trámites ante SUNAT, OSCE y Ministerios.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span class="text-gray-700 text-sm">Emisión de Facturación Electrónica.</span>
-                </li>
-              </ul>
-              <button (click)="openContactModal('Certificado Digital - Persona Jurídica (RUC)', $event)" class="w-full bg-bm-blue hover:bg-blue-900 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-md">
-                Solicitar Persona Jurídica
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-gray-600 text-sm mb-6">Vincula al representante legal con la empresa (RUC). Para firma de contratos y trámites comerciales.</p>
+              <button (click)="openContactModal('Certificado Digital - Persona Jurídica (Representante Legal)', $event)" class="w-full bg-white border-2 border-bm-blue text-bm-blue hover:bg-bm-blue hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+                Solicitar
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
+            <div class="p-6 border-b border-gray-100 bg-gradient-to-br from-blue-50 to-white flex items-center gap-4">
+              <div class="w-12 h-12 bg-bm-blue text-white rounded-xl flex items-center justify-center shadow-lg shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 leading-tight">Persona Jurídica Prof. <span class="block text-xs font-normal text-gray-500 mt-1">(Colegiatura)</span></h3>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-gray-600 text-sm mb-6">Vincula el RUC de la empresa con el registro profesional. Ideal para firmas de estudios jurídicos o médicos.</p>
+              <button (click)="openContactModal('Certificado Digital - Persona Jurídica Profesional', $event)" class="w-full bg-white border-2 border-bm-blue text-bm-blue hover:bg-bm-blue hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+                Solicitar
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
+            <div class="p-6 border-b border-gray-100 bg-gradient-to-br from-green-50 to-white flex items-center gap-4">
+              <div class="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center shadow-lg shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 leading-tight">Facturación Electrónica</h3>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-gray-600 text-sm mb-6">Certificado optimizado para integrarse de forma nativa con los sistemas de emisión electrónica (SUNAT).</p>
+              <button (click)="openContactModal('Certificado Digital - Facturación Electrónica', $event)" class="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+                Solicitar
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col group hover:-translate-y-2 transition-transform duration-300">
+            <div class="p-6 border-b border-gray-100 bg-gradient-to-br from-green-50 to-white flex items-center gap-4">
+              <div class="w-12 h-12 bg-green-500 text-white rounded-xl flex items-center justify-center shadow-lg shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 leading-tight">Agente Automatizado <span class="block text-xs font-normal text-gray-500 mt-1">(R o A)</span></h3>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <p class="text-gray-600 text-sm mb-6">Firma desatendida para procesos robotizados, ideal para integración en servidores y software de alto volumen.</p>
+              <button (click)="openContactModal('Certificado Digital - Agente Automatizado (R o A)', $event)" class="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+                Solicitar
               </button>
             </div>
           </div>
@@ -301,7 +275,6 @@ import emailjs from '@emailjs/browser';
         </div>
       </div>
     </section>
-
     <section class="py-24 bg-gray-50 border-t border-gray-200">
       <div class="container mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
