@@ -267,7 +267,7 @@ export class GlobalsignComponent {
   ]);
   
   activeModal = signal<'CONTACT' | null>(null);
-  selectedProductName = signal<string>(''); // Ajustado para ser igual ao modal fornecido
+  selectedProductName = signal<string>('');
   isSubmitting = signal(false);
   submitSuccess = signal(false);
 
