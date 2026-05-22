@@ -144,6 +144,101 @@ import { RouterLink } from '@angular/router';
       </div>
     </section>
 
+    <section class="py-24 bg-white border-b border-gray-200">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-bm-red font-bold tracking-widest uppercase text-sm mb-4 block">Gestión de PKI en la Nube</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-6">Conozca GlobalSign Atlas</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+              <strong>Atlas</strong> es el motor de certificados en la nube de alta velocidad de GlobalSign, diseñado para satisfacer las demandas de identidad digital y seguridad de las empresas modernas. Automatice y gestione todo el ciclo de vida de los certificados desde una única y poderosa plataforma.
+            </p>
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-start text-gray-700 text-sm gap-3">
+                <div class="w-5 h-5 bg-blue-100 text-bm-blue rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="block text-gray-900 mb-1">Alta Escalabilidad</strong>
+                  Emita miles de certificados por segundo, ideal para infraestructuras empresariales y entornos IoT.
+                </div>
+              </li>
+              <li class="flex items-start text-gray-700 text-sm gap-3">
+                <div class="w-5 h-5 bg-blue-100 text-bm-blue rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="block text-gray-900 mb-1">Automatización Total</strong>
+                  Soporte nativo para protocolos como ACME, SCEP, y EST, reduciendo errores humanos y tiempos de inactividad.
+                </div>
+              </li>
+              <li class="flex items-start text-gray-700 text-sm gap-3">
+                <div class="w-5 h-5 bg-blue-100 text-bm-blue rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <strong class="block text-gray-900 mb-1">Integración Sencilla</strong>
+                  APIs RESTful completas y conectores preconstruidos para servidores, MDM y Active Directory.
+                </div>
+              </li>
+            </ul>
+            <button (click)="openContactModal('Demostración GlobalSign Atlas', $event)" class="bg-bm-blue hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg inline-flex items-center gap-2">
+              Solicitar Demostración de Atlas
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+          </div>
+          
+          <div class="bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-100 shadow-inner relative overflow-hidden">
+             <div class="absolute top-0 right-0 -mt-8 -mr-8 w-40 h-40 bg-cyan-200 rounded-full blur-3xl opacity-40"></div>
+             <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-40"></div>
+             
+             <div class="relative z-10 flex flex-col gap-4">
+                
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between hover:-translate-y-1 transition-transform duration-300">
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-lg flex items-center justify-center shrink-0 border border-blue-100">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-gray-800">Emisión de Certificados</p>
+                      <p class="text-xs text-green-500 font-medium">Motor de alta velocidad</p>
+                    </div>
+                  </div>
+                  <span class="hidden sm:block text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">REST API</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between hover:-translate-y-1 transition-transform duration-300">
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-lg flex items-center justify-center shrink-0 border border-cyan-100">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-gray-800">Renovación Automática</p>
+                      <p class="text-xs text-green-500 font-medium">Cero interrupciones</p>
+                    </div>
+                  </div>
+                  <span class="hidden sm:block text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">ACME / SCEP</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between hover:-translate-y-1 transition-transform duration-300">
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center shrink-0 border border-purple-100">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold text-gray-800">Identidades Gestionadas</p>
+                      <p class="text-xs text-green-500 font-medium">Integración corporativa</p>
+                    </div>
+                  </div>
+                  <span class="hidden sm:block text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">Active Directory</span>
+                </div>
+
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="py-20 bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 border-t-4 border-bm-red">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">

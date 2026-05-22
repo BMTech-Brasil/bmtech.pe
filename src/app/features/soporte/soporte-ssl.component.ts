@@ -27,7 +27,7 @@ import { RouterLink } from '@angular/router';
         <h2 class="text-2xl font-bold text-bm-blue mb-8 text-center">Herramientas de Diagnóstico y Conversión</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           @for (tool of tools(); track tool.name) {
-            <a [href]="tool.url" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-bm-blue hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center text-center cursor-pointer">
+            <a [href]="tool.url" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-bm-blue hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center text-center cursor-pointer">
               <div class="w-14 h-14 bg-blue-50 text-bm-blue rounded-full flex items-center justify-center mb-4 group-hover:bg-bm-blue group-hover:text-white transition-colors duration-300" [innerHTML]="tool.icon"></div>
               <span class="text-sm font-bold text-gray-700 leading-tight group-hover:text-bm-blue transition-colors">{{ tool.name }}</span>
             </a>
@@ -47,7 +47,7 @@ import { RouterLink } from '@angular/router';
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-bm-blue mb-4">Procedimientos por Servidor</h2>
           <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
-          <p class="text-gray-600">Guías paso a paso para crear un CSR (Solicitud de Firma), instalar su certificado SSL y realizar una copia de seguridad correcta.</p>
+          <p class="text-gray-600">Guías paso a paso para instalar su certificado SSL de forma correcta.</p>
         </div>
           
         <div class="overflow-x-auto bg-white rounded-xl shadow-lg border border-gray-200">
@@ -64,7 +64,7 @@ import { RouterLink } from '@angular/router';
                   <td class="p-4 font-bold text-gray-800">{{ server.name }}</td>
                   <td class="p-4 text-center">
                     @if (server.install) { 
-                      <a [href]="server.install" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-green-600 bg-green-50 px-3 py-1.5 rounded-full hover:bg-green-600 hover:text-white transition-colors">
+                      <a [href]="server.install" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-green-600 bg-green-50 px-3 py-1.5 rounded-full hover:bg-green-600 hover:text-white transition-colors">
                         VER GUÍA <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                       </a> 
                     } @else { 
@@ -103,11 +103,11 @@ import { RouterLink } from '@angular/router';
                 <tr class="hover:bg-blue-50/50 transition-colors">
                   <td class="p-4 font-bold text-gray-800">{{ adv.name }}</td>
                   <td class="p-4 text-center">
-                    @if (adv.hsts) { <a [href]="adv.hsts" class="text-bm-red font-bold text-xs hover:underline">VER</a> }
+                    @if (adv.hsts) { <a [href]="adv.hsts" target="_blank" rel="noopener noreferrer" class="text-bm-red font-bold text-xs hover:underline">VER PDF</a> }
                     @else { <span class="text-gray-400 text-xs">N/A</span> }
                   </td>
                   <td class="p-4 text-center">
-                    @if (adv.http2https) { <a [href]="adv.http2https" class="text-bm-red font-bold text-xs hover:underline">VER</a> }
+                    @if (adv.http2https) { <a [href]="adv.http2https" target="_blank" rel="noopener noreferrer" class="text-bm-red font-bold text-xs hover:underline">VER PDF</a> }
                     @else { <span class="text-gray-400 text-xs">N/A</span> }
                   </td>
                 </tr>
@@ -144,27 +144,27 @@ export class SoporteSslComponent {
   tools = signal([
     { 
       name: 'Asegura tu Servidor', 
-      url: '#', 
+      url: 'assets/guias/asegura-servidor.pdf', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>'
     },
     { 
       name: 'Convertir PFX a KEY/CRT', 
-      url: '#', 
+      url: 'assets/guias/convertir-pfx.pdf', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>'
     },
     { 
       name: 'Verifica tu CSR', 
-      url: '#', 
+      url: 'assets/guias/verifica-csr.pdf', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>'
     },
     { 
       name: 'Verifica tu Certificado', 
-      url: '#', 
+      url: 'assets/guias/verifica-certificado.pdf', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>'
     },
     { 
       name: 'Concordancia de Llaves', 
-      url: '#', 
+      url: 'assets/guias/concordancia-llaves.pdf', 
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>'
     },
     { 
@@ -175,36 +175,36 @@ export class SoporteSslComponent {
   ]);
 
   serverGuides = signal([
-    { name: 'Apache CentOS', csr: '#', install: '#', backup: '#' },
-    { name: 'Apache Ubuntu', csr: '#', install: '#', backup: '#' },
-    { name: 'Apache Windows', csr: '#', install: '#', backup: '#' },
-    { name: 'ArcGIS', csr: '#', install: '#', backup: null },
-    { name: 'cPanel', csr: '#', install: '#', backup: null },
-    { name: 'Glassfish', csr: '#', install: '#', backup: null },
-    { name: 'IBM HTTP Server', csr: '#', install: '#', backup: null },
-    { name: 'JBoss', csr: '#', install: '#', backup: '#' },
-    { name: 'Juniper Secure Access VPN', csr: '#', install: '#', backup: null },
-    { name: 'Lotus Domino', csr: '#', install: '#', backup: null },
-    { name: 'Microsoft Exchange 2007', csr: '#', install: '#', backup: null },
-    { name: 'Microsoft Exchange 2010', csr: '#', install: '#', backup: null },
-    { name: 'Microsoft Exchange 2013', csr: '#', install: '#', backup: null },
-    { name: 'Microsoft IIS 5 / 5', csr: '#', install: '#', backup: '#' },
-    { name: 'Microsoft IIS 7+', csr: '#', install: '#', backup: '#' },
-    { name: 'NGINX', csr: '#', install: '#', backup: null },
-    { name: 'Tomcat 8 y anteriores', csr: '#', install: '#', backup: null },
-    { name: 'Tomcat 8.5+', csr: '#', install: '#', backup: null },
-    { name: 'Weblogic', csr: '#', install: '#', backup: null },
-    { name: 'WildFly', csr: '#', install: '#', backup: '#' },
-    { name: 'Zimbra', csr: '#', install: '#', backup: '#' }
+    { name: 'Apache CentOS', install: 'assets/guias/install-apache-centos.pdf' },
+    { name: 'Apache Ubuntu', install: 'assets/guias/install-apache-ubuntu.pdf' },
+    { name: 'Apache Windows', install: 'assets/guias/install-apache-windows.pdf' },
+    { name: 'ArcGIS', install: 'assets/guias/install-arcgis.pdf' },
+    { name: 'cPanel', install: 'assets/guias/install-cpanel.pdf' },
+    { name: 'Glassfish', install: 'assets/guias/install-glassfish.pdf' },
+    { name: 'IBM HTTP Server', install: 'assets/guias/install-ibm-http.pdf' },
+    { name: 'JBoss', install: 'assets/guias/install-jboss.pdf' },
+    { name: 'Juniper Secure Access VPN', install: 'assets/guias/install-juniper.pdf' },
+    { name: 'Lotus Domino', install: 'assets/guias/install-lotus.pdf' },
+    { name: 'Microsoft Exchange 2007', install: 'assets/guias/install-exchange-2007.pdf' },
+    { name: 'Microsoft Exchange 2010', install: 'assets/guias/install-exchange-2010.pdf' },
+    { name: 'Microsoft Exchange 2013', install: 'assets/guias/install-exchange-2013.pdf' },
+    { name: 'Microsoft IIS 5 / 6', install: 'assets/guias/install-iis-5.pdf' },
+    { name: 'Microsoft IIS 6.5+', install: 'assets/guias/install-iis-7.pdf' },
+    { name: 'NGINX', install: 'assets/guias/install-nginx.pdf' },
+    { name: 'Tomcat 8 y anteriores', install: 'assets/guias/install-tomcat-8.pdf' },
+    { name: 'Tomcat 8.5+', install: 'assets/guias/install-tomcat-85.pdf' },
+    { name: 'Weblogic', install: 'assets/guias/install-weblogic.pdf' },
+    { name: 'WildFly', install: 'assets/guias/install-wildfly.pdf' },
+    { name: 'Zimbra', install: 'assets/guias/install-zimbra.pdf' }
   ]);
 
   advancedGuides = signal([
-    { name: 'Apache CentOS', hsts: '#', http2https: '#', ip2domain: '#' },
-    { name: 'Apache Ubuntu', hsts: '#', http2https: '#', ip2domain: '#' },
-    { name: 'Microsoft IIS 7+', hsts: '#', http2https: '#', ip2domain: null },
-    { name: 'Tomcat 8.5+', hsts: '#', http2https: '#', ip2domain: null },
-    { name: 'Microsoft Exchange', hsts: '#', http2https: null, ip2domain: null },
-    { name: 'JBoss', hsts: '#', http2https: null, ip2domain: null },
-    { name: 'NGINX', hsts: '#', http2https: '#', ip2domain: '#' }
+    { name: 'Apache CentOS', hsts: 'assets/guias/hsts-apache-centos.pdf', http2https: 'assets/guias/redirect-apache-centos.pdf' },
+    { name: 'Apache Ubuntu', hsts: 'assets/guias/hsts-apache-ubuntu.pdf', http2https: 'assets/guias/redirect-apache-ubuntu.pdf' },
+    { name: 'Microsoft IIS 7+', hsts: 'assets/guias/hsts-iis-7.pdf', http2https: 'assets/guias/redirect-iis-7.pdf' },
+    { name: 'Tomcat 8.5+', hsts: 'assets/guias/hsts-tomcat-85.pdf', http2https: 'assets/guias/redirect-tomcat-85.pdf' },
+    { name: 'Microsoft Exchange', hsts: 'assets/guias/hsts-exchange.pdf', http2https: null },
+    { name: 'JBoss', hsts: 'assets/guias/hsts-jboss.pdf', http2https: null },
+    { name: 'NGINX', hsts: 'assets/guias/hsts-nginx.pdf', http2https: 'assets/guias/redirect-nginx.pdf' }
   ]);
 }

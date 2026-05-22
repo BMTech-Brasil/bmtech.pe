@@ -21,28 +21,15 @@ import { RouterLink } from '@angular/router';
         </p>
       </div>
     </section>
-
-    <div class="bg-bm-red text-white py-4 relative z-20 shadow-md">
-      <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-        </div>
-        <p class="text-sm md:text-base font-medium">
-          ¿Necesita el <strong>Facturador SUNAT</strong> para iniciar su integración?
-        </p>
-        <a href="#" class="bg-white text-bm-red font-bold px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition shadow-sm whitespace-nowrap">
-          Descargar Aquí
-        </a>
-      </div>
-    </div>
-
+    <div class="bg-bm-red text-white py-4 relative z-20 shadow-md"></div>
+    
     <section class="py-16 bg-gray-50 border-b border-gray-200">
       <div class="container mx-auto px-6 max-w-6xl">
         <h2 class="text-2xl font-bold text-bm-blue mb-8 text-center">Procedimientos Principales</h2>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           @for (guide of mainGuides(); track guide.title) {
-            <a [href]="guide.url" class="group bg-white rounded-2xl p-6 border-2 border-transparent hover:border-bm-red shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+            <a [href]="guide.url" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border-2 border-transparent hover:border-bm-red shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
               <div class="w-16 h-16 bg-red-50 text-bm-red rounded-full flex items-center justify-center mb-4 group-hover:bg-bm-red group-hover:text-white transition-colors duration-300" [innerHTML]="guide.icon"></div>
               <h3 class="font-bold text-gray-800 text-sm uppercase tracking-wide leading-snug group-hover:text-bm-red transition-colors">{{ guide.title }}</h3>
             </a>
@@ -64,11 +51,11 @@ import { RouterLink } from '@angular/router';
             
             <div class="grid sm:grid-cols-2 gap-4">
               @for (tool of tools(); track tool.name) {
-                <a [href]="tool.url" class="flex items-start gap-4 p-4 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:border-bm-blue hover:shadow-md transition-all group cursor-pointer">
+                <a [href]="tool.url" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 p-4 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:border-bm-blue hover:shadow-md transition-all group cursor-pointer">
                   <div class="w-10 h-10 rounded-lg bg-blue-100 text-bm-blue flex items-center justify-center shrink-0 group-hover:bg-bm-blue group-hover:text-white transition-colors" [innerHTML]="tool.icon"></div>
                   <div>
                     <h4 class="font-bold text-gray-800 text-sm group-hover:text-bm-blue transition-colors">{{ tool.name }}</h4>
-                    <span class="text-[11px] text-gray-500 uppercase font-bold tracking-wider mt-1 block">Acceder →</span>
+                    <span class="text-[11px] text-gray-500 uppercase font-bold tracking-wider mt-1 block">Acceder PDF →</span>
                   </div>
                 </a>
               }
@@ -113,17 +100,17 @@ export class SoporteFeComponent {
   mainGuides = signal([
     { 
       title: 'Registra tu Certificado en SUNAT', 
-      url: '#', 
+      url: 'assets/guias/registro-sunat.pdf', 
       icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
     },
     { 
       title: 'Crea tu Usuario Secundario', 
-      url: '#', 
+      url: 'assets/guias/crear-usuario-secundario.pdf', 
       icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>'
     },
     { 
       title: 'Descarga la Raíz e Intermedio', 
-      url: '#', 
+      url: 'assets/guias/descarga-raiz-intermedio.pdf', 
       icon: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>'
     },
   ]);
@@ -131,17 +118,17 @@ export class SoporteFeComponent {
   tools = signal([
     { 
       name: 'Convertir .PFX o .P12 a formato .CER y .KEY', 
-      url: '#', 
+      url: 'assets/guias/convertir-pfx-cer-key.pdf', 
       icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>'
     },
     { 
       name: 'Cambiar clave de .PFX o .P12', 
-      url: '#', 
+      url: 'assets/guias/cambiar-clave-pfx.pdf', 
       icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>'
     },
     { 
       name: 'Cambiar "Alias" de .PFX o .P12', 
-      url: '#', 
+      url: 'assets/guias/cambiar-alias-pfx.pdf', 
       icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>'
     },
   ]);

@@ -205,10 +205,10 @@ export class LibroReclamacionesComponent {
 
     try {
       await emailjs.sendForm(
-        'service_4c3w7jo',
-        'template_h2qxpgz',
+        'service_cl33nya',
+        'template_tix7z93',
         form,
-        'R_3WXFqcku2A9Eysn'
+        'd8tYRtSCHAMvbRh1y'
       );
       
       this.submitSuccess.set(true);

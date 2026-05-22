@@ -125,6 +125,43 @@ import { RouterLink } from '@angular/router';
       </div>
     </section>
 
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="text-bm-red font-bold tracking-widest uppercase text-sm mb-4 block">Más opciones, misma infraestructura</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-bm-blue mb-4">Descubra GeoTrust y Thawte</h2>
+          <div class="w-16 h-1 bg-bm-red mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Como parte de la familia DigiCert, también comercializamos certificados GeoTrust y Thawte. Soluciones reconocidas mundialmente que ofrecen un excelente equilibrio entre costo, confianza y seguridad.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition">
+            <h3 class="text-2xl font-bold text-bm-blue mb-3">GeoTrust</h3>
+            <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-4">Seguridad de nivel empresarial a un precio accesible, ideal para empresas en crecimiento.</p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Emisión rápida y encriptación fuerte</span></li>
+              <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Opciones DV, OV y EV disponibles</span></li>
+              <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Sello de sitio dinámico GeoTrust</span></li>
+            </ul>
+            <button (click)="openContactModal('Certificado GeoTrust', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Cotizar GeoTrust</button>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition">
+            <h3 class="text-2xl font-bold text-bm-blue mb-3">Thawte</h3>
+            <p class="text-sm text-gray-500 mb-6 border-b border-gray-100 pb-4">La primera autoridad certificadora internacional, brindando confianza desde 1995.</p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Reconocimiento global multilingüe</span></li>
+              <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Certificados SSL y Code Signing</span></li>
+              <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Sello de sitio Trusted Site</span></li>
+            </ul>
+            <button (click)="openContactModal('Certificado Thawte', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Cotizar Thawte</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     @if (activeModal() !== null) {
       <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" (click)="closeModal()"></div>
