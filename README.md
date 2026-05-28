@@ -65,6 +65,3 @@ A biblioteca criptográfica utilizada e os seus submódulos (como pacotes @emnap
 2. Execute novamente `npm install` para forçar a reconstrução da árvore de dependências e do lockfile.
 3. Submeta `(commit)` o novo ficheiro `package-lock.json` para o repositório.
 4. (Opcional) Caso a divergência de sistemas operativos persista, configure o seu script de CI para executar `npm install` em vez de `npm ci`.
-
-# Licença
-Propriedade e desenvolvimento por **BMTech**. Todos os direitos reservados.   
