@@ -76,6 +76,7 @@ import { RouterLink } from '@angular/router';
               <li><a routerLink="/solutions/firma-digital" class="hover:text-bm-red hover:pl-1 transition-all">Soluciones Corporativas</a></li>
               <li><a routerLink="/solutions/horasadicionales" class="hover:text-bm-red hover:pl-1 transition-all">Soporte Técnico</a></li>
               <li><a routerLink="/libro-reclamaciones" class="hover:text-bm-red transition-all cursor-pointer">Libro de Reclamaciones</a></li>
+              <li><a routerLink="/repositorio" class="hover:text-bm-red transition-all cursor-pointer">Repositorio BMCERT CA</a></li>
             </ul>
           </div>
         </div>

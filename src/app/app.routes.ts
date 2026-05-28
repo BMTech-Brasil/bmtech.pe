@@ -10,6 +10,18 @@ export const routes: Routes = [
     loadComponent: () => import('./features/libro-reclamaciones/libro-reclamaciones.component').then(c => c.LibroReclamacionesComponent) 
   },
   {
+    path: 'repositorio',
+    loadComponent: () => import('./features/repositorio/repositorio.component').then(c => c.RepositorioComponent)
+  },
+  { 
+    path: 'convertir-pfx', 
+    loadComponent: () => import('./features/tools/convertidor-pfx.component').then(c => c.ConvertidorPfxComponent) 
+  },
+  { 
+    path: 'verifica-csr', 
+    loadComponent: () => import('./features/tools/verificador-csr.component').then(c => c.VerificadorCsrComponent) 
+  },
+  {
     path: 'solutions',
     children: [
       { path: 'teramind', loadComponent: () => import('./features/solutions/monitoreo/teramind/teramind.component').then(c => c.TeramindComponent) },
