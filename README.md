@@ -52,7 +52,7 @@ Certifique-se de que possui o [Node.js](https://nodejs.org/) e o Angular CLI ins
    ```bash
    npm start
 
-A aplicação ficará disponível em http://localhoras:4200/.
+A aplicação ficará disponível em http://localhost:4200/.
 
 # Integração Contínua (CI/CD) e Resolução de Problemas
 
@@ -61,10 +61,10 @@ Este projeto está configurado para fluxos de CI/CD (ex: GitHub Actions) utiliza
 Nota importante para os programadores:
 A biblioteca criptográfica utilizada e os seus submódulos (como pacotes @emnapi) podem gerar dependências binárias específicas do sistema operativo. Se o pipeline de deploy falhar com o erro npm error can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync, siga estes passos na sua máquina local:
 
-1. Apague e pasta *node_modules* e o ficheiro *package-lock.json*.
-2. Execute novamente *npm install* para forçar a reconstrução da árvore de dependências e do lockfile.
-3. Submeta *(commit)* o novo ficheiro *package-lock.json* para o repositório.
-4. (Opcional) Caso a divergência de sistemas operativos persista, configure o seu script de CI para executar *npm install* em vez de *npm ci*.
+1. Apague e pasta `node_modules` e o ficheiro `package-lock.json`.
+2. Execute novamente `npm install` para forçar a reconstrução da árvore de dependências e do lockfile.
+3. Submeta `(commit)` o novo ficheiro `package-lock.json` para o repositório.
+4. (Opcional) Caso a divergência de sistemas operativos persista, configure o seu script de CI para executar `npm install` em vez de `npm ci`.
 
 # Licença
 Propriedade e desenvolvimento por **BMTech**. Todos os direitos reservados.   
