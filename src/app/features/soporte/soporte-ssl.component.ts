@@ -30,14 +30,12 @@ import { RouterLink } from '@angular/router';
           @for (tool of tools(); track tool.name) {
             
             @if (tool.isExternal) {
-              <a [href]="tool.url" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-bm-blue hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center text-center cursor-pointer min-h-[140px]">          
-                <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-full flex items-center justify-center mb-3 group-hover:bg-bm-blue group-hover:text-white transition-colors duration-300" [innerHTML]="tool.icon"></div>
+              <a [href]="tool.url" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-bm-blue hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center text-center cursor-pointer min-h-[140px]">
                 <span class="text-sm font-bold text-gray-700 leading-tight group-hover:text-bm-blue transition-colors">{{ tool.name }}</span>
               </a>
             } 
             @else {
-              <a [routerLink]="tool.route" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-bm-blue hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center text-center cursor-pointer min-h-[140px]">          
-                <div class="w-12 h-12 bg-blue-50 text-bm-blue rounded-full flex items-center justify-center mb-3 group-hover:bg-bm-blue group-hover:text-white transition-colors duration-300" [innerHTML]="tool.icon"></div>
+              <a [routerLink]="tool.route" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-bm-blue hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center text-center cursor-pointer min-h-[140px]"> 
                 <span class="text-sm font-bold text-gray-700 leading-tight group-hover:text-bm-blue transition-colors">{{ tool.name }}</span>
               </a>
             }
@@ -156,8 +154,8 @@ export class SoporteSslComponent {
   tools = signal([
     { 
       name: 'Asegura tu Servidor', 
-      route: '/asegura-servidor', 
-      isExternal: false,
+      url:'https://entrust.ssllabs.com/', 
+      isExternal: true,
       icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>'
     },
     { 

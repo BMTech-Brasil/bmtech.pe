@@ -21,6 +21,14 @@ export const routes: Routes = [
     path: 'verifica-csr', 
     loadComponent: () => import('./features/tools/verificador-csr.component').then(c => c.VerificadorCsrComponent) 
   },
+  { 
+    path: 'verifica-certificado', 
+    loadComponent: () => import('./features/tools/verificador-certificado.component').then(c => c.VerificadorCertificadoComponent) 
+  },
+  { 
+    path: 'concordancia-llaves', 
+    loadComponent: () => import('./features/tools/concordancia-llaves.component').then(c => c.ConcordanciaLlavesComponent) 
+  },
   {
     path: 'solutions',
     children: [
