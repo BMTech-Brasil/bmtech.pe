@@ -7,10 +7,10 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-32 pb-20 relative overflow-hidden mt-20">
-      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-      <div class="container mx-auto px-6 relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold text-blue-100 mb-6 uppercase tracking-wider backdrop-blur-md">
+    <section class="bg-gradient-to-br from-gray-900 via-bm-blue to-gray-900 text-white pt-20 pb-32 relative overflow-hidden mt-20">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center justify-center text-center">
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-bold text-blue-100 mb-6 uppercase tracking-wider backdrop-blur-md">
           <span class="w-2 h-2 bg-bm-red rounded-full animate-pulse"></span> SUNAT / IOFE
         </div>
         <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
