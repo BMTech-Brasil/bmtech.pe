@@ -9,10 +9,14 @@ export const routes: Routes = [
     path: 'libro-reclamaciones', 
     loadComponent: () => import('./features/libro-reclamaciones/libro-reclamaciones.component').then(c => c.LibroReclamacionesComponent) 
   },
+  
+/**
   {
     path: 'repositorio',
     loadComponent: () => import('./features/repositorio/repositorio.component').then(c => c.RepositorioComponent)
   },
+**/
+  
   { 
     path: 'convertir-pfx', 
     loadComponent: () => import('./features/tools/convertidor-pfx.component').then(c => c.ConvertidorPfxComponent) 
