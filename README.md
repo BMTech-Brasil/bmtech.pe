@@ -8,7 +8,7 @@ O sistema foi arquitetado para centralizar a documentação técnica, manuais de
 
 ## Funcionalidades Principais
 
-### 1. Repositório BMCERT CA
+### 1. Repositório BMCERTCA
 * Disponibilização da hierarquia de confiança pública com download condicional inteligente (descarregamento automático para ficheiros `.p7b` e abertura em novo separador para `.pdf`).
 * Acesso simplificado às Políticas de Certificação e Declarações de Práticas de Certificação.
 
