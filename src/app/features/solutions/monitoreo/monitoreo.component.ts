@@ -155,7 +155,7 @@ import emailjs from '@emailjs/browser';
         <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
           Nuestro equipo de arquitectos de seguridad realiza una evaluación gratuita de su entorno y recomienda la solución con la mejor relación costo-beneficio para su empresa.
         </p>
-        <button (click)="openContactModal('Consultoría de Monitoreo', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
+        <button (click)="openContactModal('Consultoría de Monitoreo', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1 track-abrir-modal">
           Hablar con un Consultor de BMTech
         </button>
       </div>

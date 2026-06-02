@@ -53,10 +53,10 @@ import { RouterLink } from '@angular/router';
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-[0_4px_20px_rgba(220,38,38,0.4)] transform hover:-translate-y-1">
+            <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-[0_4px_20px_rgba(220,38,38,0.4)] transform hover:-translate-y-1 track-abrir-modal">
               Agendar Demostración
             </button>
-            <button (click)="openContactModal('Prueba de 15 días - Hexnode', $event)" class="bg-white hover:bg-gray-100 text-bm-blue px-6 py-3 md:px-8 md:py-4 rounded font-bold transition shadow-lg whitespace-nowrap">
+            <button (click)="openContactModal('Prueba de 15 días - Hexnode', $event)" class="bg-white hover:bg-gray-100 text-bm-blue px-6 py-3 md:px-8 md:py-4 rounded font-bold transition shadow-lg whitespace-nowrap track-abrir-modal">
               Prueba de 15 Días
             </button>
             <button (click)="scrollToFeatures($event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition">
@@ -221,7 +221,7 @@ import { RouterLink } from '@angular/router';
         <p class="text-gray-600 max-w-2xl mx-auto mb-10 text-lg">
           Agende una Prueba de Concepto (PoC) gratuita con BMTech. Diseñaremos las políticas de seguridad y demostraremos el valor de Hexnode UEM operando directamente en su entorno.
         </p>
-        <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-red-600 hover:bg-red-800 text-white px-10 py-4 rounded font-bold transition shadow-lg text-lg transform hover:-translate-y-1">
+        <button (click)="openContactModal('Hexnode UEM', $event)" class="bg-red-600 hover:bg-red-800 text-white px-10 py-4 rounded font-bold transition shadow-lg text-lg transform hover:-translate-y-1 track-abrir-modal">
           Solicitar Propuesta y Demostración
         </button>
       </div>

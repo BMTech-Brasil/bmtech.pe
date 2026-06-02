@@ -65,7 +65,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Atención en Horario Comercial</li>
               <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Ingeniero Especializado</li>
             </ul>
-            <button (click)="openContactModal('Contratación: Soporte Express (1h)', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Solicitar Pack</button>
+            <button (click)="openContactModal('Contratación: Soporte Express (1h)', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Solicitar Pack</button>
           </div>
 
           <div class="bg-white rounded-2xl p-8 border-2 border-bm-red shadow-xl relative transform scale-105 z-10 group">
@@ -79,7 +79,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Prioridad en la cola de atención</li>
               <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Documentación de procesos</li>
             </ul>
-            <button (click)="openContactModal('Contratación: Bolsa de Implementación (5h)', $event)" class="w-full py-3 rounded-lg bg-bm-red text-white font-bold hover:bg-red-700 transition">Solicitar Pack</button>
+            <button (click)="openContactModal('Contratación: Bolsa de Implementación (5h)', $event)" class="w-full py-3 rounded-lg bg-bm-red text-white font-bold hover:bg-red-700 transition track-abrir-modal">Solicitar Pack</button>
           </div>
 
           <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all group">
@@ -92,7 +92,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Vigencia de 6 meses</li>
               <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Descuento por volumen</li>
             </ul>
-            <button (click)="openContactModal('Contratación: Soporte Enterprise (10h)', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Solicitar Pack</button>
+            <button (click)="openContactModal('Contratación: Soporte Enterprise (10h)', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Solicitar Pack</button>
           </div>
         </div>
       </div>

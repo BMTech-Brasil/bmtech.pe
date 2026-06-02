@@ -68,7 +68,7 @@ interface TimeLeft {
             Distribuidores oficiales <span class="font-bold">Sectigo, Digicert y GlobalSign</span> en Perú, Brasil y EE.UU.
           </p>
           <div class="flex flex-col md:flex-row gap-4">
-            <button (click)="openContactModal('Consultoría de Seguridad', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg">Hablar con un Asesor</button>
+            <button (click)="openContactModal('Consultoría de Seguridad', $event)" class="bg-bm-red text-white px-8 py-4 rounded font-bold hover:bg-red-800 transition shadow-lg track-abrir-modal">Hablar con un Asesor</button>
             <button (click)="scrollTo('nuestras-soluciones')" class="border-2 border-bm-white text-bm-white px-8 py-4 rounded font-bold hover:bg-bm-blue hover:text-white transition">
               Nuestras Soluciones
             </button>

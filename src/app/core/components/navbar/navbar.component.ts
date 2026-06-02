@@ -133,7 +133,7 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
           
-          <button (click)="openContactModal('Contacto General', $event); closeMobileMenu()" class="bg-bm-red text-white px-6 py-3 md:py-2 mt-4 md:mt-0 w-full md:w-auto rounded font-bold text-base md:text-sm hover:bg-red-700 transition shadow-md font-sans text-center">
+          <button (click)="openContactModal('Contacto General', $event); closeMobileMenu()" class="bg-bm-red text-white px-6 py-3 md:py-2 mt-4 md:mt-0 w-full md:w-auto rounded font-bold text-base md:text-sm hover:bg-red-700 transition shadow-md font-sans text-center track-abrir-modal">
             Contáctanos
           </button>
         </div>

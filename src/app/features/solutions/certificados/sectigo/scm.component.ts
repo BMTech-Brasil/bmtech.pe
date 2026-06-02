@@ -56,10 +56,10 @@ import emailjs from '@emailjs/browser';
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4">
-              <button (click)="openContactModal('Sectigo SCM - Demostración', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+              <button (click)="openContactModal('Sectigo SCM - Demostración', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1 track-abrir-modal">
                 Agendar Demostración SCM
               </button>
-              <button (click)="openContactModal('Consultoría Sectigo SCM', $event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2">
+              <button (click)="openContactModal('Consultoría Sectigo SCM', $event)" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold transition flex items-center justify-center gap-2 track-abrir-modal">
                 Hablar con un Especialista
               </button>
             </div>
@@ -193,7 +193,7 @@ import emailjs from '@emailjs/browser';
         <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
           Hable con nuestro equipo y descubra cómo implementar Sectigo Certificate Manager (SCM) y automatizar al 100% su infraestructura de certificados.
         </p>
-        <button (click)="openContactModal('Sectigo SCM - Assessment y Demo', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1">
+        <button (click)="openContactModal('Sectigo SCM - Assessment y Demo', $event)" class="bg-bm-red text-white px-10 py-4 rounded font-bold text-lg hover:bg-red-700 transition shadow-lg transform hover:-translate-y-1 track-abrir-modal">
           Solicitar Assessment y Demo
         </button>
       </div>

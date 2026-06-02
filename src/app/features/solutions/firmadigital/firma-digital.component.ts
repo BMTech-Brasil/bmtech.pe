@@ -53,7 +53,7 @@ import emailjs from '@emailjs/browser';
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button (click)="openContactModal('Cotización Firma Digital', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+            <button (click)="openContactModal('Cotización Firma Digital', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1 track-abrir-modal">
               Solicitar Cotización
             </button>
           </div>
@@ -139,7 +139,7 @@ import emailjs from '@emailjs/browser';
                 <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> La clave privada nunca sale del dispositivo</li>
                 <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Protección adicional con PIN</li>
               </ul>
-              <button (click)="openContactModal('Firma Digital - Token USB', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded-lg font-bold hover:bg-bm-blue hover:text-white transition">Cotizar con Token</button>
+              <button (click)="openContactModal('Firma Digital - Token USB', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-3 rounded-lg font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Cotizar con Token</button>
             </div>
           </div>
 
@@ -162,7 +162,7 @@ import emailjs from '@emailjs/browser';
                 <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> 100% Homologado para Facturación SUNAT</li>
                 <li class="flex items-center gap-2 text-sm text-gray-700"><span class="text-green-500 font-bold">✓</span> Integración rápida con sistemas ERP</li>
               </ul>
-              <button (click)="openContactModal('Firma Digital - Certificado en Software', $event)" class="w-full border-2 border-bm-red text-bm-red py-3 rounded-lg font-bold hover:bg-bm-red hover:text-white transition">Cotizar Certificado (Sin Token)</button>
+              <button (click)="openContactModal('Firma Digital - Certificado en Software', $event)" class="w-full border-2 border-bm-red text-bm-red py-3 rounded-lg font-bold hover:bg-bm-red hover:text-white transition track-abrir-modal">Cotizar Certificado (Sin Token)</button>
             </div>
           </div>
         </div>
@@ -191,7 +191,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <p class="text-gray-600 text-sm mb-6">Identifica digitalmente a un individuo (DNI/CE) para la firma de documentos a título personal.</p>
-              <button (click)="openContactModal('Certificado Digital - Persona Natural', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+              <button (click)="openContactModal('Certificado Digital - Persona Natural', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm track-abrir-modal">
                 Solicitar
               </button>
             </div>
@@ -206,7 +206,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <p class="text-gray-600 text-sm mb-6">Identificación digital que incluye validación de registro profesional. Ideal para médicos, ingenieros, abogados.</p>
-              <button (click)="openContactModal('Certificado Digital - Persona Natural Profesional', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+              <button (click)="openContactModal('Certificado Digital - Persona Natural Profesional', $event)" class="w-full bg-white border-2 border-bm-red text-bm-red hover:bg-bm-red hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm track-abrir-modal">
                 Solicitar
               </button>
             </div>
@@ -221,7 +221,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <p class="text-gray-600 text-sm mb-6">Vincula al representante legal con la empresa (RUC). Para firma de contratos y trámites comerciales.</p>
-              <button (click)="openContactModal('Certificado Digital - Persona Jurídica (Representante Legal)', $event)" class="w-full bg-white border-2 border-bm-blue text-bm-blue hover:bg-bm-blue hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+              <button (click)="openContactModal('Certificado Digital - Persona Jurídica (Representante Legal)', $event)" class="w-full bg-white border-2 border-bm-blue text-bm-blue hover:bg-bm-blue hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm track-abrir-modal">
                 Solicitar
               </button>
             </div>
@@ -236,7 +236,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <p class="text-gray-600 text-sm mb-6">Vincula el RUC de la empresa con el registro profesional. Ideal para firmas de estudios jurídicos o médicos.</p>
-              <button (click)="openContactModal('Certificado Digital - Persona Jurídica Profesional', $event)" class="w-full bg-white border-2 border-bm-blue text-bm-blue hover:bg-bm-blue hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+              <button (click)="openContactModal('Certificado Digital - Persona Jurídica Profesional', $event)" class="w-full bg-white border-2 border-bm-blue text-bm-blue hover:bg-bm-blue hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm track-abrir-modal">
                 Solicitar
               </button>
             </div>
@@ -251,7 +251,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <p class="text-gray-600 text-sm mb-6">Certificado optimizado para integrarse de forma nativa con los sistemas de emisión electrónica (SUNAT).</p>
-              <button (click)="openContactModal('Certificado Digital - Facturación Electrónica', $event)" class="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+              <button (click)="openContactModal('Certificado Digital - Facturación Electrónica', $event)" class="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm track-abrir-modal">
                 Solicitar
               </button>
             </div>
@@ -266,7 +266,7 @@ import emailjs from '@emailjs/browser';
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <p class="text-gray-600 text-sm mb-6">Firma desatendida para procesos robotizados, ideal para integración en servidores y software de alto volumen.</p>
-              <button (click)="openContactModal('Certificado Digital - Agente Automatizado (R o A)', $event)" class="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm">
+              <button (click)="openContactModal('Certificado Digital - Agente Automatizado (R o A)', $event)" class="w-full bg-white border-2 border-green-500 text-green-600 hover:bg-green-500 hover:text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-sm track-abrir-modal">
                 Solicitar
               </button>
             </div>
@@ -365,7 +365,7 @@ import emailjs from '@emailjs/browser';
         <p class="text-blue-100 max-w-2xl mx-auto mb-10 text-lg">
           No imprimas, no escanees, no uses mensajería. Obtén tu Firma Digital en Token o Software y moderniza los procesos de tu empresa hoy mismo.
         </p>
-        <button (click)="openContactModal('Cotización Firma Digital General', $event)" class="bg-bm-red text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-red-700 transition shadow-2xl hover:scale-105 transform duration-200">
+        <button (click)="openContactModal('Cotización Firma Digital General', $event)" class="bg-bm-red text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-red-700 transition shadow-2xl hover:scale-105 transform duration-200 track-abrir-modal">
           Solicitar mi Firma Digital
         </button>
       </div>

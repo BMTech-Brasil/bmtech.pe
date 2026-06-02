@@ -53,7 +53,7 @@ import emailjs from '@emailjs/browser';
           </p>
           
           <div class="flex flex-col sm:flex-row gap-4">
-            <button (click)="openContactModal('Cotización Tablex', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1">
+            <button (click)="openContactModal('Cotización Tablex', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg shadow-red-900/20 transform hover:-translate-y-1 track-abrir-modal">
               Solicitar Cotización
             </button>
           </div>

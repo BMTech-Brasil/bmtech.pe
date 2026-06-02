@@ -39,7 +39,7 @@ import { RouterLink } from '@angular/router';
         <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
           Proteja a sus clientes, garantice su marca y gestione todo su portafolio de certificados con <strong>CertCentral®</strong>. La elección del 89% de las empresas de la lista Fortune 500.
         </p>
-        <button (click)="openContactModal('Consultoría DigiCert CertCentral', $event)" class="bg-bm-red hover:bg-red-700 text-white px-10 py-4 rounded-full font-bold transition shadow-lg hover:-translate-y-1">
+        <button (click)="openContactModal('Consultoría DigiCert CertCentral', $event)" class="bg-bm-red hover:bg-red-700 text-white px-10 py-4 rounded-full font-bold transition shadow-lg hover:-translate-y-1 track-abrir-modal">
           Hablar con un Especialista
         </button>
       </div>
@@ -64,7 +64,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Gestión vía CertCentral</span></li>
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Garantía NetSure™ de $1.25M</span></li>
             </ul>
-            <button (click)="openContactModal('DigiCert Basic SSL', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Cotizar Basic SSL</button>
+            <button (click)="openContactModal('DigiCert Basic SSL', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Cotizar Basic SSL</button>
           </div>
 
           <div class="bg-gray-900 rounded-2xl p-8 shadow-2xl relative flex flex-col transform md:scale-105 z-10 border-t-4 border-cyan-400">
@@ -78,7 +78,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1 font-bold">✓</span> <span class="text-sm">Acceso prioritario al soporte (Fila VIP)</span></li>
               <li class="flex items-start gap-3"><span class="text-cyan-400 mt-1 font-bold">✓</span> <span class="text-sm">Garantía NetSure™ de $2M</span></li>
             </ul>
-            <button (click)="openContactModal('DigiCert Secure Site Pro', $event)" class="w-full py-3 rounded-lg bg-bm-blue text-white font-bold hover:bg-blue-800 transition shadow-lg">Cotizar Secure Site Pro</button>
+            <button (click)="openContactModal('DigiCert Secure Site Pro', $event)" class="w-full py-3 rounded-lg bg-bm-blue text-white font-bold hover:bg-blue-800 transition shadow-lg track-abrir-modal">Cotizar Secure Site Pro</button>
           </div>
 
           <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-lg transition flex flex-col h-[90%]">
@@ -90,7 +90,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Soporte prioritario de validación</span></li>
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Garantía NetSure™ de $1.75M</span></li>
             </ul>
-            <button (click)="openContactModal('DigiCert Secure Site', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Cotizar Secure Site</button>
+            <button (click)="openContactModal('DigiCert Secure Site', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Cotizar Secure Site</button>
           </div>
 
         </div>
@@ -145,7 +145,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Opciones DV, OV y EV disponibles</span></li>
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Sello de sitio dinámico GeoTrust</span></li>
             </ul>
-            <button (click)="openContactModal('Certificado GeoTrust', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Cotizar GeoTrust</button>
+            <button (click)="openContactModal('Certificado GeoTrust', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Cotizar GeoTrust</button>
           </div>
 
           <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition">
@@ -156,7 +156,7 @@ import { RouterLink } from '@angular/router';
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Certificados SSL y Code Signing</span></li>
               <li class="flex items-start gap-3"><span class="text-green-500 mt-1 font-bold">✓</span> <span class="text-gray-700 text-sm">Sello de sitio Trusted Site</span></li>
             </ul>
-            <button (click)="openContactModal('Certificado Thawte', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition">Cotizar Thawte</button>
+            <button (click)="openContactModal('Certificado Thawte', $event)" class="w-full py-3 rounded-lg border-2 border-bm-blue text-bm-blue font-bold hover:bg-bm-blue hover:text-white transition track-abrir-modal">Cotizar Thawte</button>
           </div>
         </div>
       </div>

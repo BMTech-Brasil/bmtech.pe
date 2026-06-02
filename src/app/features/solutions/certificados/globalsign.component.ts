@@ -43,7 +43,7 @@ import { RouterLink } from '@angular/router';
             Desde la protección de un solo sitio web hasta la implementación de una Plataforma <strong>PKI Gestionada (Managed PKI)</strong>. Automatice el ciclo de vida de sus certificados con GlobalSign.
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
-            <button (click)="openContactModal('Plataforma PKI GlobalSign', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1">
+            <button (click)="openContactModal('Plataforma PKI GlobalSign', $event)" class="bg-bm-red hover:bg-red-700 text-white px-8 py-4 rounded font-bold transition shadow-lg transform hover:-translate-y-1 track-abrir-modal">
               Hablar con un Consultor PKI
             </button>
             <button (click)="scrollToProducts($event)" class="bg-transparent border border-white text-white hover:bg-white/10 px-8 py-4 rounded font-bold transition">
@@ -90,8 +90,8 @@ import { RouterLink } from '@angular/router';
                 </ul>
               </div>
               <div class="md:w-1/4 w-full flex flex-col gap-3">
-                <button (click)="openContactModal('GlobalSign EV SSL Single', $event)" class="w-full bg-bm-blue text-white py-2 rounded font-bold hover:bg-blue-900 transition text-sm">Cotizar Dominio Único</button>
-                <button (click)="openContactModal('GlobalSign EV SSL Multi-Domain', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-2 rounded font-bold hover:bg-bm-blue hover:text-white transition text-sm">Cotizar Multidominio (SAN)</button>
+                <button (click)="openContactModal('GlobalSign EV SSL Single', $event)" class="w-full bg-bm-blue text-white py-2 rounded font-bold hover:bg-blue-900 transition text-sm track-abrir-modal">Cotizar Dominio Único</button>
+                <button (click)="openContactModal('GlobalSign EV SSL Multi-Domain', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-2 rounded font-bold hover:bg-bm-blue hover:text-white transition text-sm track-abrir-modal">Cotizar Multidominio (SAN)</button>
               </div>
             </div>
           </div>
@@ -112,8 +112,8 @@ import { RouterLink } from '@angular/router';
                 </ul>
               </div>
               <div class="md:w-1/4 w-full flex flex-col gap-3">
-                <button (click)="openContactModal('GlobalSign OV SSL Single', $event)" class="w-full bg-bm-blue text-white py-2 rounded font-bold hover:bg-blue-900 transition text-sm">Cotizar Dominio Único</button>
-                <button (click)="openContactModal('GlobalSign OV SSL Wildcard', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-2 rounded font-bold hover:bg-bm-blue hover:text-white transition text-sm">Cotizar Wildcard (*.dominio)</button>
+                <button (click)="openContactModal('GlobalSign OV SSL Single', $event)" class="w-full bg-bm-blue text-white py-2 rounded font-bold hover:bg-blue-900 transition text-sm track-abrir-modal">Cotizar Dominio Único</button>
+                <button (click)="openContactModal('GlobalSign OV SSL Wildcard', $event)" class="w-full border-2 border-bm-blue text-bm-blue py-2 rounded font-bold hover:bg-bm-blue hover:text-white transition text-sm track-abrir-modal">Cotizar Wildcard (*.dominio)</button>
               </div>
             </div>
           </div>
@@ -134,8 +134,8 @@ import { RouterLink } from '@angular/router';
                 </ul>
               </div>
               <div class="md:w-1/4 w-full flex flex-col gap-3">
-                <button (click)="openContactModal('GlobalSign DV SSL Single', $event)" class="w-full bg-gray-200 text-gray-700 py-2 rounded font-bold hover:bg-gray-300 transition text-sm">Cotizar Dominio Único</button>
-                <button (click)="openContactModal('GlobalSign DV SSL Wildcard', $event)" class="w-full border-2 border-gray-300 text-gray-700 py-2 rounded font-bold hover:bg-gray-100 transition text-sm">Cotizar Wildcard (*.dominio)</button>
+                <button (click)="openContactModal('GlobalSign DV SSL Single', $event)" class="w-full bg-gray-200 text-gray-700 py-2 rounded font-bold hover:bg-gray-300 transition text-sm track-abrir-modal">Cotizar Dominio Único</button>
+                <button (click)="openContactModal('GlobalSign DV SSL Wildcard', $event)" class="w-full border-2 border-gray-300 text-gray-700 py-2 rounded font-bold hover:bg-gray-100 transition text-sm track-abrir-modal">Cotizar Wildcard (*.dominio)</button>
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ import { RouterLink } from '@angular/router';
                 </div>
               </li>
             </ul>
-            <button (click)="openContactModal('Demostración GlobalSign Atlas', $event)" class="bg-bm-blue hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg inline-flex items-center gap-2">
+            <button (click)="openContactModal('Demostración GlobalSign Atlas', $event)" class="bg-bm-blue hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg inline-flex items-center gap-2 track-abrir-modal">
               Solicitar Demostración de Atlas
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
