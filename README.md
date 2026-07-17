@@ -1,67 +1,43 @@
-# Portal BMTech Perú - Auto-Suporte e Ferramentas Criptográficas
+# BMTech Peru - Website Oficial 🇵🇪
 
-Bem-vindo ao repositório do site da **BMTech Perú**. Esta é uma Single Page Application (SPA) desenvolvida para fornecer autonomia aos clientes da BMTech do Perú na gestão de certificados digitais, suporte a plataforma web e execução de operações criptográficas de forma 100% segura no lado do cliente.
+Repositório oficial do website da **BMTech Peru**. Este projeto contém o código-fonte da plataforma front-end da empresa, focado em alta performance, responsividade e otimização para SEO.
 
-## Visão Geral
+## Tecnologias e Ferramentas
 
-O sistema foi arquitetado para centralizar a documentação técnica, manuais de instalação de certificados SSL, guias de Faturação Eletrónica (SUNAT) e fornecer ferramentas avançadas de diagnóstico. Ogrande diferencial deste projeto é a manipulação de ficheiros sensíveis (como `.pfx`, `.p12` e `.csr`) diretamente na memória do navegador do utilizador, garantindo privacidade total (Zero-Knowledge) sem envio de dados para servidores externos.
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-## Funcionalidades Principais
+*   **Angular:** Framework estrutural para a Single Page Application (SPA).
+*   **Tailwind CSS:** Framework utilitário para a construção e estilização da interface.
+*   **Apollo (GraphQL):** Gerenciamento de estado e consumo eficiente de dados da API.
+*   **Google Analytics 4 (GA4):** Rastreamento de conversões e comportamento dos usuários.
+*   **GitHub Actions:** Pipeline de CI/CD configurado para automação do deploy.
 
-### 1. Repositório BMCERTCA
-* Disponibilização da hierarquia de confiança pública com download condicional inteligente (descarregamento automático para ficheiros `.p7b` e abertura em novo separador para `.pdf`).
-* Acesso simplificado às Políticas de Certificação e Declarações de Práticas de Certificação.
+## Como rodar o projeto localmente
 
-### 2. Ferramentas Criptográficas (Client-Side)
-* **Conversor PFX para KEY/CRT:** Permite extrair a chave privada e o certificado público a partir de ficheiros PFX/P12 mediante a inserção da palavra-passe. Todo o processamento de conversão ASN.1 ocorre localmente no navegador.
-* **Verificador e Descodificador de CSR:** Ferramenta que permite colar o texto ou submeter um ficheiro `.csr`. Descodifica e exibe atributos fundamentais como:
-  * Common Name (Domínio - com destaque visual)
-  * Organização, Localidade, Estado, País
-  * Subject Alternative Names (SANs) lidos a partir das extensões do ficheiro
-  * Tamanho e algoritmo da chave (ex: 2048 bits RSA)
+### Pré-requisitos
+Certifique-se de ter o Node.js e o npm (ou yarn) instalados em sua máquina.
 
-### 3. Centro de Ajuda e Guias de Instalação
-* **Suporte SSL:** Matriz de compatibilidade e manuais passo a passo para instalação em diversos servidores (Apache, IIS, NGINX, Tomcat, Exchange, entre outros).
-* **Configurações Complementares:** Guias para implementação de Cifrado Seguro (HSTS) e redirecionamentos de HTTP para HTTPS.
-* **Faturação Eletrónica (SUNAT):** Manuais para registo do certificado, criação de utilizadores secundários e alterações de "Alias".
+### Instalação
 
-## Tecnologias Utilizadas
+1. Clone este repositório para a sua máquina:
+    git clone https://github.com/BMTech-Brasil/bmtech.pe.git
 
-* **Framework Front-end:** Angular (com Standalone Components e Signals)
-* **Estilização:** Tailwind CSS (design responsivo e otimizado com classes utilitárias)
-* **Criptografia:** `node-forge` (implementação robusta para manipulação de PKI, CSR e PKCS#12)
-* **Roteamento:** Angular Router com gestão dinâmica e caminhos aninhados.
+2. Acesse a pasta do projeto:
+    cd bmtech.pe
 
-## Pré-requisitos e Instalação Local
+3. Instale as dependências necessárias:
+    npm install
 
-Certifique-se de que possui o [Node.js](https://nodejs.org/) e o Angular CLI instalados na sua máquina.
+4. Inicie o servidor de desenvolvimento:
+    npm run start
 
-1. Clone o repositório:
-   ```bash
-   git clone [link]
+O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos fonte. Acesse http://localhost:4200/ no seu navegador.
 
-2. Navegue para a diretoria do projeto:
-   ```bash
-   cd repository-name
+## Deploy e Automação
 
-3. Instale as dependências:
-   ```bash
-   npm install
+Este repositório possui integração contínua (CI/CD) configurada através do GitHub Actions. 
 
-4. Inicie o server
-   ```bash
-   npm start
+Qualquer alteração enviada (push) ou aprovada (merge) na branch `main` irá disparar automaticamente o workflow definido em `.github/workflows/deploy.yml`. Este script realiza o build de produção da aplicação Angular e transfere os arquivos atualizados diretamente para o servidor oficial utilizando `rsync`.
 
-A aplicação ficará disponível em http://localhost:4200/.
-
-# Integração Contínua (CI/CD) e Resolução de Problemas
-
-Este projeto está configurado para fluxos de CI/CD (ex: GitHub Actions) utilizando o comando estrito npm ci.
-
-Nota importante para os programadores:
-A biblioteca criptográfica utilizada e os seus submódulos (como pacotes @emnapi) podem gerar dependências binárias específicas do sistema operativo. Se o pipeline de deploy falhar com o erro npm error can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync, siga estes passos na sua máquina local:
-
-1. Apague e pasta `node_modules` e o ficheiro `package-lock.json`.
-2. Execute novamente `npm install` para forçar a reconstrução da árvore de dependências e do lockfile.
-3. Submeta `(commit)` o novo ficheiro `package-lock.json` para o repositório.
-4. (Opcional) Caso a divergência de sistemas operativos persista, configure o seu script de CI para executar `npm install` em vez de `npm ci`.
+---
+*Desenvolvido e mantido pela equipe de tecnologia da BMTech.*
