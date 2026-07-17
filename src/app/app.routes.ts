@@ -49,6 +49,7 @@ export const routes: Routes = [
       { path: 'horasadicionales', loadComponent: () => import('./features/soporte/horas.component').then(c => c.HorasComponent)},
       { path: 'soporte-ssl', loadComponent: () => import('./features/soporte/soporte-ssl.component').then(c => c.SoporteSslComponent)},
       { path: 'soporte-fe', loadComponent: () => import('./features/soporte/soporte-fe.component').then(c => c.SoporteFeComponent)},
+      { path: 'secterious', loadComponent: () => import('./features/solutions/secterious/secterious.component').then(c => c.SecteriousComponent) },
     ]
   }
 ];

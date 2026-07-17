@@ -31,6 +31,7 @@ import emailjs from '@emailjs/browser';
           
           <a routerLink="/" class="nav-item text-lg md:text-sm w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100" (click)="closeMobileMenu()">Inicio</a>
 
+          <!-- Certificados -->
           <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
             <button (click)="toggleMobileDropdown('certificados')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Certificados
@@ -40,7 +41,7 @@ import emailjs from '@emailjs/browser';
                <a routerLink="/solutions/sectigo" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Sectigo</a>
                <a routerLink="/solutions/scm" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Sectigo (SCM)</a>
                <a routerLink="/solutions/clm" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Certificate (CLM)</a>
-               <a routerLink="/solutions/globalsign" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Global Sign</a>
+               <a routerLink="/solutions/globalsign" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">GlobalSign</a>
                <a routerLink="/solutions/digicert" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">DigiCert</a>
             </div>
             <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
@@ -57,12 +58,13 @@ import emailjs from '@emailjs/browser';
                     </div>
                   </div>
                 </div>
-                <a routerLink="/solutions/globalsign" class="dropdown-item">Global Sign</a>
+                <a routerLink="/solutions/globalsign" class="dropdown-item">GlobalSign</a>
                 <a routerLink="/solutions/digicert" class="dropdown-item">DigiCert</a>
               </div>
             </div>
           </div>
 
+          <!-- Firma Digital -->
           <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
             <button (click)="toggleMobileDropdown('firma')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Firma Digital
@@ -82,20 +84,28 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
 
+          <!-- Secterious (Novo Link Principal) -->
+          <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
+            <a routerLink="/solutions/secterious" (click)="closeMobileMenu()" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
+              Secterious
+            </a>
+          </div>
+
+          <!-- Monitoreo -->
           <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
             <button (click)="toggleMobileDropdown('monitoreo')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Monitoreo
               <svg [class.rotate-180]="isMobileDropdownOpen('monitoreo')" class="w-5 h-5 md:w-4 md:h-4 transition-transform md:group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div [class.hidden]="!isMobileDropdownOpen('monitoreo')" class="md:hidden mt-3 ml-4 space-y-3 w-full">
-               <a routerLink="/solutions/monitoreo" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Ver Todo Monitoreo</a>
+               <a routerLink="/solutions/monitoreo" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Ver todo</a>
                <a routerLink="/solutions/hexnode" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- HexNode</a>
                <a routerLink="/solutions/teramind" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Teramind</a>
                <a routerLink="/solutions/kickidler" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- KickIdler</a>
             </div>
             <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <div class="py-2">
-                <a routerLink="/solutions/monitoreo" class="dropdown-item font-bold border-b border-gray-100">Ver Todos</a>
+                <a routerLink="/solutions/monitoreo" class="dropdown-item font-bold border-b border-gray-100">Ver todo</a>
                 <a routerLink="/solutions/hexnode" class="dropdown-item">HexNode</a>
                 <a routerLink="/solutions/teramind" class="dropdown-item">Teramind</a>
                 <a routerLink="/solutions/kickidler" class="dropdown-item">KickIdler</a>
@@ -103,19 +113,20 @@ import emailjs from '@emailjs/browser';
             </div>
           </div>
 
+          <!-- Soporte -->
           <div class="relative group md:h-20 flex flex-col md:flex-row items-start md:items-center w-full md:w-auto pb-4 md:pb-0 border-b md:border-none border-gray-100">
             <button (click)="toggleMobileDropdown('soporte')" class="nav-item flex items-center justify-between w-full md:w-auto gap-1 focus:outline-none text-lg md:text-sm">
               Soporte
               <svg [class.rotate-180]="isMobileDropdownOpen('soporte')" class="w-5 h-5 md:w-4 md:h-4 transition-transform md:group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div [class.hidden]="!isMobileDropdownOpen('soporte')" class="md:hidden mt-3 ml-4 space-y-3 w-full">
-               <a routerLink="/solutions/horasadicionales" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Compra horas de soporte</a>
+               <a routerLink="/solutions/horasadicionales" (click)="closeMobileMenu()" class="block text-gray-600 font-bold hover:text-bm-red transition-colors">Comprar horas de soporte</a>
                <span class="block text-gray-600 font-bold mt-4">Manuales</span>
-               <a routerLink="/solutions/soporte-fe" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Facturacion Electrónica</a>
+               <a routerLink="/solutions/soporte-fe" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Facturación Electrónica</a>
                <a routerLink="/solutions/soporte-ssl" (click)="closeMobileMenu()" class="block text-gray-500 text-sm ml-4 hover:text-bm-red transition-colors">- Soporte SSL</a>
             </div>
             <div class="hidden md:block absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg border-t-4 border-bm-red opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <a routerLink="/solutions/horasadicionales" class="dropdown-item">Compra horas adicionales de soporte</a>
+              <a routerLink="/solutions/horasadicionales" class="dropdown-item">Comprar horas adicionales de soporte</a>
               <div class="py-2">
                 <div class="relative group/soporte">
                   <a class="flex items-center justify-between w-full px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-bm-red transition-colors font-sans cursor-pointer">
@@ -124,7 +135,7 @@ import emailjs from '@emailjs/browser';
                   </a>
                   <div class="absolute left-full top-0 w-48 bg-white shadow-xl rounded-lg border border-gray-100 opacity-0 invisible group-hover/soporte:opacity-100 group-hover/soporte:visible transition-all duration-300 transform translate-x-2 group-hover/soporte:translate-x-0 ml-1">
                     <div class="py-2">
-                      <a routerLink="/solutions/soporte-fe" class="dropdown-item">Facturacion</a>
+                      <a routerLink="/solutions/soporte-fe" class="dropdown-item">Facturación Electrónica</a>
                       <a routerLink="/solutions/soporte-ssl" class="dropdown-item">SSL</a>
                     </div>
                   </div>
@@ -177,7 +188,7 @@ import emailjs from '@emailjs/browser';
                     <input type="tel" name="user_phone" required [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                   <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">RUC / Nombre de Empresa</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">RUC / Nombre de la Empresa</label>
                     <input type="text" name="company_name" [disabled]="isSubmitting()" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-900 bg-white focus:ring-2 focus:ring-bm-blue focus:border-bm-blue outline-none transition disabled:opacity-50">
                   </div>
                 </div>
@@ -267,6 +278,7 @@ export class NavbarComponent {
       this.closeMobileMenu();
     }
   }
+  
   openContactModal(productName: string, event: Event) {
     event.preventDefault();
     this.selectedProductName.set(productName);
@@ -296,7 +308,7 @@ export class NavbarComponent {
       }, 3000);
 
     } catch (error) {
-      console.error('Falla al enviar el e-mail vía EmailJS', error);
+      console.error('Error al enviar el correo vía EmailJS', error);
       alert('Ocurrió un error de comunicación. Por favor, intente nuevamente o contáctenos por WhatsApp.');
     } finally {
       this.isSubmitting.set(false);
